@@ -1,0 +1,15 @@
+<GMLFeatureClassList>
+  <GMLFeatureClass>
+    <Name>penya_sella</Name>
+    <ElementPath>penya_sella</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:25830</SRSName>
+    <DatasetSpecificInfo>
+      <FeatureCount>1</FeatureCount>
+      <ExtentXMin>735686.17144</ExtentXMin>
+      <ExtentXMax>740114.19417</ExtentXMax>
+      <ExtentYMin>4278178.93006</ExtentYMin>
+      <ExtentYMax>4279202.57688</ExtentYMax>
+    </DatasetSpecificInfo>
+  </GMLFeatureClass>
+</GMLFeatureClassList>

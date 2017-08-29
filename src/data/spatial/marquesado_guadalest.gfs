@@ -1,0 +1,15 @@
+<GMLFeatureClassList>
+  <GMLFeatureClass>
+    <Name>marquesado_guadalest</Name>
+    <ElementPath>marquesado_guadalest</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:25830</SRSName>
+    <DatasetSpecificInfo>
+      <FeatureCount>1</FeatureCount>
+      <ExtentXMin>734392.44191</ExtentXMin>
+      <ExtentXMax>740140.86901</ExtentXMax>
+      <ExtentYMin>4280056.17162</ExtentYMin>
+      <ExtentYMax>4280736.37993</ExtentYMax>
+    </DatasetSpecificInfo>
+  </GMLFeatureClass>
+</GMLFeatureClassList>
