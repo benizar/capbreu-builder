@@ -19,20 +19,3 @@ get_structure <- function(x){
 }
 
 get_structure(args[1])
-
-
-#yaml = yaml.load_file(args[1])
-#structure = yaml$Structure
-#cat(structure, sep = "\n")
-
-#for(i in yaml$Landholders){
-#    cat(i$Landholder, sep = "\n")
-#}
-
-
-#df = read.table(args[1], header=TRUE)
-#num_vars = which(sapply(df, class)=="numeric")
-#df_out = df[ ,num_vars]
-#write.table(df_out, file=args[2], row.names=FALSE)
-
-

@@ -2,8 +2,9 @@
 # DIRECTORY STRUCTURE (PATHS)
 #-----------------------------
 src_dir          := src
-data_dir         := $(src)/data
+data_dir         := $(src_dir)/data
 spatial_data_dir := $(data_dir)/spatial
+rscripts_dir     := $(src_dir)/rscripts
 
 builds_dir  := builds
 log_dir     := logs
@@ -16,5 +17,6 @@ $(dirs):
 	mkdir -p $@
 
 
-spatial_data:= $(wildcard $(src_dir)/*.gml)
+spatial_data:= $(wildcard $(spatial_data_dir)/*.gml)
+data:= $(wildcard $(data_dir)/*.yml)
 
