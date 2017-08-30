@@ -23,9 +23,7 @@
 .PHONY: show-help
 show-help:
 	@echo
-	@echo "================"
 	@echo "$$(tput bold)Available rules:$$(tput sgr0)"
-	@echo "================"
 	@sed -n -e "/^## / { \
 		h; \
 		s/.*//; \
@@ -60,7 +58,6 @@ show-help:
 		} \
 		printf "\n"; \
 	}' 
-	@echo "================"
 	@echo
 #\
 #	| more $(shell test $(shell uname) == Darwin && echo '--no-init --raw-control-chars')
