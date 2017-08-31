@@ -4,29 +4,37 @@ include mk/*.mk
 all: clean
 	@echo 'Building relationships'
 
+
+
+$(builds_dir)/random-graph.pdf: $(rscripts_dir)/random-graph.R | checkdirs
+	@echo ''
+	@echo 'Runing Rscript $(<F)...'
+	@$(RUN_RSCRIPT) $< $(project_data) $@
+	@echo ''
+
+
 ## Build all targets from this makefile
-build-all: $(builds_dir)/landholder-plots-rules.mk
+build-csv: $(rs_csv_targets)
 
-$(builds_dir)/landholder-plots-rules.mk: $(project_data) $(rs_write_rules) | checkdirs
+build-pdf: $(rs_pdf_targets)
+
+$(builds_dir)/%.pdf: $(rscripts_dir)/%.R | checkdirs
 	@echo ''
-	@echo 'Runing Rscripts ...'
-	@echo 'Rscript $(word 2, $^) $< $@'
-	@$(RUN_RSCRIPT) $(word 2, $^) $< $@
+	@echo 'Runing Rscript $(<F)...'
+	@$(RUN_RSCRIPT) $< $(project_data) $@
 	@echo ''
 
-$(builds_dir)/landholders-list: $(project_data) $(rs_write_landholders_list) | checkdirs
+$(builds_dir)/%.csv: $(rscripts_dir)/%.R | checkdirs
 	@echo ''
-	@echo 'Runing Rscripts ...'
-	@echo 'Rscript $(word 2, $^) $< $@'
-	@$(RUN_RSCRIPT) $(word 2, $^) $< $@
+	@echo 'Runing Rscript $(<F)...'
+	@$(RUN_RSCRIPT) $< $(project_data) $@
 	@echo ''
 
 .PHONY: clean
 ## Clean project
-clean:
+clean: | checkdirs
 	@echo ''
 	@echo 'Cleaning project ...'
-	$(RM) $(builds_dir)/landholders-list
-	$(RM) $(builds_dir)/landholder-plots-rules.mk
+	$(RM) $(builds_dir)/*
 	@echo ''
 
