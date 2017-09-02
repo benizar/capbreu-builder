@@ -18,4 +18,4 @@ network<-visNetwork(dot = 'dinetwork {1 -> 1 -> 2; 2 -> 3; 2 -- 4; 2 -> 1 }',
            width = "100%")
 
 # Export
-htmlwidgets::saveWidget(network, file=args[2], selfcontained = FALSE)
+htmlwidgets::saveWidget(network, file=args[2], selfcontained = TRUE)
