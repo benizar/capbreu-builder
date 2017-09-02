@@ -9,31 +9,13 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
+#TODO: http://kateto.net/wp-content/uploads/2016/06/Polnet%202016%20R%20Network%20Visualization%20Workshop.pdf
 
-###
-# Use magrittr's %>% to create a graph and
-# then view it without storing that graph object
-###
+library(visNetwork)
 
-library(DiagrammeR)
-library(magrittr)
+# Use DOT language data
+network<-visNetwork(dot = 'dinetwork {1 -> 1 -> 2; 2 -> 3; 2 -- 4; 2 -> 1 }', 
+           width = "100%")
 
-df <- data.frame(col1 = c("Cat", "Dog", "Bird"),
-                 col2 = c("Feline", "Canis", "Avis"),
-                 stringsAsFactors = FALSE)
-uniquenodes <- unique(c(df$col1, df$col2))
-
-uniquenodes
-
-library(DiagrammeR)
-
-nodes <- create_node_df(n=length(uniquenodes), 
-                        type="number", 
-                        label=uniquenodes)
-edges <- create_edge_df(from=match(df$col1, uniquenodes), 
-                        to=match(df$col2, uniquenodes), 
-                        rel="related")
-g <- create_graph(nodes_df=nodes, 
-                  edges_df=edges)
-
-generate_dot(g)
+# Export
+htmlwidgets::saveWidget(network, file=args[2], selfcontained = FALSE)

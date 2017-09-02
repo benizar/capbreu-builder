@@ -3,7 +3,7 @@
 SHELL = /bin/sh
 
 # IMAGES
-RBASE_IMAGE        = benizar/rbase
+R_IMAGE        = benizar/rcabreve
 
 # DOCKER
 DOCKER              = docker
@@ -18,5 +18,5 @@ RUN_RSCRIPT = $(DOCKER_RUN) $(DOCKER_RUN_OPTIONS) \
 	$(DOCKER_RUN_WORKDIR) \
 	$(RSCRIPT) \
 	$(DOCKER_VOLUME) \
-	$(RBASE_IMAGE) \
+	$(R_IMAGE) \
 	$(RSCRIPT_OPTIONS)

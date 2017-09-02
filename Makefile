@@ -6,10 +6,11 @@ all: clean
 
 
 
-$(builds_dir)/random-graph.pdf: $(rscripts_dir)/random-graph.R | checkdirs
+$(builds_dir)/random-graph.html: $(rscripts_dir)/random-graph.R | checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(project_data) $@
+	@$(RUN_RSCRIPT) $< $(project_data) $(@F)
+	@mv $(@F) $@
 	@echo ''
 
 
