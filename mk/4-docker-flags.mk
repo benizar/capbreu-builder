@@ -3,7 +3,7 @@
 SHELL = /bin/sh
 
 # IMAGES
-R_IMAGE        = benizar/rcabreve
+R_IMAGE        = benizar/r-cabreve
 
 # DOCKER
 DOCKER              = docker
