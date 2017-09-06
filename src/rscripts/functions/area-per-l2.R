@@ -28,3 +28,4 @@ area_per_l2<-function(x,y){
   dev.off()
   
 }
+
