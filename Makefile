@@ -4,19 +4,34 @@ include mk/*.mk
 all: clean
 	@echo 'Building relationships'
 
-
-## Agg Landholder
-csv-graph: $(builds_dir)/$(builds_dir)/build-graph.csv
-$(builds_dir)/build-graph.csv: $(rscripts_dir)/build-graph.R $(builds_dir)/big-table.csv| checkdirs
+## HTML graph
+html-graph: $(builds_dir)/graph.html
+$(builds_dir)/graph.html: $(rscripts_dir)/write-html-graph.R \
+			$(builds_dir)/graph.gv | checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
+	@$(RUN_RSCRIPT) $< $(word 2, $^) $(@F)
+	@mv $(@F) $@
+	@echo ''
+
+## Dot graph
+dot-graph: $(builds_dir)/graph.gv
+$(builds_dir)/graph.gv: $(rscripts_dir)/write-dot-graph.R \
+			$(builds_dir)/big-table-reshaped.csv \
+			$(builds_dir)/agg-landholder.csv \
+			$(builds_dir)/just-neigbours.csv\
+			$(builds_dir)/agg-l1.csv \
+			$(builds_dir)/agg-l2.csv | checkdirs
+	@echo ''
+	@echo 'Runing Rscript $(<F)...'
+	@$(RUN_RSCRIPT) $< $(word 2, $^) $(word 3, $^) $(word 4, $^) $(word 5, $^) $(word 6, $^) $@
 	@echo ''
 
 
 ## Agg Landholder
 csv-agg-landholder: $(builds_dir)/agg-landholder.csv
-$(builds_dir)/agg-landholder.csv: $(rscripts_dir)/write-agg-landholder.R $(builds_dir)/big-table-reshaped.csv| checkdirs
+$(builds_dir)/agg-landholder.csv: $(rscripts_dir)/write-agg-landholder.R \
+				$(builds_dir)/big-table-reshaped.csv | checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
 	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
@@ -24,7 +39,9 @@ $(builds_dir)/agg-landholder.csv: $(rscripts_dir)/write-agg-landholder.R $(build
 
 ## Just Neighbours
 csv-just-neigbours: $(builds_dir)/just-neigbours.csv
-$(builds_dir)/just-neigbours.csv: $(rscripts_dir)/write-just-neighbours.R $(builds_dir)/big-table.csv $(builds_dir)/agg-landholder.csv| checkdirs
+$(builds_dir)/just-neigbours.csv: $(rscripts_dir)/write-just-neighbours.R \
+				$(builds_dir)/big-table.csv \
+				$(builds_dir)/agg-landholder.csv| checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
 	@$(RUN_RSCRIPT) $< $(word 2, $^) $(word 3, $^) $@
@@ -32,7 +49,8 @@ $(builds_dir)/just-neigbours.csv: $(rscripts_dir)/write-just-neighbours.R $(buil
 
 ## Agg L1
 csv-agg-l1: $(builds_dir)/agg-l1.csv
-$(builds_dir)/agg-l1.csv: $(rscripts_dir)/write-agg-l1.R $(builds_dir)/big-table-reshaped.csv| checkdirs
+$(builds_dir)/agg-l1.csv: $(rscripts_dir)/write-agg-l1.R \
+			$(builds_dir)/big-table-reshaped.csv| checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
 	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
@@ -40,7 +58,8 @@ $(builds_dir)/agg-l1.csv: $(rscripts_dir)/write-agg-l1.R $(builds_dir)/big-table
 
 ## Agg L2
 csv-agg-l2: $(builds_dir)/agg-l2.csv
-$(builds_dir)/agg-l2.csv: $(rscripts_dir)/write-agg-l2.R $(builds_dir)/big-table-reshaped.csv| checkdirs
+$(builds_dir)/agg-l2.csv: $(rscripts_dir)/write-agg-l2.R \
+			$(builds_dir)/big-table-reshaped.csv| checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
 	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
@@ -48,7 +67,8 @@ $(builds_dir)/agg-l2.csv: $(rscripts_dir)/write-agg-l2.R $(builds_dir)/big-table
 
 ## Write a reshaped big table
 csv-reshaped-table: $(builds_dir)/big-table-reshaped.csv
-$(builds_dir)/big-table-reshaped.csv: $(rscripts_dir)/write-bigtable-reshaped.R  $(builds_dir)/big-table.csv| checkdirs
+$(builds_dir)/big-table-reshaped.csv: $(rscripts_dir)/write-bigtable-reshaped.R \
+					$(builds_dir)/big-table.csv| checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
 	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
@@ -87,19 +107,3 @@ clean: | checkdirs
 	$(RM) $(builds_dir)/*
 	@echo ''
 
-
-
-
-$(builds_dir)/random-graph.html: $(rscripts_dir)/random-graph.R | checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(project_data) $(@F)
-	@mv $(@F) $@
-	@echo ''
-
-
-$(builds_dir)/%.pdf: $(rscripts_dir)/%.R | checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(project_data) $@
-	@echo ''
