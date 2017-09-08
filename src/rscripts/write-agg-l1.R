@@ -9,10 +9,10 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-# wd is the makefile's dir
-# TODO: Maybe we can change this
-source("src/rscripts/functions/load-schema.R")
+reshaped_bigtable<-read.csv(args[1])
 
-schema<-load_schema(args[1])
+# Aggregate
+l1_agg<-aggregate(reshaped_bigtable$Area, by=list(reshaped_bigtable$Level_1), FUN=sum, na.rm=TRUE)
+colnames(l1_agg) <- c('name', 'area')
 
-write.csv(unique(schema$bigTable$Landholder), file = args[2])
+write.csv(l1_agg, file = args[2])

@@ -23,18 +23,6 @@ spatial_data:= $(wildcard $(spatial_data_dir)/*.gml)
 project_data:= $(wildcard $(data_dir)/capbreu_load_tests_flat.yml)
 
 # Rscripts
-rs_write_big_table := $(rscripts_dir)/big-table.R
-rs_write_landholders_list := $(rscripts_dir)/landholders-list.R
-
-rs_plot_area_per_l2 := $(rscripts_dir)/area-per-l2-plot.R
-
-# Lists
-rs_csv:= $(rs_write_big_table) \
-	$(rs_write_landholders_list)
-
-rs_pdf:= $(rs_plot_area_per_l2)
-
-# Targets
-rs_csv_targets:= $(patsubst $(rscripts_dir)/%.R,$(builds_dir)/%.csv,$(rs_csv))
-rs_pdf_targets:= $(patsubst $(rscripts_dir)/%.R,$(builds_dir)/%.pdf,$(rs_pdf))
+rs_write_bigTable := $(rscripts_dir)/write-bigtable.R
+rs_write_bigTable_reshaped := $(rscripts_dir)/write-bigtable-reshaped.R
 

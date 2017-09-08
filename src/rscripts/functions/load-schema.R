@@ -1,9 +1,8 @@
-library(yaml)
-library(plyr)
-library(reshape2)
-
 load_schema <- function(x){
-    
+  library(yaml)
+  library(plyr)
+  library(reshape2)
+
   #LOAD YAML
   yaml<-yaml.load_file(x)
   
@@ -76,6 +75,3 @@ load_schema <- function(x){
   
   return(result)
 }
-
-# CALL IT
-#load_schema("/home/benizar/git/capbreu-builder/src/data/capbreu_load_tests_flat.yml","/home/benizar/git/capbreu-builder/builds/output")
