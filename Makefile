@@ -4,9 +4,9 @@ include mk/*.mk
 all: clean
 	@echo 'Building relationships'
 
-## HTML graph
-html-graph: $(builds_dir)/graph.html
-$(builds_dir)/graph.html: $(rscripts_dir)/write-html-graph.R \
+## Write graph.html
+graph.html: $(builds_dir)/graph.html
+$(builds_dir)/graph.html: $(rscripts_dir)/graph.html.R \
 			$(builds_dir)/graph.gv | checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
@@ -14,9 +14,10 @@ $(builds_dir)/graph.html: $(rscripts_dir)/write-html-graph.R \
 	@mv $(@F) $@
 	@echo ''
 
-## Dot graph
-dot-graph: $(builds_dir)/graph.gv
-$(builds_dir)/graph.gv: $(rscripts_dir)/write-dot-graph.R \
+
+## Write graph.gv (DOT)
+graph.gv: $(builds_dir)/graph.gv
+$(builds_dir)/graph.gv: $(rscripts_dir)/graph.gv.R \
 			$(builds_dir)/big-table-reshaped.csv \
 			$(builds_dir)/agg-landholder.csv \
 			$(builds_dir)/just-neigbours.csv\
@@ -26,7 +27,6 @@ $(builds_dir)/graph.gv: $(rscripts_dir)/write-dot-graph.R \
 	@echo 'Runing Rscript $(<F)...'
 	@$(RUN_RSCRIPT) $< $(word 2, $^) $(word 3, $^) $(word 4, $^) $(word 5, $^) $(word 6, $^) $@
 	@echo ''
-
 
 ## Agg Landholder
 csv-agg-landholder: $(builds_dir)/agg-landholder.csv

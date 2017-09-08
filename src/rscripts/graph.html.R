@@ -19,7 +19,9 @@ g.dot <- read_file(args[1])
 
 # Use DOT language data
 graph<-visNetwork(dot = g.dot, main = "Enfiteutas por Heredad", height = "800px", width = "100%")%>% 
-  visInteraction(navigationButtons = TRUE)
+  visInteraction(navigationButtons = TRUE) %>%
+visEvents(selectNode = "function(properties) {
+      alert('selected nodes ' + this.body.data.nodes.get(properties.nodes[0]).group);}")
 
 # Export (Caution Error in normalizePath(basepath, "/", TRUE) : )
 htmlwidgets::saveWidget(graph, file=args[2], selfcontained = TRUE)
