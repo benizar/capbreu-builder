@@ -15,41 +15,29 @@ if (length(args)==0) {
 source("src/rscripts/functions/sanitize.R")
 
 # FUNCTIONS
-write_igraph<-function(reshaped_bigtable, landholder_agg,justNeighbours,l1_agg,l2_agg, out.gv){
+write_graph_l1_l2<-function(reshaped_bigtable,l1_agg,l2_agg, out.gv){
   
-  message ("Building igraph ...")
   library(igraph)
   
-  lh<-landholder_agg$name<-sanitize(landholder_agg$name)
   l1<-l1_agg$name<-paste(sanitize(l1_agg$name),"l1",sep = "-")
   l2<-l2_agg$name<-paste(sanitize(l2_agg$name),"l2",sep = "-")
   
-  nname<-c(lh,l1,l2)
+
+  nname<-c(l1,l2)
   
-  ncolor<-c(rep("blue", length(lh)),
-           rep("red", length(l1)),
-           rep("red", length(l2))
-           )
+  ncolor<-c(rep("blue", length(l1)),
+           rep("red", length(l2)))
   
-  ngroup<-c(rep("Enfiteutas", length(lh)),
-           rep("Heredades", length(l1)),
-           rep("Partidas", length(l2))
-           )
+  ngroup<-c(rep("Heredades", length(l1)),
+           rep("Partidas", length(l2)))
   
-  norder<-c(rep(2, length(lh)),
-           rep(1, length(l1)),
-           rep(1, length(l2))
-           )
+  norder<-c(rep(2, length(l1)),
+           rep(1, length(l2)))
   
-  nshape<-c(rep("dot", length(lh)),
-           rep("square", length(l1)),
-           rep("square", length(l2))
-           )
+  nshape<-c(rep("dot", length(l1)),
+           rep("square", length(l2)))
   
-  nsize<-c(landholder_agg$area/10,
-           l1_agg$area/10,
-           l2_agg$area/10
-           )
+  nsize<-c(l1_agg$area, l2_agg$area)
 
   nodes <- data.frame(name=nname,
                       label=nname,
@@ -60,19 +48,17 @@ write_igraph<-function(reshaped_bigtable, landholder_agg,justNeighbours,l1_agg,l
                       size=nsize)
   
   
-  lh<-sanitize(reshaped_bigtable$Landholder)
   l1<-paste(sanitize(reshaped_bigtable$Level_1),"l1",sep = "-")
   l2<-paste(sanitize(reshaped_bigtable$Level_2),"l2",sep = "-")
-  
-  from <-c(lh,l1)
-  to <-c(l1,l2)
+
+  from <-c(l1)
+  to <-c(l2)
 
   edges <- data.frame(from=from,
                       to=to)
   
   g <- graph_from_data_frame(edges, directed=TRUE, vertices=nodes)
   
-  message ("Writing graph to DOT file ...")
   write_graph(g, out.gv, "dot")
 }
 
@@ -81,20 +67,15 @@ message (paste("Loading", args[1], "..."))
 reshaped_bigtable <- read.csv(args[1])
 
 message (paste("Loading", args[2], "..."))
-landholder_agg <- read.csv(args[2])
+l1_agg <- read.csv(args[2])
 
 message (paste("Loading", args[3], "..."))
-justNeighbours <- read.csv(args[3])
+l2_agg <- read.csv(args[3])
 
-message (paste("Loading", args[4], "..."))
-l1_agg <- read.csv(args[4])
 
-message (paste("Loading", args[5], "..."))
-l2_agg <- read.csv(args[5])
-
-message ("Building DOT graph ...")
-write_igraph(reshaped_bigtable, landholder_agg, justNeighbours, l1_agg, l2_agg, args[6])
-message ("File ... created successfully.")
+message (paste("Building",args[4]))
+suppressMessages(write_graph_l1_l2(reshaped_bigtable, l1_agg, l2_agg, args[4]))
+message ("File created successfully!!")
 
 
 

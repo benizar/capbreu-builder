@@ -9,7 +9,6 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-#TODO: http://kateto.net/wp-content/uploads/2016/06/Polnet%202016%20R%20Network%20Visualization%20Workshop.pdf
 
 library(readr)
 library(igraph)

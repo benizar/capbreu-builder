@@ -9,11 +9,11 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-# wd is the makefile's dir
-# TODO: Maybe we can change this
 source("src/rscripts/functions/load-schema.R")
+source("src/rscripts/functions/sanitize.R")
 
+#schema<-load_schema("../data/capbreu_load_tests_flat.yml")
 schema<-load_schema(args[1])
+schema$bigTable$Landholder<-sanitize(schema$bigTable$Landholder)
 
-write.csv(as.data.frame(schema$landmetrics), file = args[2])
-# Then you can: read.csv("landmetrics.csv",row.names=1)
+write.csv(schema$bigTable, file = args[2])

@@ -9,12 +9,11 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-# wd is the makefile's dir
-# TODO: Maybe we can change this
 source("src/rscripts/functions/load-schema.R")
-source("src/rscripts/functions/area-per-l2.R")
 
+message(paste("Writting", args[2]))
 schema<-load_schema(args[1])
+#schema<-load_schema("../data/capbreu_load_tests_flat.yml")
 
-area_per_l2(schema,args[2])
-
+write.csv(as.data.frame(schema$landmetrics), file = args[2])
+# Then you can: read.csv("landmetrics.csv",row.names=1)
