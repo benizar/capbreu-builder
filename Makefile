@@ -2,102 +2,68 @@ include mk/*.mk
 
 ## Create all files and outputs from the begining
 all: clean
-	@echo 'Building relationships'
 
-## HTML graph
-html-graph: $(builds_dir)/graph.html
-$(builds_dir)/graph.html: $(rscripts_dir)/write-html-graph.R \
-			$(builds_dir)/graph.gv | checkdirs
+## Write graph.html (vis.js interactive) using visNetwork
+build-plots: $(html_plot_lh_l1) $(html_plot_lh_l2) $(html_plot_l1_l2)
+$(html_plot_lh_l1): $(rs_plot_lh_l1) $(gv_graph_lh_l1)
+$(html_plot_lh_l2): $(rs_plot_lh_l2) $(gv_graph_lh_l2)
+$(html_plot_l1_l2): $(rs_plot_l1_l2) $(gv_graph_l1_l2)
+
+## Write this Graphviz DOT using iGraph
+build-graphs: $(gv_graph_lh_l1) $(gv_graph_lh_l2) $(gv_graph_l1_l2)
+$(gv_graph_lh_l1): $(rs_graph_lh_l1) $(csv_bigtable_reshaped) $(csv_landholders) $(csv_level1)
+$(gv_graph_lh_l2): $(rs_graph_lh_l2) $(csv_bigtable_reshaped) $(csv_landholders) $(csv_level2)
+$(gv_graph_l1_l2): $(rs_graph_l1_l2) $(csv_bigtable_reshaped) $(csv_level1) $(csv_level2)
+
+# Landholders
+$(csv_landholders): $(rs_landholders) $(csv_bigtable_reshaped)
+
+# Neighbours
+$(csv_neighbours): $(rs_neighbours) $(csv_bigtable) $(csv_landholders)
+
+# Level1
+$(csv_level1): $(rs_level1) $(csv_bigtable_reshaped)
+
+# Level2
+$(csv_level2): $(rs_level2) $(csv_bigtable_reshaped)
+
+# Write a reshaped big table
+$(csv_bigtable_reshaped): $(rs_bigtable_reshaped) $(csv_bigtable)
+
+# Write the big table
+$(csv_bigtable): $(rs_bigtable) $(project_data)
+
+# Landmetrics
+$(csv_landmetrics): $(rs_landmetrics) $(project_data)
+
+# Levels
+$(csv_levels): $(rs_levels) $(project_data)
+
+#---------------
+# PATTERN RULES
+#---------------
+# Patern rule for Rscripts--arguments->html (visNetwork interactive)
+$(builds_dir)/%.html: $(rscripts_dir)/%.R | checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $(@F)
+	@$(RUN_RSCRIPT) $< $(filter-out $<, $^) $(@F)
 	@mv $(@F) $@
 	@echo ''
 
-## Dot graph
-dot-graph: $(builds_dir)/graph.gv
-$(builds_dir)/graph.gv: $(rscripts_dir)/write-dot-graph.R \
-			$(builds_dir)/big-table-reshaped.csv \
-			$(builds_dir)/agg-landholder.csv \
-			$(builds_dir)/just-neigbours.csv\
-			$(builds_dir)/agg-l1.csv \
-			$(builds_dir)/agg-l2.csv | checkdirs
+# Patern rule for Rscripts--arguments->gv (Graphviz DOT)
+$(builds_dir)/%.gv: $(rscripts_dir)/%.R | checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $(word 3, $^) $(word 4, $^) $(word 5, $^) $(word 6, $^) $@
+	@$(RUN_RSCRIPT) $< $(filter-out $<, $^) $@
 	@echo ''
 
-
-## Agg Landholder
-csv-agg-landholder: $(builds_dir)/agg-landholder.csv
-$(builds_dir)/agg-landholder.csv: $(rscripts_dir)/write-agg-landholder.R \
-				$(builds_dir)/big-table-reshaped.csv | checkdirs
+# Patern rule for Rscripts--arguments->csv
+$(builds_dir)/%.csv: $(rscripts_dir)/%.R | checkdirs
 	@echo ''
 	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
+	@$(RUN_RSCRIPT) $< $(filter-out $<, $^) $@
 	@echo ''
 
-## Just Neighbours
-csv-just-neigbours: $(builds_dir)/just-neigbours.csv
-$(builds_dir)/just-neigbours.csv: $(rscripts_dir)/write-just-neighbours.R \
-				$(builds_dir)/big-table.csv \
-				$(builds_dir)/agg-landholder.csv| checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $(word 3, $^) $@
-	@echo ''
-
-## Agg L1
-csv-agg-l1: $(builds_dir)/agg-l1.csv
-$(builds_dir)/agg-l1.csv: $(rscripts_dir)/write-agg-l1.R \
-			$(builds_dir)/big-table-reshaped.csv| checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
-	@echo ''
-
-## Agg L2
-csv-agg-l2: $(builds_dir)/agg-l2.csv
-$(builds_dir)/agg-l2.csv: $(rscripts_dir)/write-agg-l2.R \
-			$(builds_dir)/big-table-reshaped.csv| checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
-	@echo ''
-
-## Write a reshaped big table
-csv-reshaped-table: $(builds_dir)/big-table-reshaped.csv
-$(builds_dir)/big-table-reshaped.csv: $(rscripts_dir)/write-bigtable-reshaped.R \
-					$(builds_dir)/big-table.csv| checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(word 2, $^) $@
-	@echo ''
-
-
-## Write the big table
-csv-big-table: $(builds_dir)/big-table.csv
-$(builds_dir)/big-table.csv: $(rscripts_dir)/write-bigtable.R | checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(project_data) $@
-	@echo ''
-
-## Landmetrics
-csv-landmetrics: $(builds_dir)/landmetrics.csv
-$(builds_dir)/landmetrics.csv: $(rscripts_dir)/write-landmetrics.R | checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(project_data) $@
-	@echo ''
-
-## Levels
-csv-agg-levels: $(builds_dir)/aggregation-levels.csv
-$(builds_dir)/aggregation-levels.csv: $(rscripts_dir)/write-aggregation-levels.R | checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(project_data) $@
-	@echo ''
 
 .PHONY: clean
 ## Clean project
