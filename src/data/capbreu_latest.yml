@@ -10,11 +10,7 @@ Landmetrics:
 Aggregations:
   Level_2: Partida
   Level_1: Heredad
-Spatial_data:
-  - /home/josetomas/Documentos/Capbreu/geometries/partida_tagarina.gml
-  - /home/josetomas/Documentos/Capbreu/geometries/barranc_tagarina.gml
-  - /home/josetomas/Documentos/Capbreu/geometries/marquesado_guadalest.gml
-  - /home/josetomas/Documentos/Capbreu/geometries/penya_sella.gml
+
 Landholders:
   - Landholder: Lorenzo Perez Mayor
     Plots:
@@ -222,7 +218,7 @@ Landholders:
             - Josep Alberola
             - Felipe Soler
             - Andrés Ortiz de Francisco
-            - Dorotea Soler viuda de Francisco Soler?
+            - Dorotea Soler?
             - Viuda Cantó
             - Viuda Soler Francisco
             - Juan Soler
@@ -239,7 +235,7 @@ Landholders:
             - Francisco Cerda de Juan
             - Salvador Cerda
             - Estacio Garcia
-            - Dorotea Soler viuda de Francisco Soler
+            - Dorotea Soler
             - Gregorio y Francisco Ortiz?
         Landmetrics:
           Area: 6
@@ -338,7 +334,7 @@ Landholders:
           Level_1: El Alt
         Limits:
           Neighbours:
-            - Dorotea Soler viuda de Francisco Soler
+            - Dorotea Soler
             - Josep Climent de Jaime
             - Francisco Gomis Menor y Juan Reig, en nombre de herederos de Francisco Soler Bautista
           Natural:
@@ -359,6 +355,8 @@ Landholders:
           Area: 5
         
   - Landholder: Josep Gomis
+    Family:
+      - Father: Francisco Gomis Mayor
     Plots:
       - Aggregations:
           Level_2: Tagarina
@@ -366,7 +364,7 @@ Landholders:
         Limits:
           Neighbours:
             - Tomas Molla
-            - Francisco Gomis Mayor su padre
+            - Francisco Gomis Mayor
             - Josep Alberola
             - Josep Gomis
         Landmetrics:
@@ -378,7 +376,7 @@ Landholders:
         Limits:
           Neighbours:
             - Josep y Vicente Canto
-            - Francisco Gomis Mayor su padre
+            - Francisco Gomis Mayor
             - Josep Gomis
         Landmetrics:
           Area: 4
@@ -430,13 +428,15 @@ Landholders:
           Area: 10
         
   - Landholder: Jaime Berenguer
+    Family:
+      - Brother: Josep Berenguer
     Plots:
       - Aggregations:
           Level_2: Tagarina
           Level_1: Tagarina
         Limits:
           Neighbours:
-            - Josep Berenguer (su hermano)
+            - Josep Berenguer
             - Josep Alberola
             - Juan Reig
             - Bartolomé Alberola
@@ -567,13 +567,15 @@ Landholders:
         Limits:
           Neighbours:
             - Vicente Soler Mayor
-            - Dorotea Soler viuda de Francisco Soler
+            - Dorotea Soler
             - Josep Alberola
             - Francisco Senda?
         Landmetrics:
           Area: 11
         
-  - Landholder: Dorotea Soler viuda de Francisco Soler
+  - Landholder: Dorotea Soler
+    Family:
+      - Husband*: Francisco Soler
     Plots:
       - Aggregations:
           Level_2: Tagarina
@@ -708,7 +710,7 @@ Landholders:
           Neighbours:
             - Salvador Cerda
             - Diego Cerda
-            - Dorotea Soler viuda de Francisco Soler?
+            - Dorotea Soler?
           Natural:
             - Barranco en medio
         Landmetrics:
@@ -760,13 +762,15 @@ Landholders:
           Area: 3
         
   - Landholder: Josep Berenguer
+    Family:
+      - Brother: Jaime Berenguer
     Plots:
       - Aggregations:
           Level_2: Tagarina
           Level_1: Tagarina
         Limits:
           Neighbours:
-            - Jaime Berenguer (su hermano)
+            - Jaime Berenguer
             - "120"
             - Juan Reig
           Natural:
@@ -878,7 +882,7 @@ Landholders:
             - Gregorio Ortiz Mayor
             - Gregorio Ortiz Mayor
             - Diego Cerda
-            - Dorotea Soler viuda de Francisco Soler
+            - Dorotea Soler
             - Francisco Gomis Mayor (duda)
             - Salvador Seva
             - Andres Giner
@@ -911,7 +915,7 @@ Landholders:
           Neighbours:          
             - Josep Alberola
             - Estacio Garcia
-            - Dorotea Soler viuda de Francisco Soler
+            - Dorotea Soler
         Landmetrics:
           Area: 6
         
