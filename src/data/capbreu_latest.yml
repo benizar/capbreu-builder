@@ -1,4 +1,4 @@
-﻿---
+---
 #Capbreu Valle de Tagarina
 Structure: landholder-plot-neighbour
 Title: Cabreve de Sella
@@ -11,911 +11,1344 @@ Aggregations:
   Level_1: Heredad
 
 Landholders:
-  - Landholder: Lorenzo Perez Mayor
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de la Baseta
-        Limits:
-          Neighbours:
-            - Amaro Seva
-            - Salvador Cerda
-            - Josep Alberola
-            - Lorenzo Perez Mayor
-        Landmetrics:
-          Area: 8
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Vicente Perez
-        Limits:
-          Neighbours:
-            - Francisco Seva de Juan
-            - Salvador Cerda
-            - Gregorio Ortiz Mayor
-            - Lorenzo Perez Mayor
-        Landmetrics:
-          Area: 6
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Bautista Soler
-        Limits:
-          Neighbours:
-            - Gregorio Ortiz Mayor
-            - Francisco Seva de Juan
-            - Andres Giner
-            - Lorenzo Perez Mayor
-        Landmetrics:
-          Area: 5
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: del Ters-Ombria
-        Limits:
-          Neighbours:
-            - Amaro Seva
-            - Gregorio Ortiz Mayor
-            - Gregorio Alberola
-            - Josep Climent de Jaime
-          Natural:
-            - Montaña de la señoria
-            - Rio de Tagarina
-        Landmetrics:
-          Area: 15
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Reig
-        Limits:
-          Neighbours:
-            - Amaro Seva
-            - Josep Alberola
-            - Gregorio Garcia
-          Natural:
-            - Montaña de la señoria
-        Landmetrics:
-          Area: 6
-        
-  - Landholder: Jaime Linares
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Jaime Soler
-            - Jaime Linares
-        Landmetrics:
-          Area: 3
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Giner
-        Limits:
-          Neighbours:
-            - Pedro Juan Cerda
-            - Jaime Soler
-            - Jaime Linares
-        Landmetrics:
-          Area: 12
-        
-  - Landholder: Josep Olcina Mayor
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Morales
-        Limits:
-          Neighbours:
-            - Josep Alberola
-            - Josep Gomis
-            - Tomas Molla
-            - Felipe Soler
-          Natural: 
-            - Montaña de la señoria
-        Landmetrics:
-          Area: 6
-        
-  - Landholder: Josep Climent de Jaime
-    Plots:
-      - Aggregations:
-          Level_2: El Morral
-          Level_1: El Morral
-        Limits:
-          Neighbours:
-            - Josep Pisqueta
-            - Lorenzo Perez Mayor
-            - Francisco Giner
-            - Viuda de Luis Climent
-        Landmetrics:
-          Area: 14
-        
-  - Landholder: Felipe Soler
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Soler
-        Limits:
-          Neighbours:
-            - Tomas Molla
-            - Josep Olcina Mayor
-            - Josep y Vicente Canto
-            - Francisco Gomis Mayor
-            - Andrés Ortiz de Francisco o 34
-          Natural:
-            - Barranco
-        Landmetrics:
-          Area: 5
-        
-  - Landholder: Salvador Llinares
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Salvador Cerda
-            - Salvador Cerda
-            - Josep Cerda de Juan
-        Landmetrics:
-          Area: 5
-        
-  - Landholder: Diego Cerda
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Francisco Cerda de Juan
-            - Pedro Juan Cerda
-            - Salvador Cerda
-            - Francisco Gomis Menor y Juan Reig, en nombre de herederos de Francisco Soler Bautista
-        Landmetrics:
-          Area: 8
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Berenguer
-        Limits:
-          Neighbours:
-            - Francisco Cerda de Juan
-            - Pedro Juan Cerda
-        Landmetrics:
-          Area: 0.5
-        
-  - Landholder: Vicente Soler Mayor
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Nadal Soler
-            - Estacio Garcia
-            - Josep Alberola
-        Landmetrics:
-          Area: 12
-        
-  - Landholder: Juan Reig
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - Jaime Berenguer
-            - Josep Alberola
-        Landmetrics:
-          Area: 6
-        
-  - Landholder: Gregorio y Francisco Ortiz
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Josep Alberola
-            - Felipe Soler
-            - Andrés Ortiz de Francisco
-            - Dorotea Soler?
-            - Viuda Cantó
-            - Viuda Soler Francisco
-            - Juan Soler
-        Landmetrics:
-          Area: 7
-        
-  - Landholder: Nadal Soler
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Francisco Cerda de Juan
-            - Salvador Cerda
-            - Estacio Garcia
-            - Dorotea Soler
-            - Gregorio y Francisco Ortiz?
-        Landmetrics:
-          Area: 6
-        
-  - Landholder: Josep Alberola
-    Plots:
-      - Aggregations:
-          Level_2: Pas de Tagarina
-          Level_1: Berenguer
-        Limits:
-          Neighbours:
-            - Francisco Giner
-            - "63"
-            - Juan Reig
-            - Jaime Berenguer
-          Natural:
-            - Rio
-        Landmetrics:
-          Area: 9
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Reig
-        Limits:
-          Neighbours:
-            - Lorenzo Perez Mayor
-            - Francisco Seva de Juan
-            - Amaro Seva
-            - 23 uno que linda con la Torreta
-          Natural:
-            - Montes señoria
-        Landmetrics:
-          Area: 9
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Alemany
-        Limits:
-          Neighbours:
-            - Josep Gomis
-            - Josep Olcina Mayor
-            - Francisco Seva de Juan
-          Natural:
-            - Montes señoria
-          Administrative:
-            - M Guadalest
-        Landmetrics:
-          Area: 15
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Pedro Perez
-        Limits:
-          Neighbours:
-            - Josep y Vicente Canto
-            - Gregorio y Francisco Ortiz
-            - Vicente Soler Mayor
-            - Francisco Gomis Menor y Juan Reig, en nombre de herederos de Francisco Soler Bautista
-            - Estacio Garcia
-          Natural:
-            - Montes señoria
-        Landmetrics:
-          Area: 7
-        
-  - Landholder: Juan Seva
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Salvador Cerda
-            - Gregorio y Francisco Ortiz o 70
-          Administrative:
-            - M Guadalest
-        Landmetrics:
-          Area: 9
-        
-  - Landholder: Gregorio Alberola
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours: 
-            - Gregorio Ortiz Mayor
-            - Lorenzo Perez Mayor
-        Landmetrics:
-          Area: 3
-        
-  - Landholder: Francisco Gomis Mayor
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: El Alt
-        Limits:
-          Neighbours:
-            - Dorotea Soler
-            - Josep Climent de Jaime
-            - Francisco Gomis Menor y Juan Reig, en nombre de herederos de Francisco Soler Bautista
-          Natural:
-            - Montaña de la señoria
-        Landmetrics:
-          Area: 10
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Soler
-        Limits:
-          Neighbours:
-            - Josep Gomis su hijo
-            - Josep y Vicente Canto
-            - Tomas Molla
-            - Felipe Soler
-        Landmetrics:
-          Area: 5
-        
-  - Landholder: Josep Gomis
-    Family:
-      - Father: Francisco Gomis Mayor
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Morales
-        Limits:
-          Neighbours:
-            - Tomas Molla
-            - Francisco Gomis Mayor
-            - Josep Alberola
-            - Josep Gomis
-        Landmetrics:
-          Area: 6
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Soler
-        Limits:
-          Neighbours:
-            - Josep y Vicente Canto
-            - Francisco Gomis Mayor
-            - Josep Gomis
-        Landmetrics:
-          Area: 4
-        
-  - Landholder: Josep y Vicente Cantó
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Josep Gomis (duda si linda con casa)
-            - Francisco Gomis Mayor
-            - Felipe Soler
-            - Gregorio Ortiz Mayor
-            - Josep Alberola
-        Landmetrics:
-          Area: 9
-        
-  - Landholder: Josep Pisqueta
-    Plots:
-      - Aggregations:
-          Level_2: Pas de Tagarina
-          Level_1: Luis Climent
-        Limits:
-          Neighbours:
-            - Josep Climent de Jaime
-            - Josep Alberola
-            - Viuda de Garcia
-          Natural:
-            - Rio
-        Landmetrics:
-          Area: 3
-        
-  - Landholder: Tomas Molla
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Morales
-        Limits:
-          Neighbours:
-            - Felipe Soler
-            - Josep Gomis
-            - Josep Olcina Mayor
-            - Josep Alberola
-          Natural:
-            - Barranco
-        Landmetrics:
-          Area: 10
-        
-  - Landholder: Jaime Berenguer
-    Family:
-      - Brother: Josep Berenguer
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Josep Berenguer
-            - Josep Alberola
-            - Juan Reig
-            - Bartolomé Alberola
-          Natural:
-            - Aguavesante
-        Landmetrics:
-          Area: 8
-        
-  - Landholder: Andres Giner
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Mariano Seva
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Pedro Juan Cerda
-            - Lorenzo Perez Mayor
-            - Francisco Seva de Juan
-          Natural:
-            - Montaña de la señoria
-            - agua dicha el badall en medio
-        Landmetrics:
-          Area: 16
-        
-  - Landholder: Pedro Juan Cerda
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Andres Giner
-            - "43"
-            - Diego Cerda
-            - Francisco Cerda de Juan
-            - Jaime Linares
-          Natural:
-            - Montaña de la señoria
-        Landmetrics:
-          Area: 9
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Jaime Linares
-            - Josep Cerda de Juan
-        Landmetrics:
-          Area: 5
-        
-  - Landholder: Gregorio Ortiz Mayor
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Gregorio Alberola
-            - Andres Giner
-            - Lorenzo Perez Mayor
-        Landmetrics:
-          Area: 10
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Juan Seva
-            - Josep Olcina Mayor
-            - Miguel Buades
-          Natural:
-            - Barranco
-        Landmetrics:
-          Area: 10
-        
-  - Landholder: Bautista Berenguer
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Amaro Seva
-            - Josep Climent de Jaime
-            - "63"
-            - Jaime Linares
-            - Francisco Berenguer y otros
-        Landmetrics:
-          Area: 8
-        
-  - Landholder: Francisco Cerda de Juan
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Diego Cerda
-            - Francisco Cerda de Juan
-        Landmetrics:
-          Area: 2
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Berenguer
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Estacio Garcia
-            - Diego Cerda
-            - Francisco Gomis Menor y Juan Reig, en nombre de herederos de Francisco Soler Bautista
-          Natural:
-            - Rio
-        Landmetrics:
-          Area: 4
-        
-  - Landholder: Estacio Garcia
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: del Retor de la Alcantera
-        Limits:
-          Neighbours:
-            - Vicente Soler Mayor
-            - Dorotea Soler
-            - Josep Alberola
-            - Francisco Senda?
-        Landmetrics:
-          Area: 11
-        
-  - Landholder: Dorotea Soler
-    Family:
-      - Husband*: Francisco Soler
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: del Retor de la Alcantera
-        Limits:
-          Neighbours:
-            - Estacio Garcia
-            - Francisco Cerda de Juan
-            - Salvador Cerda
-            - Francisco Gomis Mayor?
-        Landmetrics:
-          Area: 6
-        
-  - Landholder: Francisco Berenguer y Anthropic
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - "101"
-            - Modesto Sarrio Mayor
-            - Bautista Berenguer
-            - Bautista Berenguer
-            - Josep Climent de Jaime
-            - Francisco Giner
-          Natural:
-            - barranco en medio
-        Landmetrics:
-          Area: 13
-        
-  - Landholder: Josep Cerda de Juan
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Pedro Juan Cerda
-            - Francisco Cerda de Juan
-            - Josep Cerda de Juan
-        Landmetrics:
-          Area: 2
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Francisco Cerda de Juan
-            - Salvador Llinares
-            - Josep Cerda de Juan
-        Landmetrics:
-          Area: 3
-        
-  - Landholder: Francisco Seva de Juan
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Miguel Buades
-            - Josep Alberola
-          Administrative:
-            - M Guadalest
-        Landmetrics:
-          Area: 11
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Bautista Soler
-        Limits:
-          Neighbours:
-            - Josep Alberola
-            - Andres Giner
-            - Lorenzo Perez Mayor
-          Administrative:
-            - M Guadalest
-        Landmetrics:
-          Area: 8
+  Individuals:
+    - Name: Lorenzo
+      LastName: Perez
+      LastName2: Mayor
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de la Baseta
+          Limits:
+            Neighbours:
+              - Name: Amaro
+                LastName: Seva
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Josep
+                LastName: Alberola
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+          Landmetrics:
+            Area: 8
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Vicente Perez
+          Limits:
+            Neighbours:
+              - Name: Francisco
+                LastName: Seva
+                LastName2: de Juan
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+          Landmetrics:
+            Area: 6
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Bautista Soler
+          Limits:
+            Neighbours:
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Francisco
+                LastName: Seva
+                LastName2: de Juan
+              - Name: Andres
+                LastName: Giner
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+          Landmetrics:
+            Area: 5
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: del Ters-Ombria
+          Limits:
+            Neighbours:
+              - Name: Amaro
+                LastName: Seva
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Gregorio
+                LastName: Alberola
+              - Name: Josep
+                LastName: Climent
+                LastName2: de Jaime
+            Natural:
+              - Montaña de la señoria
+              - Rio de Tagarina
+          Landmetrics:
+            Area: 15
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Reig
+          Limits:
+            Neighbours:
+              - Name: Amaro
+                LastName: Seva
+              - Name: Josep
+                LastName: Alberola
+              - Name: Gregorio
+                LastName: Garcia
+            Natural:
+              - Montaña de la señoria
+          Landmetrics:
+            Area: 6
             
-  - Landholder: Modesto Sarrio Mayor
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - Pedro Juan Cerda
-            - "63"
-            - Josep Alberola
-        Landmetrics:
-          Area: 8
-        
-  - Landholder: Amaro Seva
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Baseta de Perez
-        Limits:
-          Neighbours:
-            - Lorenzo Perez Mayor
-            - Gregorio Garcia
-            - Salvador Cerda
-          Anthropic:
-            - Azagador
-        Landmetrics:
-          Area: 12
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - Lorenzo Perez Mayor
-            - Bautista Berenguer
-            - Amaro Seva
-          Natural:
-            - Barranquito del Morral
-            - Montaña de la señoria
-        Landmetrics:
-          Area: 4
-        
-  - Landholder: Salvador Seva
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina - Ombria  
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Diego Cerda
-            - Dorotea Soler?
-          Natural:
-            - Barranco en medio
-        Landmetrics:
-          Area: 10
-        
-  - Landholder: Andrés Ortiz de Francisco
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Pedro Perez
-        Limits:
-          Neighbours:
-            - Nadal Soler
-            - Felipe Soler
-            - Gregorio y Francisco Ortiz
-          Natural:
-            - Barranco
-        Landmetrics:
-          Area: 5
-        
-  - Landholder: Jaime Soler
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Linares
-        Limits:
-          Neighbours:
-            - Salvador Cerda
-            - Jaime Linares
-          Natural:
-            - Montaña de la señoria
-          Administrative:
-            - M Guadalest
-        Landmetrics:
-          Area: 6
-        
-  - Landholder: Gregorio Garcia
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - Jaime Linares
-            - Amaro Seva
-            - Lorenzo Perez Mayor
-            - Josep Alberola
-        Landmetrics:
-          Area: 3
-        
-  - Landholder: Josep Berenguer
-    Family:
-      - Brother: Jaime Berenguer
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Tagarina
-        Limits:
-          Neighbours:
-            - Jaime Berenguer
-            - "120"
-            - Juan Reig
-          Natural:
-            - Aguavesante
-        Landmetrics:
-          Area: 8
-        
-  - Landholder: Andres Molla
-    Plots:
-      - Aggregations:
-          Level_2: El Paso de Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - Josep Pisqueta
-            - Josep Climent de Jaime
-            - Francisco Giner
-          Natural:
-            - Río
-        Landmetrics:
-          Area: 5
-        
-  - Landholder: Francisco Giner
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Berenguer
-        Limits:
-          Neighbours:
-            - Josep Climent de Jaime
-            - Andres Molla
-            - Modesto Sarrio Mayor
-            - Josep Alberola
-          Anthropic:
-            - El Poblet
-        Landmetrics:
-          Area: 6
-        
-  - Landholder: Salvador Cerda
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Cerda
-        Limits:
-          Neighbours:
-            - Pedro Juan Cerda
-            - Pedro Juan Cerda
-            - Pedro Juan Cerda
-            - Salvador Cerda
-        Landmetrics:
-          Area: 4
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Llinares
-        Limits:
-          Neighbours:
-            - Salvador Llinares
-            - Jaime Linares
-            - Josep Cerda de Juan
-            - Salvador Cerda
-        Landmetrics:
-          Area: 3.5
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Luis Juan Garcia
-        Limits:
-          Neighbours:
-            - Juan Seva
-            - Jaime Linares
-            - Jaime Soler
-          Natural:
-            - Rio
-        Landmetrics:
-          Area: 30
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Vicente Climent
-        Limits:
-          Neighbours:
-            - Gregorio Ortiz Mayor
-            - Juan Seva
-            - Salvador Cerda
-          Natural:
-            - Rio
-        Landmetrics:
-          Area: 6
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Vicente Perez
-        Limits:
-          Neighbours:
-            - Lorenzo Perez Mayor
-            - Amaro Seva
-            - Gregorio Ortiz Mayor
-          Natural:
-            - Rio
-        Landmetrics:
-          Area: 3
-        
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: Mariano Seva
-        Limits:
-          Neighbours:
-            - Gregorio Ortiz Mayor
-            - Gregorio Ortiz Mayor
-            - Diego Cerda
-            - Dorotea Soler
-            - Francisco Gomis Mayor (duda)
-            - Salvador Seva
-            - Andres Giner
-            - Salvador Cerda
-          Natural:
-            - Barranco en medio
-        Landmetrics:
-          Area: 15
-        
-  - Landholder: Miguel Buades
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Alemany
-        Limits:
-          Neighbours:
-            - Gregorio Ortiz Mayor
-            - Josep Olcina Mayor
-          Administrative:
-            - M Guadalest
-        Landmetrics:
-          Area: 3
-        
-  - Landholder: Francisco Gomis Menor y Juan Reig, en nombre de herederos de Francisco Soler Bautista
-    Plots:
-      - Aggregations:
-          Level_2: Tagarina
-          Level_1: de Pedro Perez
-        Limits:
-          Neighbours:          
-            - Josep Alberola
-            - Estacio Garcia
-            - Dorotea Soler
-        Landmetrics:
-          Area: 6
-        
+    - Name: Jaime
+      LastName: Linares
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Jaime
+                LastName: Soler
+              - Name: Jaime
+                LastName: Linares
+          Landmetrics:
+            Area: 3
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Giner
+          Limits:
+            Neighbours:
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: Jaime
+                LastName: Soler
+              - Name: Jaime
+                LastName: Linares
+          Landmetrics:
+            Area: 12
+  
+    - Name: Josep
+      LastName: Olcina
+      LastName2: Mayor
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Morales
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Alberola
+              - Name: Josep
+                LastName: Gomis
+              - Name: Tomas
+                LastName: Molla
+              - Name: Felipe
+                LastName: Soler
+            Natural: 
+              - Montaña de la señoria
+          Landmetrics:
+            Area: 6
+          
+    - Name: Josep
+      LastName: Climent
+      LastName2: de Jaime
+      Plots:
+        - Aggregations:
+            Level_2: El Morral
+            Level_1: El Morral
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Pisqueta
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+              - Name: Francisco
+                LastName: Giner
+              - Name: Viuda de Luis
+                LastName: Climent
+          Landmetrics:
+            Area: 14
+          
+    - Name: Felipe
+      LastName: Soler
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Soler
+          Limits:
+            Neighbours:
+              - Name: Tomas
+                LastName: Molla
+              - Name: Josep
+                LastName: Olcina
+                LastName2: Mayor
+              - Name: Josep y Vicente
+                LastName: Canto
+              - Name: Francisco
+                LastName: Gomis
+                LastName2: Mayor
+              - Name: Andres
+                LastName: Ortiz
+                LastName2: de Francisco o "34"
+            Natural:
+              - Barranco
+          Landmetrics:
+            Area: 5
+          
+    - Name: Salvador
+      LastName: Llinares
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Josep
+                LastName: Cerda
+                LastName2: de Juan
+          Landmetrics:
+            Area: 5
+          
+    - Name: Diego
+      LastName: Cerda
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: Salvador
+                LastName: Cerda
+            CoNeighbours:
+              - Alias: Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
+                People:
+                  - Name: Francisco
+                    LastName: Gomis
+                    LastName2: Menor
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+                  - Name: Juan
+                    LastName: Reig
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+          Landmetrics:
+            Area: 8
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Berenguer
+          Limits:
+            Neighbours:
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Pedro Juan
+                LastName: Cerda
+          Landmetrics:
+            Area: 0.5
+          
+    - Name: Vicente
+      LastName: Soler
+      LastName2: Mayor
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Nadal
+                LastName: Soler
+              - Name: Estacio
+                LastName: Garcia
+              - Name: Josep
+                LastName: Alberola
+          Landmetrics:
+            Area: 12
+          
+    - Name: Juan
+      LastName: Reig
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: Jaime
+                LastName: Berenguer
+              - Name: Josep
+                LastName: Alberola
+          Landmetrics:
+            Area: 6
+          
+    - Name: Nadal
+      LastName: Soler
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Estacio
+                LastName: Garcia
+              - Name: Dorotea
+                LastName: Soler
+              - Name: Gregorio y Francisco
+                LastName: Ortiz
+          Landmetrics:
+            Area: 6
+          
+    - Name: Josep
+      LastName: Alberola
+      Plots:
+        - Aggregations:
+            Level_2: Pas de Tagarina
+            Level_1: Berenguer
+          Limits:
+            Neighbours:
+              - Name: Francisco
+                LastName: Giner
+              - Name: "63"
+              - Name: Juan
+                LastName: Reig
+              - Name: Jaime
+                LastName: Berenguer
+            Natural:
+              - Rio
+          Landmetrics:
+            Area: 9
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Reig
+          Limits:
+            Neighbours:
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+              - Name: Francisco
+                LastName: Seva
+                LastName2: de Juan
+              - Name: Amaro
+                LastName: Seva
+              - Name: que linda con la Torreta "23"
+            Natural:
+              - Montes señoria
+          Landmetrics:
+            Area: 9
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Alemany
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Gomis
+              - Name: Josep
+                LastName: Olcina
+                LastName2: Mayor
+              - Name: Francisco
+                LastName: Seva
+                LastName2: de Juan
+            Natural:
+              - Montes señoria
+            Administrative:
+              - M Guadalest
+          Landmetrics:
+            Area: 15
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Pedro Perez
+          Limits:
+            Neighbours:
+              - Name: Josep y Vicente
+                LastName: Canto
+              - Name: Gregorio y Francisco
+                LastName: Ortiz
+              - Name: Vicente
+                LastName: Soler
+                LastName2: Mayor
+              - Name: Estacio
+                LastName: Garcia
+            CoNeighbours:
+              - Alias: Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
+                People:
+                  - Name: Francisco
+                    LastName: Gomis
+                    LastName2: Menor
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+                  - Name: Juan
+                    LastName: Reig
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+            Natural:
+              - Montes señoria
+          Landmetrics:
+            Area: 7
+  
+    - Name: Juan
+      LastName: Seva
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Gregorio y Francisco
+                LastName: Ortiz
+            Administrative:
+              - M Guadalest
+          Landmetrics:
+            Area: 9
+          
+    - Name: Gregorio
+      LastName: Alberola
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours: 
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+          Landmetrics:
+            Area: 3
+          
+    - Name: Francisco
+      LastName: Gomis
+      LastName2: Mayor
+      Family:
+        - Children:
+           - Name: Josep
+             LastName: Gomis
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: El Alt
+          Limits:
+            Neighbours:
+              - Name: Dorotea
+                LastName: Soler
+              - Name: Josep
+                LastName: Climent
+                LastName2: de Jaime
+            CoNeighbours:
+              - Alias: Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
+                People:
+                  - Name: Francisco
+                    LastName: Gomis
+                    LastName2: Menor
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+                  - Name: Juan
+                    LastName: Reig
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+            Natural:
+              - Montaña de la señoria
+          Landmetrics:
+            Area: 10
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Soler
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Gomis
+              - Name: Josep y Vicente
+                LastName: Canto
+              - Name: Tomas
+                LastName: Molla
+              - Name: Felipe
+                LastName: Soler
+          Landmetrics:
+            Area: 5
+          
+    - Name: Josep
+      LastName: Gomis
+      Family:
+        - Parents:
+            - Name: Francisco
+              LastName: Gomis
+              LastName2: Mayor
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Morales
+          Limits:
+            Neighbours:
+              - Name: Tomas
+                LastName: Molla
+              - Name: Francisco
+                LastName: Gomis
+                LastName2: Mayor
+              - Name: Josep
+                LastName: Alberola
+              - Name: Josep
+                LastName: Gomis
+          Landmetrics:
+            Area: 6
+          
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Soler
+          Limits:
+            Neighbours:
+              - Name: Josep y Vicente
+                LastName: Canto
+              - Name: Francisco
+                LastName: Gomis
+                LastName2: Mayor
+              - Name: Josep
+                LastName: Gomis
+          Landmetrics:
+            Area: 4
+  
+    - Name: Josep
+      LastName: Pisqueta
+      Plots:
+        - Aggregations:
+            Level_2: Pas de Tagarina
+            Level_1: Luis Climent
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Climent
+                LastName2: de Jaime
+              - Name: Josep
+                LastName: Alberola
+              - Name: Viuda
+                LastName: de Garcia
+            Natural:
+              - Rio
+          Landmetrics:
+            Area: 3
+          
+    - Name: Tomas
+      LastName: Molla
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Morales
+          Limits:
+            Neighbours:
+              - Name: Felipe
+                LastName: Soler
+              - Name: Josep
+                LastName: Gomis
+              - Name: Josep
+                LastName: Olcina
+                LastName2: Mayor
+              - Name: Josep
+                LastName: Alberola
+            Natural:
+              - Barranco
+          Landmetrics:
+            Area: 10
+          
+    - Name: Jaime
+      LastName: Berenguer
+      Family:
+        - Siblings: 
+            - Name: Josep
+              LastName: Berenguer
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Berenguer
+              - Name: Josep
+                LastName: Alberola
+              - Name: Juan
+                LastName: Reig
+              - Name: Bartolome
+                LastName: Alberola
+            Natural:
+              - Aguavesante
+          Landmetrics:
+            Area: 8
+          
+    - Name: Andres
+      LastName: Giner
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Mariano Seva
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+              - Name: Francisco
+                LastName: Seva
+                LastName2: de Juan
+            Natural:
+              - Montaña de la señoria
+              - agua dicha el badall en medio
+          Landmetrics:
+            Area: 16
+          
+    - Name: Pedro Juan
+      LastName: Cerda
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Andres
+                LastName: Giner
+              - Name: "43"
+              - Name: Diego
+                LastName: Cerda
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Jaime
+                LastName: Linares
+            Natural:
+              - Montaña de la señoria
+          Landmetrics:
+            Area: 9
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Jaime
+                LastName: Linares
+              - Name: Josep
+                LastName: Cerda
+                LastName2: de Juan
+          Landmetrics:
+            Area: 5
+          
+    - Name: Gregorio
+      LastName: Ortiz
+      LastName2: Mayor
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Gregorio
+                LastName: Alberola
+              - Name: Andres
+                LastName: Giner
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+          Landmetrics:
+            Area: 10
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Juan
+                LastName: Seva
+              - Name: Josep
+                LastName: Olcina
+                LastName2: Mayor
+              - Name: Miguel
+                LastName: Buades
+            Natural:
+              - Barranco
+          Landmetrics:
+            Area: 10
+          
+    - Name: Bautista
+      LastName: Berenguer
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Amaro
+                LastName: Seva
+              - Name: Josep
+                LastName: Climent
+                LastName2: de Jaime
+              - Name: "63"
+              - Name: Jaime
+                LastName: Linares
+              - Name: Francisco
+                LastName: Berenguer y otros
+          Landmetrics:
+            Area: 8
+          
+    - Name: Francisco
+      LastName: Cerda
+      LastName2: de Juan
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Diego
+                LastName: Cerda
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+          Landmetrics:
+            Area: 2
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Berenguer
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Estacio
+                LastName: Garcia
+              - Name: Diego
+                LastName: Cerda
+            CoNeighbours:
+              - Alias: Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
+                People:
+                  - Name: Francisco
+                    LastName: Gomis
+                    LastName2: Menor
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+                  - Name: Juan
+                    LastName: Reig
+                    Family:
+                      HeirOf:
+                        - Name: Francisco
+                          LastName: Soler
+                          LastName2: Bautista
+            Natural:
+              - Rio
+          Landmetrics:
+            Area: 4
+          
+    - Name: Estacio
+      LastName: Garcia
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: del Retor de la Alcantera
+          Limits:
+            Neighbours:
+              - Name: Vicente
+                LastName: Soler
+                LastName2: Mayor
+              - Name: Dorotea
+                LastName: Soler
+              - Name: Josep
+                LastName: Alberola
+              - Name: Francisco
+                LastName: Senda
+          Landmetrics:
+            Area: 11
+          
+    - Name: Dorotea
+      LastName: Soler
+      Family:
+        - Spouses:
+            - Name: Francisco
+              LastName: Soler*
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: del Retor de la Alcantera
+          Limits:
+            Neighbours:
+              - Name: Estacio
+                LastName: Garcia
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Francisco
+                LastName: Gomis
+                LastName2: Mayor
+          Landmetrics:
+            Area: 6
+          
+    - Name: Josep
+      LastName: Cerda
+      LastName2: de Juan
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Josep
+                LastName: Cerda
+                LastName2: de Juan
+          Landmetrics:
+            Area: 2
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Francisco
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Salvador
+                LastName: Llinares
+              - Name: Josep
+                LastName: Cerda
+                LastName2: de Juan
+          Landmetrics:
+            Area: 3
+          
+    - Name: Francisco
+      LastName: Seva
+      LastName2: de Juan
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Miguel
+                LastName: Buades
+              - Name: Josep
+                LastName: Alberola
+            Administrative:
+              - M Guadalest
+          Landmetrics:
+            Area: 11
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Bautista Soler
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Alberola
+              - Name: Andres
+                LastName: Giner
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+            Administrative:
+              - M Guadalest
+          Landmetrics:
+            Area: 8
+              
+    - Name: Modesto
+      LastName: Sarrio
+      LastName2: Mayor
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: "63"
+              - Name: Josep
+                LastName: Alberola
+          Landmetrics:
+            Area: 8
+          
+    - Name: Amaro
+      LastName: Seva
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Baseta de Perez
+          Limits:
+            Neighbours:
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+              - Name: Gregorio
+                LastName: Garcia
+              - Name: Salvador
+                LastName: Cerda
+            Anthropic:
+              - Azagador
+          Landmetrics:
+            Area: 12
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+              - Name: Bautista
+                LastName: Berenguer
+              - Name: Amaro
+                LastName: Seva
+            Natural:
+              - Barranquito del Morral
+              - Montaña de la señoria
+          Landmetrics:
+            Area: 4
+          
+    - Name: Salvador
+      LastName: Seva
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina - Ombria  
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Diego
+                LastName: Cerda
+              - Name: Dorotea
+                LastName: Soler
+            Natural:
+              - Barranco en medio
+          Landmetrics:
+            Area: 10
+          
+    - Name: Andres
+      LastName: Ortiz
+      LastName2: de Francisco
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Pedro Perez
+          Limits:
+            Neighbours:
+              - Name: Nadal
+                LastName: Soler
+              - Name: Felipe
+                LastName: Soler
+              - Name: Gregorio y Francisco
+                LastName: Ortiz
+            Natural:
+              - Barranco
+          Landmetrics:
+            Area: 5
+          
+    - Name: Jaime
+      LastName: Soler
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Linares
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Cerda
+              - Name: Jaime
+                LastName: Linares
+            Natural:
+              - Montaña de la señoria
+            Administrative:
+              - M Guadalest
+          Landmetrics:
+            Area: 6
+          
+    - Name: Gregorio
+      LastName: Garcia
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: Jaime
+                LastName: Linares
+              - Name: Amaro
+                LastName: Seva
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+              - Name: Josep
+                LastName: Alberola
+          Landmetrics:
+            Area: 3
+          
+    - Name: Josep
+      LastName: Berenguer
+      Family:
+        - Siblings:
+            - Name: Jaime
+              LastName: Berenguer
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Jaime
+                LastName: Berenguer
+              - Name: "120"
+              - Name: Juan
+                LastName: Reig
+            Natural:
+              - Aguavesante
+          Landmetrics:
+            Area: 8
+          
+    - Name: Andres
+      LastName: Molla
+      Plots:
+        - Aggregations:
+            Level_2: El Paso de Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Pisqueta
+              - Name: Josep
+                LastName: Climent
+                LastName2: de Jaime
+              - Name: Francisco
+                LastName: Giner
+            Natural:
+              - Rio
+          Landmetrics:
+            Area: 5
+          
+    - Name: Francisco
+      LastName: Giner
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Climent
+                LastName2: de Jaime
+              - Name: Andres
+                LastName: Molla
+              - Name: Modesto
+                LastName: Sarrio
+                LastName2: Mayor
+              - Name: Josep
+                LastName: Alberola
+            Anthropic:
+              - El Poblet
+          Landmetrics:
+            Area: 6
+          
+    - Name: Salvador
+      LastName: Cerda
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Cerda
+          Limits:
+            Neighbours:
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: Pedro Juan
+                LastName: Cerda
+              - Name: Salvador
+                LastName: Cerda
+          Landmetrics:
+            Area: 4
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Llinares
+          Limits:
+            Neighbours:
+              - Name: Salvador
+                LastName: Llinares
+              - Name: Jaime
+                LastName: Linares
+              - Name: Josep
+                LastName: Cerda
+                LastName2: de Juan
+              - Name: Salvador
+                LastName: Cerda
+          Landmetrics:
+            Area: 3.5
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Luis Juan Garcia
+          Limits:
+            Neighbours:
+              - Name: Juan
+                LastName: Seva
+              - Name: Jaime
+                LastName: Linares
+              - Name: Jaime
+                LastName: Soler
+            Natural:
+              - Rio
+          Landmetrics:
+            Area: 30
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Vicente Climent
+          Limits:
+            Neighbours:
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Juan
+                LastName: Seva
+              - Name: Salvador
+                LastName: Cerda
+            Natural:
+              - Rio
+          Landmetrics:
+            Area: 6
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Vicente Perez
+          Limits:
+            Neighbours:
+              - Name: Lorenzo
+                LastName: Perez
+                LastName2: Mayor
+              - Name: Amaro
+                LastName: Seva
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+            Natural:
+              - Rio
+          Landmetrics:
+            Area: 3
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Mariano Seva
+          Limits:
+            Neighbours:
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Diego
+                LastName: Cerda
+              - Name: Dorotea
+                LastName: Soler
+              - Name: Francisco
+                LastName: Gomis
+                LastName2: Mayor
+              - Name: Salvador
+                LastName: Seva
+              - Name: Andres
+                LastName: Giner
+              - Name: Salvador
+                LastName: Cerda
+            Natural:
+              - Barranco en medio
+          Landmetrics:
+            Area: 15
+          
+    - Name: Miguel
+      LastName: Buades
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Alemany
+          Limits:
+            Neighbours:
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Josep
+                LastName: Olcina
+                LastName2: Mayor
+            Administrative:
+              - M Guadalest
+          Landmetrics:
+            Area: 3
+            
+  Associated:
+    - Alias: Gregorio y Francisco Ortiz
+      People:
+        - Name: Gregorio
+          LastName: Ortiz
+        - Name: Francisco
+          LastName: Ortiz
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Alberola
+              - Name: Felipe
+                LastName: Soler
+              - Name: Andres
+                LastName: Ortiz
+                LastName2: de Francisco
+              - Name: Dorotea
+                LastName: Soler
+              - Name: Viuda
+                LastName: Canto
+              - Name: Viuda
+                LastName: Soler
+                LastName2: Francisco
+              - Name: Juan
+                LastName: Soler
+          Landmetrics:
+            Area: 7
+  
+    - Alias: Josep y Vicente Cantó
+      People:
+        - Name: Josep
+          LastName: Canto
+        - Name: Vicente
+          LastName: Canto
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: Tagarina
+          Limits:
+            Neighbours:
+              - Name: Josep
+                LastName: Gomis
+              - Name: Francisco
+                LastName: Gomis
+                LastName2: Mayor
+              - Name: Felipe
+                LastName: Soler
+              - Name: Gregorio
+                LastName: Ortiz
+                LastName2: Mayor
+              - Name: Josep
+                LastName: Alberola
+          Landmetrics:
+            Area: 9
+            
+    - Alias: Francisco Berenguer y Anthropic
+      People:
+        - Name: Francisco
+          LastName: Berenguer
+        - Name: Anthropic
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Berenguer
+          Limits:
+            Neighbours:
+              - Name: "101"
+              - Name: Modesto
+                LastName: Sarrio
+                LastName2: Mayor
+              - Name: Bautista
+                LastName: Berenguer
+              - Name: Bautista
+                LastName: Berenguer
+              - Name: Josep
+                LastName: Climent
+                LastName2: de Jaime
+              - Name: Francisco
+                LastName: Giner
+            Natural:
+              - barranco en medio
+          Landmetrics:
+            Area: 13
+  
+    - Alias: Francisco Gomis Menor y Juan Reig, en nombre de herederos de Francisco Soler Bautista
+      People:
+        - Name: Francisco
+          LastName: Gomis
+          LastName2: Menor
+          Family:
+            HeirOf:
+               - Name: Francisco
+                 LastName: Soler
+                 LastName2: Bautista
+        - Name: Juan
+          LastName: Reig
+          Family:
+            HeirOf:
+               - Name: Francisco
+                 LastName: Soler
+                 LastName2: Bautista
+      Plots:
+        - Aggregations:
+            Level_2: Tagarina
+            Level_1: de Pedro Perez
+          Limits:
+            Neighbours:          
+              - Name: Josep
+                LastName: Alberola
+              - Name: Estacio
+                LastName: Garcia
+              - Name: Dorotea
+                LastName: Soler
+          Landmetrics:
+            Area: 6
 ...

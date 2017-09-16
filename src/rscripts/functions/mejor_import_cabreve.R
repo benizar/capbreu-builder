@@ -1,24 +1,29 @@
 library(yaml)
 library(reshape2)
 
-yaml<-yaml.load_file("src/data/capbreu_latest.yml")
+yaml<-yaml.load_file("git/capbreu-builder/src/data/capbreu_latest.yml")
 
 # Project data
 keeps <- c("Structure","Title","Description")
 proj_data <- yaml[keeps]
+proj_data<-melt(proj_data)
 
 # Context data
 keeps <- c("Landmetrics","Aggregations")
 context_data <- yaml[keeps]
+context_data<-melt(context_data)
 
 # Schema Data (Schema)
 schema_data<-yaml$Landholders
+schema_data<-melt(schema_data)
 
-# Vertical shape
-proj_data<-melt(proj_data)
-context_data<-melt(context_data)
-schema_data<-melt(schema_data, id=c(Landholders))
+lh_nodes<-schema_data[schema_data$L3 %in% c("Name","LastName","LastName2"),c("L3","value","L2")]
+lh_nodes<-dcast(lh_nodes, L2~L3) # Paste labels ommiting NAs
 
+agg1_nodes<-schema_data[schema_data$L6 %in% c("Level_1"),c("L6","value","L2")]
+agg1_nodes<-dcast(agg_nodes, value+L2~L6) # Paste labels ommiting NAs
+
+#################
 
 # Move the landholder name from values to its own column 
 schema_data<-merge(schema_data,schema_data[schema_data$L2=="Landholder",c("value","L1")],by = "L1")
