@@ -15,7 +15,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de la Baseta
+          Level_1: Baseta
         Limits:
           Neighbours:
             - Amaro Seva
@@ -37,7 +37,7 @@ Landholders:
           Area: 6
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Bautista Soler
+          Level_1: Bautista Soler
         Limits:
           Neighbours:
             - Gregorio Ortiz Mayor
@@ -48,7 +48,7 @@ Landholders:
           Area: 5
       - Aggregations:
           Level_2: Tagarina
-          Level_1: del Ters-Ombria
+          Level_1: Ters-Ombria
         Limits:
           Neighbours:
             - Amaro Seva
@@ -62,7 +62,7 @@ Landholders:
           Area: 15
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Reig
+          Level_1: Reig
         Limits:
           Neighbours:
             - Amaro Seva
@@ -87,7 +87,7 @@ Landholders:
           Area: 3
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Giner
+          Level_1: Giner
         Limits:
           Neighbours:
             - Pedro Juan Cerda
@@ -100,7 +100,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Morales
+          Level_1: Morales
         Limits:
           Neighbours:
             - Josep Alberola
@@ -130,14 +130,14 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Soler
+          Level_1: Soler
         Limits:
           Neighbours:
             - Tomas Molla
             - Josep Olcina Mayor
             - Josep y Vicente Canto
             - Francisco Gomis Mayor
-            - Andres Ortiz de Francisco o "34"
+            - Andres Ortiz de Francisco o 34
           Natural:
             - Barranco
         Landmetrics:
@@ -238,20 +238,20 @@ Landholders:
           Area: 9
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Reig
+          Level_1: Reig
         Limits:
           Neighbours:
             - Lorenzo Perez Mayor
             - Francisco Seva de Juan
             - Amaro Seva
-            - que linda con la Torreta "23"
+            - que linda con la Torreta 23
           Natural:
             - Montes señoria
         Landmetrics:
           Area: 9
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Alemany
+          Level_1: Alemany
         Limits:
           Neighbours:
             - Josep Gomis
@@ -265,7 +265,7 @@ Landholders:
           Area: 15
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Pedro Perez
+          Level_1: Pedro Perez
         Limits:
           Neighbours:
             - Josep y Vicente Canto
@@ -324,7 +324,7 @@ Landholders:
           Area: 10
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Soler
+          Level_1: Soler
         Limits:
           Neighbours:
             - Josep Gomis
@@ -341,7 +341,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Morales
+          Level_1: Morales
         Limits:
           Neighbours:
             - Tomas Molla
@@ -353,7 +353,7 @@ Landholders:
         
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Soler
+          Level_1: Soler
         Limits:
           Neighbours:
             - Josep y Vicente Canto
@@ -381,7 +381,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Morales
+          Level_1: Morales
         Limits:
           Neighbours:
             - Felipe Soler
@@ -416,7 +416,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Mariano Seva
+          Level_1: Mariano Seva
         Limits:
           Neighbours:
             - Salvador Cerda
@@ -527,7 +527,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: del Retor de la Alcantera
+          Level_1: Retor de la Alcantera
         Limits:
           Neighbours:
             - Vicente Soler Mayor
@@ -544,7 +544,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: del Retor de la Alcantera
+          Level_1: Retor de la Alcantera
         Limits:
           Neighbours:
             - Estacio Garcia
@@ -593,7 +593,7 @@ Landholders:
           Area: 11
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Bautista Soler
+          Level_1: Bautista Soler
         Limits:
           Neighbours:
             - Josep Alberola
@@ -664,7 +664,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Pedro Perez
+          Level_1: Pedro Perez
         Limits:
           Neighbours:
             - Nadal Soler
@@ -679,7 +679,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Linares
+          Level_1: Linares
         Limits:
           Neighbours:
             - Salvador Cerda
@@ -758,7 +758,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Cerda
+          Level_1: Cerda
         Limits:
           Neighbours:
             - Pedro Juan Cerda
@@ -769,7 +769,7 @@ Landholders:
           Area: 4
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Llinares
+          Level_1: Llinares
         Limits:
           Neighbours:
             - Salvador Llinares
@@ -780,7 +780,7 @@ Landholders:
           Area: 3.5
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Luis Juan Garcia
+          Level_1: Luis Juan Garcia
         Limits:
           Neighbours:
             - Juan Seva
@@ -836,7 +836,7 @@ Landholders:
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Alemany
+          Level_1: Alemany
         Limits:
           Neighbours:
             - Gregorio Ortiz Mayor
@@ -863,7 +863,7 @@ Landholders:
         Landmetrics:
           Area: 7
 
-  - Name: Josep y Vicente Cantó
+  - Name: Josep y Vicente Canto
     Plots:
       - Aggregations:
           Level_2: Tagarina
@@ -878,7 +878,7 @@ Landholders:
         Landmetrics:
           Area: 9
           
-  - Name: Francisco Berenguer y Anthropic
+  - Name: Francisco Berenguer y otros
     Plots:
       - Aggregations:
           Level_2: Tagarina
@@ -896,11 +896,11 @@ Landholders:
         Landmetrics:
           Area: 13
 
-  - Name: Herederos de Francisco Soler Bautista
+  - Name: Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
     Plots:
       - Aggregations:
           Level_2: Tagarina
-          Level_1: de Pedro Perez
+          Level_1: Pedro Perez
         Limits:
           Neighbours:          
             - Josep Alberola
@@ -914,15 +914,15 @@ Associates:
     People:
       - Gregorio Ortiz
       - Francisco Ortiz
-  - Name: Josep y Vicente Cantó
+  - Name: Josep y Vicente Canto
     People:
       - Josep Canto
       - Vicente Canto
-  - Name: Francisco Berenguer y Anthropic
+  - Name: Francisco Berenguer y otros
     People:
       - Francisco Berenguer
-      - Anthropic
-  - Name: Herederos de Francisco Soler Bautista
+      - otros
+  - Name: Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
     People:
       - Francisco Gomis Menor
       - Juan Reig
