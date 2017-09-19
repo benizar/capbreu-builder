@@ -1,58 +1,59 @@
+library(magrittr)
 library(yaml)
-library(reshape2)
+library(dplyr)
+library(tidyr)
+library(reshape2) # Reshape lists is not implemented in tidyr
 
-yaml<-yaml.load_file("src/data/capbreu_latest_fullname.yml")
+yaml <- yaml.load_file("src/data/capbreu_latest_fullname.yml")
 
 # Project data
-proj_data <- yaml[c("Structure","Title","Description")]
-proj_data<-melt(proj_data)
-names(proj_data)<-c("value","var")
+proj_data <-
+  yaml %$%
+  data.frame(Structure,Title,Description) %>% 
+  gather()
 
 # Context data
-context_data <- yaml[c("Landmetrics","Aggregations")]
-context_data<-melt(context_data)
-names(context_data)<-c("value","var","var_category")
+context_data <-
+  yaml %$%
+  data.frame(Landmetrics,Aggregations) %>% 
+  gather()
 
-# Schema Data (Schema)
-schema_data<-yaml$Landholders
-schema_data<-melt(schema_data)
-names(schema_data) <- c("value","var","var_category","id_plot","name_plot", "id_landholder")
-
-# Move the landholder name from values to its own column 
-schema_data <- merge(schema_data,schema_data[schema_data$name_plot=="Name",c("value","id_landholder")],by = "id_landholder")
-schema_data <- schema_data[complete.cases(schema_data), ]
-names(schema_data) <- c("id_landholder","value","var","var_category","id_plot","name_plot","name")
-
-# Build plot id/name
-schema_data$id_plot<-paste("plot",schema_data$id_landholder,schema_data$id_plot,sep="-")
-schema_data$name_plot <- NULL
-
-# Transpose level 2
-schema_data<-merge(schema_data[schema_data$var=="Level_2",c("id_plot","value")],schema_data, by="id_plot")
-names(schema_data)<-c("id_plot", "level_2","id_landholder","value","var","var_category","name")
-schema_data<-schema_data[!(schema_data$var=="Level_2"),]
-
-
-# Transpose level 1
-schema_data<-merge(schema_data[schema_data$var=="Level_1",c("id_plot","value")],schema_data, by="id_plot")
-names(schema_data)<-c("id_plot", "level_1", "level_2", "id_landholder","value","var","var_category","name")
-schema_data<-schema_data[!(schema_data$var=="Level_1"),]
-
-
-# Replace Ls by level names LABELS
-l1_name<-context_data[which(context_data$var=="Level_1"), "value"]
-l2_name<-context_data[which(context_data$var=="Level_2"), "value"]
+# Later Replace Ls by level names LABELS
+l1_name<-context_data[which(context_data$key=="Level_1"), "value"]
+l2_name<-context_data[which(context_data$key=="Level_2"), "value"]
 #schema_data[which(schema_data$var=="Level_2"), "var"] <- l2_name
 #schema_data[which(schema_data$var=="Level_1"), "var"] <- l1_name
 
-# Area aggregations
-schema_data_aggregates <- schema_data[schema_data$var_category != 'Limits', ]
-schema_data_aggregates <- dcast(schema_data_aggregates,name+id_landholder+level_1+level_2+id_plot~var,value.var = "value")
-schema_data_aggregates$Area <- as.numeric(schema_data_aggregates$Area)
-schema_data_aggregates$Area_m2 <- schema_data_aggregates$Area*as.numeric(context_data[context_data$var=="Area_Conv","value"])
 
-landholders <- aggregate(schema_data_aggregates$Area_m2, by=list(schema_data_aggregates$id_landholder,schema_data_aggregates$name), FUN=sum, na.rm=TRUE)
-colnames(landholders) <- c('id', 'name', 'area')
+# Schema Data
+schema_data <-
+  yaml %$% 
+  Landholders %>%
+  melt() %>%
+  left_join(.,filter(select(.,value,L1,L2),L2=="Name"), by="L1") %>%
+  select(-starts_with("L2")) %>% 
+  drop_na() %>%
+  unite(id_plot, L1, L3, sep = "-", remove = FALSE) %>% 
+  select(-L3) %>% 
+  left_join(.,filter(select(.,id_plot,L5,value.x),L5=="Level_1"), by="id_plot") %>%
+  select(-L5.y) %>% 
+  left_join(.,filter(select(.,id_plot,L5.x,value.x.x),L5.x=="Level_2"), by="id_plot") %>%
+  select(-L5.x.y) %>% 
+  filter(L4!="Aggregations") %>% 
+  rename(value="value.x.x.x",var="L5.x.x",var_category="L4",id_landholder="L1", 
+         landholder="value.y", level_1="value.x.y", level_2="value.x.x.y")
+
+# Area aggregations
+schema_data_aggregates <- 
+  schema_data %>% 
+  filter(var_category != 'Limits') %>% 
+  dcast(landholder+id_landholder+level_1+level_2+id_plot~var,value.var = "value") %>% 
+  mutate(Area=as.numeric(Area)) %>% 
+  mutate(Area_m2=Area * as.numeric(select(filter(context_data,key=="Area_Conv"),value)))
+  
+
+landholders <- aggregate(schema_data_aggregates$Area_m2, by=list(schema_data_aggregates$id_landholder,schema_data_aggregates$landholder), FUN=sum, na.rm=TRUE)
+colnames(landholders) <- c('id', 'landholder', 'area')
 
 agg1<-aggregate(schema_data_aggregates$Area_m2, by=list(schema_data_aggregates$level_1), FUN=sum, na.rm=TRUE)
 colnames(agg1) <- c('name', 'area')
