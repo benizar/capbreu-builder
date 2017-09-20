@@ -26,7 +26,7 @@ l2_name<-context_data[which(context_data$key=="Level_2"), "value"]
 
 
 # Schema Data
-schema_data <-
+base_df <-
   yaml %$% 
   Landholders %>%
   melt() %>%
@@ -41,52 +41,93 @@ schema_data <-
   select(-L5.x.y) %>% 
   filter(L4!="Aggregations") %>% 
   rename(value="value.x.x.x",var="L5.x.x",var_category="L4",id_landholder="L1", 
-         landholder="value.y", level_1="value.x.y", level_2="value.x.x.y")
+         landholder="value.y", level1="value.x.y", level2="value.x.x.y")
+
+base_df$id_level1 <- 
+  base_df %>% 
+  group_indices(level1)
+
+base_df$id_level2 <- 
+  base_df %>% 
+  group_indices(level2)
+
+base_edge_list<-
+  base_df %>%
+  filter(var_category!="Landmetrics") %>% 
+  select(-var_category)
+
 
 # Area aggregations
-schema_data_aggregates <- 
-  schema_data %>% 
+base_node_list <- 
+  base_df %>% 
   filter(var_category != 'Limits') %>% 
-  dcast(landholder+id_landholder+level_1+level_2+id_plot~var,value.var = "value") %>% 
+  dcast(id_landholder+landholder+id_level1+level1+id_level2+level2+id_plot~var,value.var = "value") %>% 
   mutate(Area=as.numeric(Area)) %>% 
   mutate(Area_m2=Area * as.numeric(select(filter(context_data,key=="Area_Conv"),value)))
+
+
+landholders<-
+  base_node_list %>% 
+  group_by(id_landholder,landholder) %>% 
+  summarise(Area_m2=sum(Area_m2),Area=sum(Area))
+
+agg1<-
+  base_node_list %>% 
+  group_by(level_1) %>%
+  summarise(Area_m2=sum(Area_m2),Area=sum(Area))
+
+agg2<-
+  base_node_list %>% 
+  group_by(level_2) %>%
+  summarise(Area_m2=sum(Area_m2),Area=sum(Area))
+
+# Other edges
+natural<-
+  base_edge_list %>% 
+  filter(var=="Natural") %>% 
+  select(value) %>% 
+  unique() %>% 
+  rename(label="value")
+natural$id <- 
+  natural %>% 
+  group_indices(label)
+
+anthropic<-
+  base_edge_list %>% 
+  filter(var=="Anthropic") %>% 
+  select(value) %>% 
+  unique() %>% 
+  rename(label="value")
+anthropic$id <- 
+  anthropic %>% 
+  group_indices(label)
+
+administrative<-
+  base_edge_list %>% 
+  filter(var=="Administrative") %>% 
+  select(value) %>% 
+  unique() %>% 
+  rename(label="value")
+administrative$id <- 
+  administrative %>% 
+  group_indices(label)
+
+# Just neighbour's edge list
+just_neighbours<-
+  base_edge_list %>% 
+  filter(var=="Neighbours") %>% 
+  select(value) %>% 
+  rename(landholder="value") %>% 
+  unique() %>% 
+  anti_join(., landholders, by = c("landholder"))
+just_neighbours$id_landholder<-
+  just_neighbours %>% 
+  group_indices(landholder) + max(landholders$id_landholder)
+
+# People list                 
+people<-
+  just_neighbours %>% 
+  bind_rows(landholders) %>%
+  replace_na(list(Area=0,Area_m2=0))
   
-
-landholders <- aggregate(schema_data_aggregates$Area_m2, by=list(schema_data_aggregates$id_landholder,schema_data_aggregates$landholder), FUN=sum, na.rm=TRUE)
-colnames(landholders) <- c('id', 'landholder', 'area')
-
-agg1<-aggregate(schema_data_aggregates$Area_m2, by=list(schema_data_aggregates$level_1), FUN=sum, na.rm=TRUE)
-colnames(agg1) <- c('name', 'area')
-agg1<-data.frame(id = seq(from = 1, to = length(agg1$name)),
-                 name = agg1$name,
-                 area = agg1$area)
-
-agg2<-aggregate(schema_data_aggregates$Area_m2, by=list(schema_data_aggregates$level_2), FUN=sum, na.rm=TRUE)
-colnames(agg2) <- c('name', 'area')
-agg2<-data.frame(id = seq(from = 1, to = length(agg2$name)),
-                 name = agg2$name,
-                 area = agg2$area)
-
-
-#################
-# Other limits lists
-natural <- unique(schema_data[which(schema_data$var=="Natural"),c("value")])
-natural <- data.frame(id = seq(from = 1, to = length(natural)),
-                    name = natural)
-
-anthropic <- unique(schema_data[which(schema_data$var=="Anthropic"),c("value")])
-anthropic<-data.frame(id = seq(from = 1, to = length(anthropic)),
-                    name = anthropic)
-
-administrative <- unique(schema_data[which(schema_data$var=="Administrative"),c("value")])
-administrative <- data.frame(id = seq(from = 1, to = length(administrative)),
-                      name = administrative)
-
-# Just neighbours list
-neighbours<-data.frame(name=unique(schema_data[which(schema_data$var=="Neighbours"), c("value")]))
-just_neighbours<-setdiff(neighbours$name,landholders$name)
-just_neighbours<-data.frame(id = seq(from = max(landholders$id), length.out = length(just_neighbours)),
-                            name = just_neighbours)
-# Neighbours with ids (landholders + justneighbours)
-neighbours<-data.frame(id=c(landholders$id,just_neighbours$id),
-                  name=c(landholders$name,as.character(just_neighbours$name)))
+  
