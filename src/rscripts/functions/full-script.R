@@ -169,3 +169,60 @@ nodes<-
   bind_rows(administrative)
 View(nodes)
 
+
+full_edge_list<-
+  base_edge_list %>% 
+  rename(label="value") %>% 
+  left_join(nodes,by="label") %>% 
+  select(-starts_with("area"),-type) %>% 
+  rename(value.id="id",value.label="label",value.type="var")
+
+# Landholder's relationships
+landholder_neighbours<-
+  full_edge_list %>% 
+  filter(value.type=="Neighbours") %>% # Keep all repeated links, one relationship can appear more than once
+  select(landholder.id, value.id) %>% 
+  rename(from="landholder.id",to="value.id") %>% 
+  mutate(type="neighbours")
+View(landholder_neighbours)
+
+# landholder holds plots
+landholder_plots<-
+  full_edge_list %>% 
+  select(landholder.id, plot.id) %>%
+  rename(from="landholder.id",to="plot.id") %>% 
+  mutate(type="holds")
+View(landholder_plots)
+
+# landholder is member of L1
+landholder_level1<-
+  full_edge_list %>% 
+  select(landholder.id, level1.id) %>%
+  rename(from="landholder.id",to="level1.id") %>% 
+  mutate(type="is member of L1")
+View(landholder_level1)
+
+# landholder is member of L2
+landholder_level2<-
+  full_edge_list %>% 
+  select(landholder.id, level2.id) %>%
+  rename(from="landholder.id",to="level2.id") %>% 
+  mutate(type="is member of L2")
+View(landholder_level2)
+
+###### TODO: Order results like this
+plot_level1<-
+  full_edge_list %>% 
+  select(plot.id,level1.id) %>%
+  distinct() %>% 
+  rename(from="plot.id",to="level1.id") %>% 
+  mutate(type="was within") %>% 
+  select(from,type,to)
+View(plot_level1)
+
+level2_plots<-
+  full_edge_list %>% 
+  select(level2.id, plot.id) %>%
+  rename(from="level2.id",to="plot.id") %>% 
+  mutate(type="contains")
+View(level2_plots)
