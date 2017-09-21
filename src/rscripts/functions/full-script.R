@@ -4,7 +4,7 @@ library(dplyr)
 library(tidyr)
 library(reshape2) # Reshape lists is not implemented in tidyr
 
-yaml <- yaml.load_file("src/data/capbreu_latest_fullname.yml")
+yaml <- yaml.load_file("src/data/capbreu_full.yml")
 
 # Project data
 proj_data <-
