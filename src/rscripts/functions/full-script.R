@@ -55,11 +55,6 @@ base_df<-
          level1.id, level1.label,
          level2.id, level2.label)
 
-# Base DataFrame for building different edge lists
-base_edge_list<-
-  base_df %>%
-  filter(var_category!="Landmetrics") %>% 
-  select(-var_category)
 
 # Base DataFrame for building different node lists
 base_node_list <- 
@@ -105,27 +100,31 @@ View(level2)
 
 
 # Just neighbour's edge list
-just_neighbours<-
-  base_edge_list %>% 
+neighbours<-
+  base_df %>%
+  filter(var_category!="Landmetrics") %>% 
+  select(-var_category) %>% 
   filter(var=="Neighbours") %>% 
   select(value) %>% 
   rename(label="value") %>% 
   unique() %>% 
   anti_join(., landholders, by = c("label")) %>% 
   mutate(type="just_neighbour")
-just_neighbours$id<-
-  just_neighbours %>% 
+neighbours$id<-
+  neighbours %>% 
   group_indices(label) + max(landholders$id)
 
 # People list                 
 people<-
-  just_neighbours %>% 
+  neighbours %>% 
   bind_rows(landholders)
 View(people)
 
 # Other nodes
 natural<-
-  base_edge_list %>% 
+  base_df %>%
+  filter(var_category!="Landmetrics") %>% 
+  select(-var_category) %>% 
   filter(var=="Natural") %>% 
   select(value) %>% 
   unique() %>% 
@@ -137,7 +136,9 @@ natural$id <-
 View(natural)
 
 anthropic<-
-  base_edge_list %>% 
+  base_df %>%
+  filter(var_category!="Landmetrics") %>% 
+  select(-var_category) %>% 
   filter(var=="Anthropic") %>% 
   select(value) %>% 
   unique() %>% 
@@ -149,7 +150,9 @@ anthropic$id <-
 View(anthropic)
 
 administrative<-
-  base_edge_list %>% 
+  base_df %>%
+  filter(var_category!="Landmetrics") %>% 
+  select(-var_category) %>% 
   filter(var=="Administrative") %>% 
   select(value) %>% 
   unique() %>% 
@@ -170,8 +173,11 @@ nodes<-
 View(nodes)
 
 
-full_edge_list<-
-  base_edge_list %>% 
+# Base DataFrame for building different edge lists
+base_edge_list<-
+  base_df %>%
+  filter(var_category!="Landmetrics") %>% 
+  select(-var_category) %>% 
   rename(label="value") %>% 
   left_join(nodes,by="label") %>% 
   select(-starts_with("area"),-type) %>% 
@@ -179,50 +185,58 @@ full_edge_list<-
 
 # Landholder's relationships
 landholder_neighbours<-
-  full_edge_list %>% 
+  base_edge_list %>% 
   filter(value.type=="Neighbours") %>% # Keep all repeated links, one relationship can appear more than once
   select(landholder.id, value.id) %>% 
   rename(from="landholder.id",to="value.id") %>% 
-  mutate(type="neighbours")
+  mutate(type="neighbours") %>% 
+  select(from,type,to)
 View(landholder_neighbours)
 
 # landholder holds plots
-landholder_plots<-
-  full_edge_list %>% 
+plot_landholder<-
+  base_edge_list %>% 
   select(landholder.id, plot.id) %>%
   rename(from="landholder.id",to="plot.id") %>% 
-  mutate(type="holds")
-View(landholder_plots)
+  mutate(type="holded by") %>% 
+  select(from,type,to)
+View(plot_landholder)
 
 # landholder is member of L1
 landholder_level1<-
-  full_edge_list %>% 
+  base_edge_list %>% 
   select(landholder.id, level1.id) %>%
   rename(from="landholder.id",to="level1.id") %>% 
-  mutate(type="is member of L1")
+  mutate(type="holded lands here") %>% 
+  select(from,type,to)
 View(landholder_level1)
 
 # landholder is member of L2
 landholder_level2<-
-  full_edge_list %>% 
+  base_edge_list %>% 
   select(landholder.id, level2.id) %>%
   rename(from="landholder.id",to="level2.id") %>% 
-  mutate(type="is member of L2")
+  mutate(type="holded lands here") %>% 
+  select(from,type,to)
 View(landholder_level2)
 
-###### TODO: Order results like this
+
 plot_level1<-
-  full_edge_list %>% 
+  base_edge_list %>% 
   select(plot.id,level1.id) %>%
   distinct() %>% 
   rename(from="plot.id",to="level1.id") %>% 
-  mutate(type="was within") %>% 
+  mutate(type="was part of") %>% 
   select(from,type,to)
 View(plot_level1)
 
-level2_plots<-
-  full_edge_list %>% 
-  select(level2.id, plot.id) %>%
-  rename(from="level2.id",to="plot.id") %>% 
-  mutate(type="contains")
-View(level2_plots)
+plot_level2<-
+  base_edge_list %>% 
+  select(plot.id,level2.id) %>%
+  distinct() %>% 
+  rename(from="plot.id",to="level2.id") %>% 
+  mutate(type="was part of") %>% 
+  select(from,type,to)
+View(plot_level2)
+
+
