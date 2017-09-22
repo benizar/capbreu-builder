@@ -78,6 +78,12 @@ landholders<-
   rename(id="landholder.id",label="landholder.label")
 View(landholders)
 
+plots<-
+  base_node_list %>% 
+  select(starts_with("plot"),starts_with("area")) %>% 
+  mutate(type="plot") %>% 
+  rename(id="plot.id",label="plot.label")
+View(plots)
 
 l1_name<-context_data[which(context_data$key=="Level_1"), "value"]
 level1<-
@@ -165,6 +171,7 @@ View(administrative)
   
 nodes<-
   people %>% 
+  bind_rows(plots) %>% # TODO: numeric plot id 
   bind_rows(level1) %>%
   bind_rows(level2) %>%
   bind_rows(natural) %>%
@@ -182,6 +189,7 @@ base_edge_list<-
   left_join(nodes,by="label") %>% 
   select(-starts_with("area"),-type) %>% 
   rename(value.id="id",value.label="label",value.type="var")
+View(base_edge_list)
 
 # Landholder's relationships
 landholder_neighbours<-
@@ -189,8 +197,9 @@ landholder_neighbours<-
   filter(value.type=="Neighbours") %>% # Keep all repeated links, one relationship can appear more than once
   select(landholder.id, value.id) %>% 
   rename(from="landholder.id",to="value.id") %>% 
-  mutate(type="neighbours") %>% 
-  select(from,type,to)
+  mutate(label="neighbours",type="neighbourhood") %>% 
+  select(from,type,to) %>% 
+  arrange(from)
 View(landholder_neighbours)
 
 # landholder holds plots
@@ -198,8 +207,9 @@ plot_landholder<-
   base_edge_list %>% 
   select(landholder.id, plot.id) %>%
   rename(from="landholder.id",to="plot.id") %>% 
-  mutate(type="holded by") %>% 
-  select(from,type,to)
+  mutate(label="holded by",type="landholding") %>% 
+  select(from,type,to) %>% 
+  arrange(from)
 View(plot_landholder)
 
 # landholder is member of L1
@@ -207,8 +217,9 @@ landholder_level1<-
   base_edge_list %>% 
   select(landholder.id, level1.id) %>%
   rename(from="landholder.id",to="level1.id") %>% 
-  mutate(type="holded lands here") %>% 
-  select(from,type,to)
+  mutate(label="is member of",type="level1-member") %>% 
+  select(from,type,to) %>% 
+  arrange(from)
 View(landholder_level1)
 
 # landholder is member of L2
@@ -216,18 +227,19 @@ landholder_level2<-
   base_edge_list %>% 
   select(landholder.id, level2.id) %>%
   rename(from="landholder.id",to="level2.id") %>% 
-  mutate(type="holded lands here") %>% 
-  select(from,type,to)
+  mutate(label="is member of",type="level2-member") %>% 
+  select(from,type,to) %>% 
+  arrange(from)
 View(landholder_level2)
-
 
 plot_level1<-
   base_edge_list %>% 
   select(plot.id,level1.id) %>%
   distinct() %>% 
   rename(from="plot.id",to="level1.id") %>% 
-  mutate(type="was part of") %>% 
-  select(from,type,to)
+  mutate(label="belongs to",type="level1-part") %>% 
+  select(from,type,to) %>% 
+  arrange(from)
 View(plot_level1)
 
 plot_level2<-
@@ -235,8 +247,80 @@ plot_level2<-
   select(plot.id,level2.id) %>%
   distinct() %>% 
   rename(from="plot.id",to="level2.id") %>% 
-  mutate(type="was part of") %>% 
-  select(from,type,to)
+  mutate(label="belongs to",type="level2-part") %>% 
+  select(from,type,to) %>% 
+  arrange(from)
 View(plot_level2)
 
 
+# IMPLICIT TOPOLOGY
+flipped_edges<-
+  base_edge_list %>% 
+  rename(value.id="landholder.id",value.label="landholder.label",landholder.id="value.id",landholder.label="value.label")
+
+implicit_l1<-
+  flipped_edges %>% 
+  filter(value.type=="Neighbours") %>% 
+  select(-value.type) %>% 
+  inner_join(.,base_edge_list,by=c("value.id","landholder.id","level1.id","level2.id")) %>%
+  filter(plot.id.x != plot.id.y) %>% 
+  select(starts_with("plot.id"))
+implicit_l1<- 
+  unique(data.frame(t(apply(implicit_l1,1,sort))))
+
+implicit_l1.final<-
+  implicit_l1 %>% 
+  mutate(label="touches",type="Neighbour plots within the same level1 and level2") %>% 
+  rename(from="X1",to="X2") %>% 
+  select(from,label,to,type) %>% 
+  arrange(from)
+View(implicit_l1.final)
+
+
+# Neighbour plots within the same level2
+implicit_l2<-
+  flipped_edges %>% 
+  filter(value.type=="Neighbours") %>% 
+  select(-value.type) %>% 
+  inner_join(.,base_edge_list,by=c("value.id","landholder.id","level2.id")) %>%
+  filter(plot.id.x != plot.id.y) %>% 
+  select(starts_with("plot.id"))
+implicit_l2<-
+  unique(data.frame(t(apply(implicit_l2,1,sort)))) %>% 
+  setdiff(implicit_l1)
+
+implicit_l2.final<-
+  implicit_l2 %>% 
+  mutate(label="touches",type="Neighbour plots within the same level2, but not same level1") %>% 
+  rename(from="X1",to="X2") %>% 
+  select(from,label,to,type) %>% 
+  arrange(from)
+View(implicit_l2.final)
+
+# Neighbour plots at different l1 and l2
+implicit_l3<-
+  flipped_edges %>% 
+  filter(value.type=="Neighbours") %>% 
+  select(-value.type) %>% 
+  inner_join(.,base_edge_list,by=c("value.id","landholder.id")) %>%
+  filter(plot.id.x != plot.id.y) %>% 
+  select(starts_with("plot.id"))
+implicit_l3<-
+  unique(data.frame(t(apply(implicit_l3,1,sort)))) %>% 
+  setdiff(implicit_l1) %>%
+  setdiff(implicit_l2)
+
+implicit_l3.final<-
+  implicit_l3 %>% 
+  mutate(label="touches",type="Neighbour plots at different l1 and l2") %>% 
+  rename(from="X1",to="X2") %>% 
+  select(from,label,to,type) %>% 
+  arrange(from)
+View(implicit_l3.final)
+
+plot_plot<-
+  implicit_l1.final %>% 
+  bind_rows(implicit_l2.final) %>%
+  bind_rows(implicit_l3.final) %>% 
+  arrange(from)
+View(plot_plot)
