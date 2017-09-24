@@ -408,6 +408,9 @@ edges<-
   bind_rows(plot_level2) %>%
   bind_rows(plot_level1) %>%
   bind_rows(plot_landholder) %>% 
+  bind_rows(plot_natural) %>% 
+  bind_rows(plot_anthropic) %>% 
+  bind_rows(plot_administrative) %>% 
   bind_rows(implicit_l1_l1.final) %>% 
   bind_rows(implicit_l2_l2.final) %>% 
   arrange(from)
@@ -419,24 +422,31 @@ head(edges)
 nrow(nodes); length(unique(nodes$id))
 nrow(edges); nrow(unique(edges[,c("from", "to")]))
 
-
+# GRAPHS
 library(igraph)
 library(visNetwork)
 library(DiagrammeR)
 
 # iGraphs
 actors <- data.frame(name=level1$id,
-                     label=level1$label)
+                     label=level1$label,
+                     size=level1$area)
 
 relations <- data.frame(from=implicit_l1_l1.final$from,
                         to=implicit_l1_l1.final$to)
 
 g <- graph_from_data_frame(relations, directed=FALSE, vertices=actors)
 #print(g, e=TRUE, v=TRUE)
-data <- toVisNetworkData(g)
-visNetwork(nodes = data$nodes, edges = data$edges, height = "500px")
+# data <- toVisNetworkData(g)
+# visNetwork(nodes = data$nodes, edges = data$edges, height = "500px")
 
-plot.igraph(g,vertex.size=3,layout=layout.fruchterman.reingold(g,niter=1000000))
+V(g)$size <- level1$area*0.7
+V(g)$frame.color <- "white"
+V(g)$color <- "orange"
+#V(g)$label <- "" 
+E(g)$arrow.mode <- 0
+
+plot(g)
 
 tkplot(g, edge.arrow.size=.2, edge.color="orange",
 vertex.color="orange", vertex.frame.color="#ffffff",
