@@ -3,9 +3,6 @@ library(yaml)
 library(dplyr)
 library(tidyr)
 library(reshape2) # Reshape lists is not implemented in tidyr
-library(igraph)
-library(visNetwork)
-library(DiagrammeR)
 
 yaml <- yaml.load_file("git/capbreu-builder/src/data/capbreu_full.yml")
 
@@ -234,6 +231,7 @@ landholder_level2<-
 plot_landholder<-
   base_edge_list %>% 
   select(landholder.id, plot.id) %>%
+  distinct() %>% 
   rename(from="landholder.id",to="plot.id") %>% 
   mutate(label="holded by",type="landholding") %>% 
   select(from,to,label,type) %>% 
@@ -246,7 +244,7 @@ plot_level1<-
   select(plot.id,level1.id) %>%
   distinct() %>% 
   rename(from="plot.id",to="level1.id") %>% 
-  mutate(label="belongs to",type="level1-part") %>% 
+  mutate(label="belongs to",type="plot-level1-part") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
 #View(plot_level1)
@@ -257,10 +255,43 @@ plot_level2<-
   select(plot.id,level2.id) %>%
   distinct() %>% 
   rename(from="plot.id",to="level2.id") %>% 
-  mutate(label="belongs to",type="level2-part") %>% 
+  mutate(label="belongs to",type="plot-level2-part") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
 #View(plot_level2)
+
+plot_natural<-
+  base_edge_list %>% 
+  filter(value.type=="Natural") %>%
+  select(plot.id,value.id) %>%
+  distinct() %>% 
+  rename(from="plot.id",to="value.id") %>% 
+  mutate(label="touches",type="plot-natural-border") %>% 
+  select(from,to,label,type) %>% 
+  arrange(from)
+#View(plot_natural)
+
+plot_anthropic<-
+  base_edge_list %>% 
+  filter(value.type=="Anthropic") %>%
+  select(plot.id,value.id) %>%
+  distinct() %>% 
+  rename(from="plot.id",to="value.id") %>% 
+  mutate(label="touches",type="plot-anthropic-border") %>% 
+  select(from,to,label,type) %>% 
+  arrange(from)
+#View(plot_anthropic)
+
+plot_administrative<-
+  base_edge_list %>% 
+  filter(value.type=="Administrative") %>%
+  select(plot.id,value.id) %>%
+  distinct() %>% 
+  rename(from="plot.id",to="value.id") %>% 
+  mutate(label="touches",type="plot-admin-border") %>% 
+  select(from,to,label,type) %>% 
+  arrange(from)
+#View(plot_administrative)
 
 
 # EDGES EXTRACTED FROM IMPLICIT TOPOLOGY
@@ -351,7 +382,7 @@ implicit_l1_l1.final<-
   arrange(from)
 #View(implicit_l1_l1.final)
 
-# Implicit relationships between level1 zones
+# Implicit relationships between level2 zones
 implicit_l2_l2<-
   flipped_edges %>% 
   filter(value.type=="Neighbours") %>% 
@@ -387,6 +418,11 @@ head(nodes)
 head(edges)
 nrow(nodes); length(unique(nodes$id))
 nrow(edges); nrow(unique(edges[,c("from", "to")]))
+
+
+library(igraph)
+library(visNetwork)
+library(DiagrammeR)
 
 # iGraphs
 actors <- data.frame(name=level1$id,
