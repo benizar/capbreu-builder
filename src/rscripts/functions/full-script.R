@@ -62,7 +62,7 @@ base_df<-
          plot.id, plot.label,
          level1.id, level1.label,
          level2.id, level2.label)
-View(base_df)
+#View(base_df)
 
 
 # Base DataFrame for building different node lists
@@ -83,16 +83,16 @@ landholders<-
   base_node_list %>% 
   group_by(landholder.id,landholder.label) %>% 
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="landholder",shape="dot") %>% 
+  mutate(type="landholder", shape="dot", color="blue") %>% 
   rename(id="landholder.id",label="landholder.label")
-View(landholders)
+#View(landholders)
 
 plots<-
   base_node_list %>% 
   select(starts_with("plot"),starts_with("area")) %>% 
-  mutate(type="plot",shape="square") %>% 
+  mutate(type="plot",shape="dot",color="tomato") %>% 
   rename(id="plot.id",label="plot.label")
-View(plots)
+#View(plots)
 
 #l1_name<-context_data[which(context_data$key=="Level_1"), "value"]
 level1<-
@@ -100,8 +100,8 @@ level1<-
   rename(id="level1.id",label="level1.label") %>% 
   group_by(id,label) %>%
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="level1")
-View(level1)
+  mutate(type="level1", shape="dot", color="gold")
+#View(level1)
 
 #l2_name<-context_data[which(context_data$key=="Level_2"), "value"]
 level2<-
@@ -109,8 +109,8 @@ level2<-
   rename(id="level2.id",label="level2.label") %>% 
   group_by(id,label) %>%
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="level2")
-View(level2)
+  mutate(type="level2", shape="dot", color="orange")
+#View(level2)
 
 
 # Just neighbour's
@@ -123,12 +123,12 @@ neighbours<-
   rename(label="value") %>% 
   unique() %>% 
   anti_join(., landholders, by = c("label")) %>% 
-  mutate(type="just_neighbour")
+  mutate(type="just_neighbour", shape="dot", color="gray50")
 neighbours$id<-
   neighbours %>% 
   group_indices(label) %>% 
   paste("NEI",.,sep="-")
-View(neighbours)
+#View(neighbours)
 
 
 # Other nodes
@@ -140,12 +140,12 @@ natural<-
   select(value) %>% 
   unique() %>% 
   rename(label="value") %>% 
-  mutate(type="natural")
+  mutate(type="natural", shape="dot", color="green")
 natural$id <- 
   natural %>% 
   group_indices(label) %>% 
   paste("NAT",.,sep="-")
-View(natural)
+#View(natural)
 
 anthropic<-
   base_df %>%
@@ -155,12 +155,12 @@ anthropic<-
   select(value) %>% 
   unique() %>% 
   rename(label="value") %>% 
-  mutate(type="anthropic")
+  mutate(type="anthropic", shape="rectangle", color="red")
 anthropic$id <- 
   anthropic %>% 
   group_indices(label) %>% 
   paste("ANT",.,sep="-")
-View(anthropic)
+#View(anthropic)
 
 administrative<-
   base_df %>%
@@ -170,12 +170,12 @@ administrative<-
   select(value) %>% 
   unique() %>% 
   rename(label="value") %>% 
-  mutate(type="administrative")
+  mutate(type="administrative", shape="rectangle", color="grey")
 administrative$id <- 
   administrative %>% 
   group_indices(label) %>% 
   paste("ADM",.,sep="-")
-View(administrative)
+#View(administrative)
   
 nodes<-
   landholders %>%
@@ -186,7 +186,7 @@ nodes<-
   bind_rows(natural) %>%
   bind_rows(anthropic) %>% 
   bind_rows(administrative)
-View(nodes)
+#View(nodes)
 
 # EDGES
 # Base DataFrame for building different edge lists
@@ -198,7 +198,7 @@ base_edge_list<-
   left_join(nodes,by="label") %>% 
   select(-starts_with("area"),-type) %>% 
   rename(value.id="id",value.label="label",value.type="var")
-View(base_edge_list)
+#View(base_edge_list)
 
 # EXPLICIT RELATIONSHIPS
 landholder_neighbour<-
@@ -209,7 +209,7 @@ landholder_neighbour<-
   mutate(label="neighbours",type="neighbourhood") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(landholder_neighbour)
+#View(landholder_neighbour)
 
 landholder_level1<-
   base_edge_list %>% 
@@ -218,7 +218,7 @@ landholder_level1<-
   mutate(label="is member of",type="level1-member") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(landholder_level1)
+#View(landholder_level1)
 
 
 landholder_level2<-
@@ -228,7 +228,7 @@ landholder_level2<-
   mutate(label="is member of",type="level2-member") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(landholder_level2)
+#View(landholder_level2)
 
 
 plot_landholder<-
@@ -238,7 +238,7 @@ plot_landholder<-
   mutate(label="holded by",type="landholding") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(plot_landholder)
+#View(plot_landholder)
 
 
 plot_level1<-
@@ -249,7 +249,7 @@ plot_level1<-
   mutate(label="belongs to",type="level1-part") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(plot_level1)
+#View(plot_level1)
 
 
 plot_level2<-
@@ -260,7 +260,7 @@ plot_level2<-
   mutate(label="belongs to",type="level2-part") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(plot_level2)
+#View(plot_level2)
 
 
 # EDGES EXTRACTED FROM IMPLICIT TOPOLOGY
@@ -283,7 +283,7 @@ implicit_plot_l1.final<-
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(implicit_plot_l1.final)
+#View(implicit_plot_l1.final)
 
 
 # Neighbour plots within the same level2, but not same level1
@@ -303,7 +303,7 @@ implicit_plot_l2.final<-
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(implicit_plot_l2.final)
+#View(implicit_plot_l2.final)
 
 # Neighbour plots at different l1 and l2
 implicit_plot_l3<-
@@ -323,14 +323,14 @@ implicit_plot_l3.final<-
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(implicit_plot_l3.final)
+#View(implicit_plot_l3.final)
 
 plot_plot<-
   implicit_plot_l1.final %>% 
   bind_rows(implicit_plot_l2.final) %>%
   bind_rows(implicit_plot_l3.final) %>% 
   arrange(from)
-View(plot_plot)
+#View(plot_plot)
 
 
 # Implicit relationships between level1 zones
@@ -349,7 +349,7 @@ implicit_l1_l1.final<-
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(implicit_l1_l1.final)
+#View(implicit_l1_l1.final)
 
 # Implicit relationships between level1 zones
 implicit_l2_l2<-
@@ -367,7 +367,7 @@ implicit_l2_l2.final<-
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
-View(implicit_l2_l2.final)
+#View(implicit_l2_l2.final)
 
 edges<-
   landholder_neighbour %>%
@@ -380,7 +380,7 @@ edges<-
   bind_rows(implicit_l1_l1.final) %>% 
   bind_rows(implicit_l2_l2.final) %>% 
   arrange(from)
-View(edges) # TODO: Need to aggregate unique relationships?
+#View(edges) # TODO: Need to aggregate unique relationships?
 
 # Examine the data
 head(nodes)
@@ -388,14 +388,22 @@ head(edges)
 nrow(nodes); length(unique(nodes$id))
 nrow(edges); nrow(unique(edges[,c("from", "to")]))
 
-# iGRAPH
-actors <- data.frame(name=c(landholders$id,level1$id),
-                     label=c(landholders$label,level1$label))
+# iGraphs
+actors <- data.frame(name=level1$id,
+                     label=level1$label,
+                     shape=level1$shape)
 
-relations <- data.frame(from=landholder_level1$from,
-                        to=landholder_level1$to)
-g <- graph_from_data_frame(unique(relations), directed=TRUE, vertices=actors)
-print(g, e=TRUE, v=TRUE)
+relations <- data.frame(from=implicit_l1_l1.final$from,
+                        to=implicit_l1_l1.final$to)
 
+g <- graph_from_data_frame(relations, directed=FALSE, vertices=actors)
+#print(g, e=TRUE, v=TRUE)
 data <- toVisNetworkData(g)
-visNetwork(nodes = data$nodes, edges = data$edges, labels=data$nodes$label, height = "500px", width = "100%")
+visNetwork(nodes = data$nodes, edges = data$edges, height = "500px")
+
+plot.igraph(g,vertex.size=3,layout=layout.fruchterman.reingold(g,niter=1000000))
+
+tkplot(g, edge.arrow.size=.2, edge.color="orange",
+vertex.color="orange", vertex.frame.color="#ffffff",
+vertex.label=V(g)$media, vertex.label.color="black")
+
