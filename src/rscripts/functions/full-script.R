@@ -83,14 +83,14 @@ landholders<-
   base_node_list %>% 
   group_by(landholder.id,landholder.label) %>% 
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="landholder", shape="dot", color="blue") %>% 
+  mutate(type="landholder") %>% 
   rename(id="landholder.id",label="landholder.label")
 #View(landholders)
 
 plots<-
   base_node_list %>% 
   select(starts_with("plot"),starts_with("area")) %>% 
-  mutate(type="plot",shape="dot",color="tomato") %>% 
+  mutate(type="plot") %>% 
   rename(id="plot.id",label="plot.label")
 #View(plots)
 
@@ -100,7 +100,7 @@ level1<-
   rename(id="level1.id",label="level1.label") %>% 
   group_by(id,label) %>%
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="level1", shape="dot", color="gold")
+  mutate(type="level1")
 #View(level1)
 
 #l2_name<-context_data[which(context_data$key=="Level_2"), "value"]
@@ -109,7 +109,7 @@ level2<-
   rename(id="level2.id",label="level2.label") %>% 
   group_by(id,label) %>%
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="level2", shape="dot", color="orange")
+  mutate(type="level2")
 #View(level2)
 
 
@@ -123,7 +123,7 @@ neighbours<-
   rename(label="value") %>% 
   unique() %>% 
   anti_join(., landholders, by = c("label")) %>% 
-  mutate(type="just_neighbour", shape="dot", color="gray50")
+  mutate(type="just_neighbour")
 neighbours$id<-
   neighbours %>% 
   group_indices(label) %>% 
@@ -140,7 +140,7 @@ natural<-
   select(value) %>% 
   unique() %>% 
   rename(label="value") %>% 
-  mutate(type="natural", shape="dot", color="green")
+  mutate(type="natural")
 natural$id <- 
   natural %>% 
   group_indices(label) %>% 
@@ -155,7 +155,7 @@ anthropic<-
   select(value) %>% 
   unique() %>% 
   rename(label="value") %>% 
-  mutate(type="anthropic", shape="rectangle", color="red")
+  mutate(type="anthropic")
 anthropic$id <- 
   anthropic %>% 
   group_indices(label) %>% 
@@ -170,7 +170,7 @@ administrative<-
   select(value) %>% 
   unique() %>% 
   rename(label="value") %>% 
-  mutate(type="administrative", shape="rectangle", color="grey")
+  mutate(type="administrative")
 administrative$id <- 
   administrative %>% 
   group_indices(label) %>% 
@@ -390,8 +390,7 @@ nrow(edges); nrow(unique(edges[,c("from", "to")]))
 
 # iGraphs
 actors <- data.frame(name=level1$id,
-                     label=level1$label,
-                     shape=level1$shape)
+                     label=level1$label)
 
 relations <- data.frame(from=implicit_l1_l1.final$from,
                         to=implicit_l1_l1.final$to)
