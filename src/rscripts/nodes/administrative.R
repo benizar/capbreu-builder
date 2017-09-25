@@ -14,10 +14,10 @@ library(dplyr)
 library(tidyr)
 
 
-base_df<-read.csv(args[1])
+schema_df<-read.csv(args[1])
 
 administrative<-
-  base_df %>%
+  schema_df %>%
   filter(var_category!="Landmetrics") %>% 
   select(-var_category) %>% 
   filter(var=="Administrative") %>% 

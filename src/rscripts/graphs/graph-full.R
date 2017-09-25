@@ -9,17 +9,13 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-
 library(magrittr)
-library(yaml)
-library(dplyr)
+library(igraph)
 
-yaml <- yaml.load_file(args[1])
 
-# Context data
-context_df <-
-  yaml %$%
-  data.frame(Landmetrics,Aggregations) %>% 
-  gather()
+nodes<-read.csv(args[1])
+edges<-read.csv(args[2])
 
-write.csv(context_df, file = args[2])
+g <- graph_from_data_frame(edges, directed=FALSE, vertices=nodes)
+
+write_graph(g, args[3], "dot")

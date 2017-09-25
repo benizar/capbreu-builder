@@ -16,12 +16,12 @@ library(tidyr)
 library(reshape2) # Reshape lists is not implemented in tidyr
 
 
-base_df<-read.csv(args[1])
+schema_df<-read.csv(args[1])
 context_df<-read.csv(args[2])
 
 # Base DataFrame for building different node lists
 base_node_list <- 
-  base_df %>% 
+  schema_df %>% 
   filter(var_category != 'Limits') %>% 
   dcast(landholder.id+landholder.label+
           level1.id+level1.label+

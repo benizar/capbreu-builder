@@ -14,10 +14,11 @@ library(dplyr)
 library(tidyr)
 
 
-base_df<-read.csv(args[1])
+schema      <-read.csv(args[1])
+landholders <-read.csv(args[2])
 
 neighbours<-
-  base_df %>%
+  schema %>%
   filter(var_category!="Landmetrics") %>% 
   select(-var_category) %>% 
   filter(var=="Neighbours") %>% 
@@ -31,4 +32,4 @@ neighbours$id<-
   group_indices(label) %>% 
   paste("NEI",.,sep="-")
 
-write.csv(neighbours, file = args[2])
+write.csv(neighbours, file = args[3])

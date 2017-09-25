@@ -15,24 +15,42 @@ library(dplyr)
 library(tidyr)
 
 base_edge_list<-read.csv(args[1])
-flipped_edges<-read.csv(args[2])
+flipped_edge_list<-read.csv(args[2])
+
+# TODO: read variables from file instead of calculating again here...
+#plot_plot_l1.temp<-read.csv(args[3])
+
+plot_plot_l1.temp<-
+  flipped_edge_list %>% 
+  filter(value.type=="Neighbours") %>% 
+  select(-value.type) %>% 
+  inner_join(.,base_edge_list,by=c("value.id","landholder.id","level1.id","level2.id")) %>%
+  filter(plot.id.x != plot.id.y) %>% 
+  select(starts_with("plot.id"))
+
+plot_plot_l1.temp<- 
+  unique(data.frame(t(apply(plot_plot_l1.temp,1,sort))))
+
 
 # Neighbour plots within the same level2, but not same level1
-implicit_plot_l2<-
-  flipped_edges %>% 
+plot_plot_l2.temp<-
+  flipped_edge_list %>% 
   filter(value.type=="Neighbours") %>% 
   select(-value.type) %>% 
   inner_join(.,base_edge_list,by=c("value.id","landholder.id","level2.id")) %>%
   filter(plot.id.x != plot.id.y) %>% 
   select(starts_with("plot.id"))
-implicit_plot_l2<-
-  unique(data.frame(t(apply(implicit_plot_l2,1,sort)))) %>% 
-  setdiff(implicit_plot_l1)
-implicit_plot_l2.final<-
-  implicit_plot_l2 %>% 
+
+plot_plot_l2.temp<-
+  unique(data.frame(t(apply(plot_plot_l2.temp,1,sort)))) %>% 
+  setdiff(plot_plot_l1.temp)
+
+plot_plot_l2<-
+  plot_plot_l2.temp %>% 
   mutate(label="touches",type="plot-border-l1") %>% 
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(implicit_plot_l2.final, file = args[3])
+write.csv(plot_plot_l2, file = args[3])
+

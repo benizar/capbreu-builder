@@ -14,11 +14,12 @@ library(yaml)
 library(dplyr)
 library(tidyr)
 
-base_df<-read.csv(args[1])
+schema <-read.csv(args[1])
+nodes  <-read.csv(args[2])
 
 # Base DataFrame for building different edge lists
 base_edge_list<-
-  base_df %>%
+  schema %>%
   filter(var_category!="Landmetrics") %>% 
   select(-var_category) %>% 
   rename(label="value") %>% 
@@ -26,4 +27,4 @@ base_edge_list<-
   select(-starts_with("area"),-type) %>% 
   rename(value.id="id",value.label="label",value.type="var")
 
-write.csv(base_edge_list, file = args[2])
+write.csv(base_edge_list, file = args[3])

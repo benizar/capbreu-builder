@@ -14,14 +14,15 @@ library(yaml)
 library(dplyr)
 library(tidyr)
 
-plot_plot_l1<-read.csv(args[1])
-plot_plot_l2<-read.csv(args[2])
-plot_plot_l3<-read.csv(args[3])
+base_edge_list<-read.csv(args[1])
 
-plot_plot<-
-  plot_plot_l1 %>% 
-  bind_rows(plot_plot_l2) %>%
-  bind_rows(plot_plot_l3) %>% 
+plot_landholder<-
+  base_edge_list %>% 
+  select(landholder.id, plot.id) %>%
+  distinct() %>% 
+  rename(from="landholder.id",to="plot.id") %>% 
+  mutate(label="holded by",type="landholding") %>% 
+  select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(plot_plot, file = args[4])
+write.csv(plot_landholder, file = args[2])

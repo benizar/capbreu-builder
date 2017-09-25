@@ -14,25 +14,25 @@ library(yaml)
 library(dplyr)
 library(tidyr)
 
-base_edge_list <-read.csv(args[1])
-flipped_edges  <-read.csv(args[2])
+base_edge_list<-read.csv(args[1])
+flipped_edge_list<-read.csv(args[2])
 
-
-# Implicit relationships between level1 zones
-implicit_l1_l1<-
-  flipped_edges %>% 
+plot_plot_l1.temp<-
+  flipped_edge_list %>% 
   filter(value.type=="Neighbours") %>% 
   select(-value.type) %>% 
-  inner_join(.,base_edge_list,by=c("value.id","landholder.id")) %>%
-  filter(level1.id.x != level1.id.y) %>% 
-  select(starts_with("level1.id"))
-implicit_l1_l1<- 
-  unique(data.frame(t(apply(implicit_l1_l1,1,sort))))
-implicit_l1_l1.final<-
-  implicit_l1_l1 %>% 
-  mutate(label="touches",type="level1-border") %>% 
+  inner_join(.,base_edge_list,by=c("value.id","landholder.id","level1.id","level2.id")) %>%
+  filter(plot.id.x != plot.id.y) %>% 
+  select(starts_with("plot.id"))
+
+plot_plot_l1.temp<- 
+  unique(data.frame(t(apply(plot_plot_l1.temp,1,sort))))
+
+plot_plot_l1<-
+  plot_plot_l1.temp %>% 
+  mutate(label="touches",type="plot-border") %>% 
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(implicit_l1_l1, file = args[3])
+write.csv(plot_plot_l1, file = args[3])

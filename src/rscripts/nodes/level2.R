@@ -18,9 +18,9 @@ base_node_list<-read.csv(args[1])
 
 level2<-
   base_node_list %>% 
-  rename(id="level1.id",label="level1.label") %>% 
+  rename(id="level2.id",label="level2.label") %>% 
   group_by(id,label) %>%
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
   mutate(type="level2")
 
-write.csv(level1, file = args[2])
+write.csv(level2, file = args[2])

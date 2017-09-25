@@ -13,13 +13,14 @@ if (length(args)==0) {
 library(magrittr)
 library(yaml)
 library(dplyr)
+library(tidyr)
 
 yaml <- yaml.load_file(args[1])
 
-# Project data
-proj_df <-
+# Context data
+context_df <-
   yaml %$%
-  data.frame(Structure,Title,Description) %>% 
+  data.frame(Landmetrics,Aggregations) %>% 
   gather()
 
-write.csv(proj_df, file = args[2])
+write.csv(context_df, file = args[2])

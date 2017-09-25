@@ -10,22 +10,22 @@ if (length(args)==0) {
 }
 
 library(magrittr)
-library(yaml)
 library(dplyr)
 library(tidyr)
 
-base_df<-read.csv(args[1])
-base_df<-read.csv(args[2])
-base_df<-read.csv(args[3])
-base_df<-read.csv(args[4])
-base_df<-read.csv(args[5])
-base_df<-read.csv(args[6])
-base_df<-read.csv(args[7])
-base_df<-read.csv(args[8])
-base_df<-read.csv(args[9])
-base_df<-read.csv(args[10])
-base_df<-read.csv(args[11])
-base_df<-read.csv(args[12])
+landholder_neighbour <-read.csv(args[1])
+landholder_level1    <-read.csv(args[2])
+landholder_level2    <-read.csv(args[3])
+plot_plot            <-read.csv(args[4])
+plot_level2          <-read.csv(args[5])
+plot_level1          <-read.csv(args[6])
+plot_landholder      <-read.csv(args[7])
+plot_natural         <-read.csv(args[8])
+plot_anthropic       <-read.csv(args[9])
+plot_administrative  <-read.csv(args[10])
+l1_l1                <-read.csv(args[11])
+l2_l2                <-read.csv(args[12])
+
 
 edges<-
   landholder_neighbour %>%
@@ -38,8 +38,8 @@ edges<-
   bind_rows(plot_natural) %>% 
   bind_rows(plot_anthropic) %>% 
   bind_rows(plot_administrative) %>% 
-  bind_rows(implicit_l1_l1.final) %>% 
-  bind_rows(implicit_l2_l2.final) %>% 
+  bind_rows(l1_l1) %>% 
+  bind_rows(l2_l2) %>% 
   arrange(from)
 
-write.csv(base_edge_list, file = args[13])
+write.csv(edges, file = args[13])

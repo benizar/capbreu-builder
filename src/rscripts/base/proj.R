@@ -9,19 +9,17 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
+
 library(magrittr)
 library(yaml)
 library(dplyr)
 library(tidyr)
 
-plot_plot_l1<-read.csv(args[1])
-plot_plot_l2<-read.csv(args[2])
-plot_plot_l3<-read.csv(args[3])
+yaml <- yaml.load_file(args[1])
 
-plot_plot<-
-  plot_plot_l1 %>% 
-  bind_rows(plot_plot_l2) %>%
-  bind_rows(plot_plot_l3) %>% 
-  arrange(from)
+proj <-
+  yaml %$%
+  data.frame(Structure,Title,Description) %>% 
+  gather()
 
-write.csv(plot_plot, file = args[4])
+write.csv(proj, file = args[2])
