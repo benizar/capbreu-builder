@@ -30,4 +30,4 @@ anthropic$id <-
   group_indices(label) %>% 
   paste("ANT",.,sep="-")
 
-write.csv(anthropic, file = args[2])
+write.csv(anthropic, file = args[2], row.names = FALSE)

@@ -27,4 +27,4 @@ base_edge_list<-
   select(-starts_with("area"),-type) %>% 
   rename(value.id="id",value.label="label",value.type="var")
 
-write.csv(base_edge_list, file = args[3])
+write.csv(base_edge_list, file = args[3], row.names = FALSE)

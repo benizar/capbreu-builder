@@ -20,4 +20,4 @@ flipped_edges<-
   base_edge_list %>% 
   rename(value.id="landholder.id",value.label="landholder.label",landholder.id="value.id",landholder.label="value.label")
 
-write.csv(flipped_edges, file = args[2])
+write.csv(flipped_edges, file = args[2], row.names = FALSE)

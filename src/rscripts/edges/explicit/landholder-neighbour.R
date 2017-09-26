@@ -25,4 +25,4 @@ landholder_neighbour<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(landholder_neighbour, file = args[2])
+write.csv(landholder_neighbour, file = args[2], row.names = FALSE)

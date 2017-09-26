@@ -42,4 +42,4 @@ edges<-
   bind_rows(l2_l2) %>% 
   arrange(from)
 
-write.csv(edges, file = args[13])
+write.csv(edges, file = args[13], row.names = FALSE)

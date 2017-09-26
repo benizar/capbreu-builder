@@ -22,4 +22,4 @@ plots<-
   mutate(type="plot") %>% 
   rename(id="plot.id",label="plot.label")
 
-write.csv(plots, file = args[2])
+write.csv(plots, file = args[2], row.names = FALSE)

@@ -30,4 +30,4 @@ administrative$id <-
   group_indices(label) %>% 
   paste("ADM",.,sep="-")
 
-write.csv(administrative, file = args[2])
+write.csv(administrative, file = args[2], row.names = FALSE)

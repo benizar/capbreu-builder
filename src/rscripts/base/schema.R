@@ -60,4 +60,4 @@ base_df<-
          level2.id, level2.label)
 
 
-write.csv(base_df, file = args[2])
+write.csv(base_df, file = args[2], row.names = FALSE)

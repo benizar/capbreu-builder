@@ -35,4 +35,4 @@ plot_plot_l1<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(plot_plot_l1, file = args[3])
+write.csv(plot_plot_l1, file = args[3], row.names = FALSE)

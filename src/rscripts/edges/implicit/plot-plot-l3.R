@@ -70,5 +70,5 @@ plot_plot_l3<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(plot_plot_l3, file = args[3])
+write.csv(plot_plot_l3, file = args[3], row.names = FALSE)
 

@@ -26,4 +26,4 @@ plot_natural<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(plot_natural, file = args[2])
+write.csv(plot_natural, file = args[2], row.names = FALSE)

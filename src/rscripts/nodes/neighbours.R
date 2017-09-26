@@ -32,4 +32,4 @@ neighbours$id<-
   group_indices(label) %>% 
   paste("NEI",.,sep="-")
 
-write.csv(neighbours, file = args[3])
+write.csv(neighbours, file = args[3], row.names = FALSE)

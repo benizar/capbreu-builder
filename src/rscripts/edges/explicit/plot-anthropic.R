@@ -26,4 +26,4 @@ plot_anthropic<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(plot_anthropic, file = args[2])
+write.csv(plot_anthropic, file = args[2], row.names = FALSE)

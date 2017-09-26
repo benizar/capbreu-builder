@@ -24,4 +24,4 @@ landholder_level1<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(landholder_level1, file = args[2])
+write.csv(landholder_level1, file = args[2], row.names = FALSE)

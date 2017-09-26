@@ -52,5 +52,5 @@ plot_plot_l2<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(plot_plot_l2, file = args[3])
+write.csv(plot_plot_l2, file = args[3], row.names = FALSE)
 

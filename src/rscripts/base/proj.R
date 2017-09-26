@@ -22,4 +22,4 @@ proj <-
   data.frame(Structure,Title,Description) %>% 
   gather()
 
-write.csv(proj, file = args[2])
+write.csv(proj, file = args[2], row.names = FALSE)

@@ -37,4 +37,4 @@ l2_l2<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(l2_l2, file = args[3])
+write.csv(l2_l2, file = args[3], row.names = FALSE)

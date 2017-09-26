@@ -23,4 +23,4 @@ level2<-
   summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
   mutate(type="level2")
 
-write.csv(level2, file = args[2])
+write.csv(level2, file = args[2], row.names = FALSE)

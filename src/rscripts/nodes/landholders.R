@@ -23,4 +23,4 @@ landholders<-
   mutate(type="landholder") %>% 
   rename(id="landholder.id",label="landholder.label")
 
-write.csv(landholders, file = args[2])
+write.csv(landholders, file = args[2], row.names = FALSE)

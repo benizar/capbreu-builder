@@ -30,4 +30,4 @@ natural$id <-
   group_indices(label) %>% 
   paste("NAT",.,sep="-")
 
-write.csv(natural, file = args[2])
+write.csv(natural, file = args[2], row.names = FALSE)

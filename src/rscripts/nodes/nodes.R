@@ -34,4 +34,4 @@ nodes<-
   bind_rows(anthropic) %>% 
   bind_rows(administrative)
 
-write.csv(plots, file = args[9])
+write.csv(nodes, file = args[9], row.names = FALSE)

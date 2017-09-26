@@ -33,4 +33,4 @@ base_node_list <-
   mutate(area_m2=area * as.numeric(select(filter(context_df,key=="Area_Conv"),value)))
 
 
-write.csv(base_node_list, file = args[3])
+write.csv(base_node_list, file = args[3], row.names = FALSE)

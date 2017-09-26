@@ -23,4 +23,4 @@ context_df <-
   data.frame(Landmetrics,Aggregations) %>% 
   gather()
 
-write.csv(context_df, file = args[2])
+write.csv(context_df, file = args[2], row.names = FALSE)

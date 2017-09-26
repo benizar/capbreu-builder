@@ -4,7 +4,7 @@ library(dplyr)
 library(tidyr)
 library(reshape2) # Reshape lists is not implemented in tidyr
 
-yaml <- yaml.load_file("git/capbreu-builder/src/data/capbreu_full.yml")
+yaml <- yaml.load_file("src/data/capbreu_full.yml")
 
 # Project data
 proj_data <-
@@ -437,8 +437,8 @@ relations <- data.frame(from=implicit_l1_l1.final$from,
 
 g <- graph_from_data_frame(relations, directed=FALSE, vertices=actors)
 #print(g, e=TRUE, v=TRUE)
-# data <- toVisNetworkData(g)
-# visNetwork(nodes = data$nodes, edges = data$edges, height = "500px")
+data <- toVisNetworkData(g)
+visNetwork(nodes = data$nodes, edges = data$edges, height = "800px")
 
 V(g)$size <- level1$area*0.7
 V(g)$frame.color <- "white"

@@ -24,4 +24,4 @@ plot_plot<-
   bind_rows(plot_plot_l3) %>% 
   arrange(from)
 
-write.csv(plot_plot, file = args[4])
+write.csv(plot_plot, file = args[4], row.names = FALSE)
