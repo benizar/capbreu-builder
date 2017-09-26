@@ -6,8 +6,8 @@ rs_schema  := $(rscripts_base_dir)/schema.R
 
 
 # TARGETS
-csv_context := $(patsubst $(rscripts_base_dir)/%.R,$(builds_dir)/%.csv,$(rs_context))
-csv_proj    := $(patsubst $(rscripts_base_dir)/%.R,$(builds_dir)/%.csv,$(rs_proj))
-csv_schema  := $(patsubst $(rscripts_base_dir)/%.R,$(builds_dir)/%.csv,$(rs_schema))
+csv_context := $(patsubst $(rscripts_base_dir)/%.R,$(base_dir)/%.csv,$(rs_context))
+csv_proj    := $(patsubst $(rscripts_base_dir)/%.R,$(base_dir)/%.csv,$(rs_proj))
+csv_schema  := $(patsubst $(rscripts_base_dir)/%.R,$(base_dir)/%.csv,$(rs_schema))
 
 

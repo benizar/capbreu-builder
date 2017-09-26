@@ -10,12 +10,15 @@ if (length(args)==0) {
 }
 
 
+
+context <- function(input.yaml, output.csv){
+
 library(magrittr)
 library(yaml)
 library(dplyr)
 library(tidyr)
 
-yaml <- yaml.load_file(args[1])
+yaml <- yaml.load_file(input.yaml)
 
 # Context data
 context_df <-
@@ -23,4 +26,19 @@ context_df <-
   data.frame(Landmetrics,Aggregations) %>% 
   gather()
 
-write.csv(context_df, file = args[2], row.names = FALSE)
+write.csv(context_df, file = output.csv, row.names = FALSE)
+
+#return(object)
+
+}
+
+
+options(warn=-1)
+#options(warn=0)
+
+suppressMessages(
+  context(args[1],args[2])
+)
+
+
+

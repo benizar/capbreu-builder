@@ -28,29 +28,29 @@ rs_edges := $(rscripts_edges_dir)/edges.R
 
 
 # TARGETS
-csv_base_edge_list := $(patsubst $(rscripts_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_base_edge_list))
+csv_base_edge_list := $(patsubst $(rscripts_edges_dir)/%.R,$(edges_dir)/%.csv,$(rs_base_edge_list))
 
 # Explicit
-csv_landholder_level1    := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_landholder_level1))
-csv_landholder_level2    := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_landholder_level2))
-csv_landholder_neighbour := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_landholder_neighbour))
-csv_plot_administrative  := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_administrative))
-csv_plot_anthropic       := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_anthropic))
-csv_plot_level1          := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_level1))
-csv_plot_level2          := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_level2))
-csv_plot_landholder      := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_landholder))
-csv_plot_natural         := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_natural))
+csv_landholder_level1    := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_landholder_level1))
+csv_landholder_level2    := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_landholder_level2))
+csv_landholder_neighbour := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_landholder_neighbour))
+csv_plot_administrative  := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_plot_administrative))
+csv_plot_anthropic       := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_plot_anthropic))
+csv_plot_level1          := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_plot_level1))
+csv_plot_level2          := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_plot_level2))
+csv_plot_landholder      := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_plot_landholder))
+csv_plot_natural         := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(explicit_edges_dir)/%.csv,$(rs_plot_natural))
 
 # Implicit
-csv_flipped      := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_flipped))
-csv_l1_l1        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_l1_l1))
-csv_l2_l2        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_l2_l2))
-csv_plot_plot_l1 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_plot_l1))
-csv_plot_plot_l2 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_plot_l2))
-csv_plot_plot_l3 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_plot_l3))
-csv_plot_plot    := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_plot_plot))
+csv_flipped      := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_flipped))
+csv_l1_l1        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_l1_l1))
+csv_l2_l2        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_l2_l2))
+csv_plot_plot_l1 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_plot_plot_l1))
+csv_plot_plot_l2 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_plot_plot_l2))
+csv_plot_plot_l3 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_plot_plot_l3))
+csv_plot_plot    := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_plot_plot))
 
 # All edges
-csv_edges := $(patsubst $(rscripts_edges_dir)/%.R,$(builds_dir)/%.csv,$(rs_edges))
+csv_edges := $(patsubst $(rscripts_edges_dir)/%.R,$(edges_dir)/%.csv,$(rs_edges))
 
 
