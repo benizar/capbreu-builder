@@ -422,33 +422,56 @@ head(edges)
 nrow(nodes); length(unique(nodes$id))
 nrow(edges); nrow(unique(edges[,c("from", "to")]))
 
+
+
+base_edge_list<-read.csv("builds/edges/base-edge-list.csv")
+level1_mountains<-
+  base_edge_list %>% 
+  filter(value.type=="mountains") %>%
+  select(level1.id,value.id) %>%
+  distinct() %>% 
+  rename(from="level1.id",to="value.id") %>% 
+  mutate(label="touches",type="level1-mountains-border") %>% 
+  select(from,to,label,type) %>% 
+  arrange(from)
+
 # GRAPHS
 library(igraph)
 library(visNetwork)
 library(DiagrammeR)
 
-# iGraphs
-actors <- data.frame(name=level1$id,
-                     label=level1$label,
-                     size=level1$area)
+nodes<-read.csv("builds/nodes/nodes.csv")
+nodes<-
+  nodes %>% 
+  filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
+  rename(group="type",size="area")
 
-relations <- data.frame(from=implicit_l1_l1.final$from,
-                        to=implicit_l1_l1.final$to)
+edges<-read.csv("builds/edges/edges.csv")
+edges<-
+  edges %>% 
+  filter(type=='level1-border'|type=='level1-admin-border'|type=='level1-anthropic-border'|type=='level1-rivers-border'|type=='level1-mountains-border') %>% 
+  select(from,to,type)
 
-g <- graph_from_data_frame(relations, directed=FALSE, vertices=actors)
-#print(g, e=TRUE, v=TRUE)
-data <- toVisNetworkData(g)
-visNetwork(nodes = data$nodes, edges = data$edges, height = "800px")
 
-V(g)$size <- level1$area*0.7
-V(g)$frame.color <- "white"
-V(g)$color <- "orange"
-#V(g)$label <- "" 
-E(g)$arrow.mode <- 0
+visNetwork(nodes, edges, height = "800px", width = "100%") %>%
+  visGroups(groupname = "level1", 
+            color = list(background = "orange", 
+                         border = "white",
+                         highlight = "yellow"), 
+            shape = "dot") %>% 
+  visGroups(groupname = "administrative", 
+            color = "red", 
+            shape = "diamond") %>%
+  visGroups(groupname = "anthropic", 
+            color = "gold", 
+            shape = "square") %>%
+  visGroups(groupname = "mountains", 
+            color = "green",   
+            shape = "triangle") %>%
+  visGroups(groupname = "rivers",    color = "lightblue",    shape = "dot") %>%
+  visEdges(shadow = TRUE,
+           color = list(color = "grey", highlight = "red")) %>%
+  visLayout(randomSeed = 12) %>% 
+  visPhysics(solver = "barnesHut")
 
-plot(g)
-
-tkplot(g, edge.arrow.size=.2, edge.color="orange",
-vertex.color="orange", vertex.frame.color="#ffffff",
-vertex.label=V(g)$media, vertex.label.color="black")
 

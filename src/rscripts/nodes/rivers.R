@@ -16,18 +16,18 @@ library(tidyr)
 
 schema_df<-read.csv(args[1])
 
-natural<-
+rivers<-
   schema_df %>%
   filter(var_category!="Landmetrics") %>% 
   select(-var_category) %>% 
-  filter(var=="Natural") %>% 
+  filter(var=="Rivers") %>% 
   select(value) %>% 
   unique() %>% 
   rename(label="value") %>% 
-  mutate(type="natural")
-natural$id <- 
-  natural %>% 
+  mutate(type="rivers")
+rivers$id <- 
+  rivers %>% 
   group_indices(label) %>% 
-  paste("NAT",.,sep="-")
+  paste("RIV",.,sep="-")
 
-write.csv(natural, file = args[2], row.names = FALSE)
+write.csv(rivers, file = args[2], row.names = FALSE)

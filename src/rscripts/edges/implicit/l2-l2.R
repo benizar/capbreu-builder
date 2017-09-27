@@ -18,7 +18,7 @@ base_edge_list <-read.csv(args[1])
 flipped_edge_list  <-read.csv(args[2])
 
 
-# plot relationships between level2 zones
+# Implicit relationships between level2 zones
 l2_l2.temp<-
   flipped_edge_list %>% 
   filter(value.type=="Neighbours") %>% 

@@ -16,14 +16,14 @@ library(tidyr)
 
 base_edge_list<-read.csv(args[1])
 
-plot_natural<-
+level1_mountains<-
   base_edge_list %>% 
-  filter(value.type=="Natural") %>%
-  select(plot.id,value.id) %>%
+  filter(value.type=="Mountains") %>%
+  select(level1.id,value.id) %>%
   distinct() %>% 
-  rename(from="plot.id",to="value.id") %>% 
-  mutate(label="touches",type="plot-natural-border") %>% 
+  rename(from="level1.id",to="value.id") %>% 
+  mutate(label="touches",type="level1-mountains-border") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(plot_natural, file = args[2], row.names = FALSE)
+write.csv(level1_mountains, file = args[2], row.names = FALSE)

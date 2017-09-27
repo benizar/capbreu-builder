@@ -55,8 +55,9 @@ Landholders:
             - Gregorio Ortiz Mayor
             - Gregorio Alberola
             - Josep Climent de Jaime
-          Natural:
+          Mountains:
             - Montaña de la señoria
+          Rivers:
             - Rio de Tagarina
         Landmetrics:
           Area: 15
@@ -68,7 +69,7 @@ Landholders:
             - Amaro Seva
             - Josep Alberola
             - Gregorio Garcia
-          Natural:
+          Mountains:
             - Montaña de la señoria
         Landmetrics:
           Area: 6
@@ -107,7 +108,7 @@ Landholders:
             - Josep Gomis
             - Tomas Molla
             - Felipe Soler
-          Natural: 
+          Mountains: 
             - Montaña de la señoria
         Landmetrics:
           Area: 6
@@ -138,7 +139,7 @@ Landholders:
             - Josep y Vicente Canto
             - Francisco Gomis Mayor
             - Andres Ortiz de Francisco o 34
-          Natural:
+          Rivers:
             - Barranco
         Landmetrics:
           Area: 5
@@ -232,7 +233,7 @@ Landholders:
             - "63"
             - Juan Reig
             - Jaime Berenguer
-          Natural:
+          Rivers:
             - Rio
         Landmetrics:
           Area: 9
@@ -245,7 +246,7 @@ Landholders:
             - Francisco Seva de Juan
             - Amaro Seva
             - que linda con la Torreta 23
-          Natural:
+          Mountains:
             - Montes señoria
         Landmetrics:
           Area: 9
@@ -257,7 +258,7 @@ Landholders:
             - Josep Gomis
             - Josep Olcina Mayor
             - Francisco Seva de Juan
-          Natural:
+          Mountains:
             - Montes señoria
           Administrative:
             - M Guadalest
@@ -273,7 +274,7 @@ Landholders:
             - Vicente Soler Mayor
             - Estacio Garcia
             - Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
-          Natural:
+          Mountains:
             - Montes señoria
         Landmetrics:
           Area: 7
@@ -318,7 +319,7 @@ Landholders:
             - Dorotea Soler
             - Josep Climent de Jaime
             - Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
-          Natural:
+          Mountains:
             - Montaña de la señoria
         Landmetrics:
           Area: 10
@@ -372,7 +373,7 @@ Landholders:
             - Josep Climent de Jaime
             - Josep Alberola
             - Viuda de Garcia
-          Natural:
+          Rivers:
             - Rio
         Landmetrics:
           Area: 3
@@ -388,7 +389,7 @@ Landholders:
             - Josep Gomis
             - Josep Olcina Mayor
             - Josep Alberola
-          Natural:
+          Rivers:
             - Barranco
         Landmetrics:
           Area: 10
@@ -407,7 +408,7 @@ Landholders:
             - Josep Alberola
             - Juan Reig
             - Bartolome Alberola
-          Natural:
+          Rivers:
             - Aguavesante
         Landmetrics:
           Area: 8
@@ -423,8 +424,9 @@ Landholders:
             - Pedro Juan Cerda
             - Lorenzo Perez Mayor
             - Francisco Seva de Juan
-          Natural:
+          Mountains:
             - Montaña de la señoria
+          Rivers:
             - agua dicha el badall en medio
         Landmetrics:
           Area: 16
@@ -442,7 +444,7 @@ Landholders:
             - Diego Cerda
             - Francisco Cerda de Juan
             - Jaime Linares
-          Natural:
+          Mountains:
             - Montaña de la señoria
         Landmetrics:
           Area: 9
@@ -478,7 +480,7 @@ Landholders:
             - Juan Seva
             - Josep Olcina Mayor
             - Miguel Buades
-          Natural:
+          Rivers:
             - Barranco
         Landmetrics:
           Area: 10
@@ -518,7 +520,7 @@ Landholders:
             - Estacio Garcia
             - Diego Cerda
             - Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
-          Natural:
+          Rivers:
             - Rio
         Landmetrics:
           Area: 4
@@ -639,8 +641,9 @@ Landholders:
             - Lorenzo Perez Mayor
             - Bautista Berenguer
             - Amaro Seva
-          Natural:
+          Rivers:
             - Barranquito del Morral
+          Mountains:
             - Montaña de la señoria
         Landmetrics:
           Area: 4
@@ -655,7 +658,7 @@ Landholders:
             - Salvador Cerda
             - Diego Cerda
             - Dorotea Soler
-          Natural:
+          Rivers:
             - Barranco en medio
         Landmetrics:
           Area: 10
@@ -670,7 +673,7 @@ Landholders:
             - Nadal Soler
             - Felipe Soler
             - Gregorio y Francisco Ortiz
-          Natural:
+          Rivers:
             - Barranco
         Landmetrics:
           Area: 5
@@ -684,7 +687,7 @@ Landholders:
           Neighbours:
             - Salvador Cerda
             - Jaime Linares
-          Natural:
+          Mountains:
             - Montaña de la señoria
           Administrative:
             - M Guadalest
@@ -718,7 +721,7 @@ Landholders:
             - Jaime Berenguer
             - "120"
             - Juan Reig
-          Natural:
+          Rivers:
             - Aguavesante
         Landmetrics:
           Area: 8
@@ -733,7 +736,7 @@ Landholders:
             - Josep Pisqueta
             - Josep Climent de Jaime
             - Francisco Giner
-          Natural:
+          Rivers:
             - Rio
         Landmetrics:
           Area: 5
@@ -786,7 +789,7 @@ Landholders:
             - Juan Seva
             - Jaime Linares
             - Jaime Soler
-          Natural:
+          Rivers:
             - Rio
         Landmetrics:
           Area: 30
@@ -798,7 +801,7 @@ Landholders:
             - Gregorio Ortiz Mayor
             - Juan Seva
             - Salvador Cerda
-          Natural:
+          Rivers:
             - Rio
         Landmetrics:
           Area: 6
@@ -810,7 +813,7 @@ Landholders:
             - Lorenzo Perez Mayor
             - Amaro Seva
             - Gregorio Ortiz Mayor
-          Natural:
+          Rivers:
             - Rio
         Landmetrics:
           Area: 3
@@ -827,7 +830,7 @@ Landholders:
             - Salvador Seva
             - Andres Giner
             - Salvador Cerda
-          Natural:
+          Rivers:
             - Barranco en medio
         Landmetrics:
           Area: 15
@@ -891,8 +894,8 @@ Landholders:
             - Bautista Berenguer
             - Josep Climent de Jaime
             - Francisco Giner
-          Natural:
-            - barranco en medio
+          Rivers:
+            - Barranco en medio
         Landmetrics:
           Area: 13
 

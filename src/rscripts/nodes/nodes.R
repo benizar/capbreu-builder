@@ -19,9 +19,10 @@ neighbours     <-read.csv(args[2])
 plots          <-read.csv(args[3])
 level1         <-read.csv(args[4])
 level2         <-read.csv(args[5])
-natural        <-read.csv(args[6])
-anthropic      <-read.csv(args[7])
-administrative <-read.csv(args[8])
+mountains        <-read.csv(args[6])
+rivers        <-read.csv(args[7])
+anthropic      <-read.csv(args[8])
+administrative <-read.csv(args[9])
 
 
 nodes<-
@@ -30,8 +31,9 @@ nodes<-
   bind_rows(plots) %>%
   bind_rows(level1) %>%
   bind_rows(level2) %>%
-  bind_rows(natural) %>%
+  bind_rows(mountains) %>%
+  bind_rows(rivers) %>%
   bind_rows(anthropic) %>% 
   bind_rows(administrative)
 
-write.csv(nodes, file = args[9], row.names = FALSE)
+write.csv(nodes, file = args[10], row.names = FALSE)
