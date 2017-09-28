@@ -1,13 +1,28 @@
 
-# RSCRIPTS
-rs_context := $(rscripts_base_dir)/context.R
-rs_proj    := $(rscripts_base_dir)/proj.R
-rs_schema  := $(rscripts_base_dir)/schema.R
+# rs
+rs_base := $(wildcard $(rs_base_dir)/*.R)
+
+#-------------
+# BUILD RULES
+#-------------
+define build-base-rule
+$(base_dir)/$(basename $(notdir $1)).csv: $1 $(project_data) | checkdirs
+	@echo ''
+	@echo 'Runing Rscript $$(<F)...'
+	@$(RUN_RSCRIPT) $$< $$(filter-out $$<, $$^) $$@
+	@echo 'Created $$@ --> OK.'
+
+base_targets+= $(base_dir)/$(basename $(notdir $1)).csv
+
+endef
 
 
-# TARGETS
-csv_context := $(patsubst $(rscripts_base_dir)/%.R,$(base_dir)/%.csv,$(rs_context))
-csv_proj    := $(patsubst $(rscripts_base_dir)/%.R,$(base_dir)/%.csv,$(rs_proj))
-csv_schema  := $(patsubst $(rscripts_base_dir)/%.R,$(base_dir)/%.csv,$(rs_schema))
 
+# Build rules foreach language, foreach template
+$(foreach x,$(rs_base), \
+	$(eval $(call build-base-rule,$(x))) \
+)
+
+## Builds base tables from source yaml
+build-base: $(base_targets)
 
