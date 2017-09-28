@@ -18,23 +18,23 @@ base_edge_list <-read.csv(args[1])
 flipped_edge_list  <-read.csv(args[2])
 
 
-# Implicit relationships between level1 zones
-l1_l1.temp<-
+# Implicit relationships between level2 zones
+level2_level2.temp<-
   flipped_edge_list %>% 
   filter(value.type=="Neighbours") %>% 
   select(-value.type) %>% 
   inner_join(.,base_edge_list,by=c("value.id","landholder.id")) %>%
-  filter(level1.id.x != level1.id.y) %>% 
-  select(starts_with("level1.id"))
+  filter(level2.id.x != level2.id.y) %>% 
+  select(starts_with("level2.id"))
 
-l1_l1.temp<- 
-  unique(data.frame(t(apply(l1_l1.temp,1,sort))))
+level2_level2.temp<- 
+  unique(data.frame(t(apply(level2_level2.temp,1,sort))))
 
-l1_l1<-
-  l1_l1.temp %>% 
-  mutate(label="touches",type="level1-border") %>% 
+level2_level2<-
+  level2_level2.temp %>% 
+  mutate(label="touches",type="level2-border") %>% 
   rename(from="X1",to="X2") %>% 
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(l1_l1, file = args[3], row.names = FALSE)
+write.csv(level2_level2, file = args[3], row.names = FALSE)

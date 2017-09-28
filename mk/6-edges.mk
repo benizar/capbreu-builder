@@ -22,8 +22,8 @@ rs_level1_rivers         := $(rscripts_explicit_edges_dir)/level1-rivers.R
 
 # Implicit
 rs_flipped   := $(rscripts_implicit_edges_dir)/flipped-edge-list.R
-rs_l1_l1     := $(rscripts_implicit_edges_dir)/l1-l1.R
-rs_l2_l2     := $(rscripts_implicit_edges_dir)/l2-l2.R
+rs_level1_level1     := $(rscripts_implicit_edges_dir)/level1-level1.R
+rs_level2_level2     := $(rscripts_implicit_edges_dir)/level2-level2.R
 rs_plot_plot_l1   := $(rscripts_implicit_edges_dir)/plot-plot-l1.R
 rs_plot_plot_l2   := $(rscripts_implicit_edges_dir)/plot-plot-l2.R
 rs_plot_plot_l3   := $(rscripts_implicit_edges_dir)/plot-plot-l3.R
@@ -58,8 +58,8 @@ csv_level1_rivers         := $(patsubst $(rscripts_explicit_edges_dir)/%.R,$(exp
 # Implicit
 csv_flipped      := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_flipped))
 
-csv_l1_l1        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_l1_l1))
-csv_l2_l2        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_l2_l2))
+csv_level1_level1        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_level1_level1))
+csv_level2_level2        := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_level2_level2))
 
 csv_plot_plot_l1 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_plot_plot_l1))
 csv_plot_plot_l2 := $(patsubst $(rscripts_implicit_edges_dir)/%.R,$(implicit_edges_dir)/%.csv,$(rs_plot_plot_l2))
