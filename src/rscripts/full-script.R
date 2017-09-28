@@ -424,17 +424,6 @@ nrow(edges); nrow(unique(edges[,c("from", "to")]))
 
 
 
-base_edge_list<-read.csv("builds/edges/base-edge-list.csv")
-level1_mountains<-
-  base_edge_list %>% 
-  filter(value.type=="mountains") %>%
-  select(level1.id,value.id) %>%
-  distinct() %>% 
-  rename(from="level1.id",to="value.id") %>% 
-  mutate(label="touches",type="level1-mountains-border") %>% 
-  select(from,to,label,type) %>% 
-  arrange(from)
-
 # GRAPHS
 library(igraph)
 library(visNetwork)
@@ -455,12 +444,10 @@ edges<-
 
 visNetwork(nodes, edges, height = "800px", width = "100%") %>%
   visGroups(groupname = "level1", 
-            color = list(background = "orange", 
-                         border = "white",
-                         highlight = "yellow"), 
+            color = "orange", 
             shape = "dot") %>% 
   visGroups(groupname = "administrative", 
-            color = "red", 
+            color = "tomato", 
             shape = "diamond") %>%
   visGroups(groupname = "anthropic", 
             color = "gold", 
@@ -468,10 +455,9 @@ visNetwork(nodes, edges, height = "800px", width = "100%") %>%
   visGroups(groupname = "mountains", 
             color = "green",   
             shape = "triangle") %>%
-  visGroups(groupname = "rivers",    color = "lightblue",    shape = "dot") %>%
+  visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
   visEdges(shadow = TRUE,
-           color = list(color = "grey", highlight = "red")) %>%
-  visLayout(randomSeed = 12) %>% 
-  visPhysics(solver = "barnesHut")
+           color = list(color = "grey", highlight = "darkgrey")) %>%
+  visPhysics(solver = "forceAtlas2Based",stabilization = TRUE,)
 
 
