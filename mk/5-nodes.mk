@@ -1,17 +1,5 @@
 
 # rs
-rs_context := $(rs_base_dir)/context.R
-rs_proj    := $(rs_base_dir)/proj.R
-rs_schema  := $(rs_base_dir)/schema.R
-
-# TARGETS
-csv_context := $(patsubst $(rs_base_dir)/%.R,$(base_dir)/%.csv,$(rs_context))
-csv_proj    := $(patsubst $(rs_base_dir)/%.R,$(base_dir)/%.csv,$(rs_proj))
-csv_schema := $(patsubst $(rs_base_dir)/%.R,$(base_dir)/%.csv,$(rs_schema))
-
-
-
-# rs
 rs_base_node_list := $(rs_nodes_dir)/base-node-list.R
 csv_base_node_list := $(patsubst $(rs_nodes_dir)/%.R,$(nodes_dir)/%.csv,$(rs_base_node_list))
 

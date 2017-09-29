@@ -14,8 +14,31 @@ $(base_dir)/$(basename $(notdir $1)).csv: $1 $(project_data) | checkdirs
 
 base_targets+= $(base_dir)/$(basename $(notdir $1)).csv
 
-endef
+# Automatically create base variables, necessary in other rules.
+# TODO: Define what should we do if these variables are not created
+ifneq (,$(findstring schema,$1))
+    # Found
+csv_schema=$(base_dir)/$(basename $(notdir $1)).csv
+else
+    # Not found
+endif
 
+ifneq (,$(findstring context,$1))
+    # Found
+csv_context=$(base_dir)/$(basename $(notdir $1)).csv
+else
+    # Not found
+endif
+
+ifneq (,$(findstring project,$1))
+    # Found
+csv_project=$(base_dir)/$(basename $(notdir $1)).csv
+else
+    # Not found
+endif
+
+
+endef
 
 
 # Build rules foreach language, foreach template
