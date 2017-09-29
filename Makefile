@@ -7,6 +7,8 @@ include $(mks)
 ## Create all files and outputs from the begining
 all: nodes edges
 
+## Build all nodes
+nodes: $(nodes_explicit_targets) $(nodes_summarized_targets) $(nodes_implicit_targets)
 
 
 graphs: $(gv_graph_full)

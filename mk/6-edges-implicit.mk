@@ -23,5 +23,5 @@ $(foreach x,$(rs_edges_implicit), \
 	$(eval $(call build-edges-implicit-rule,$(x))) \
 )
 
-## Builds implicit edges from base-edge-list
-build-edges-im: $(edges_implicit_targets)
+# Builds implicit edges from base-edge-list
+implicit-edges: $(edges_implicit_targets)

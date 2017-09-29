@@ -29,6 +29,6 @@ $(foreach x,$(rs_edges_explicit), \
 	$(eval $(call build-edges-explicit-rule,$(x))) \
 )
 
-## Builds explicit edges from base-edge-list
-build-edges-ex: $(edges_explicit_targets)
+# Builds explicit edges from base-edge-list
+explicit-edges: $(edges_explicit_targets)
 

@@ -9,9 +9,9 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-library(magrittr)
-library(dplyr)
-library(tidyr)
+suppressPackageStartupMessages(library(magrittr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
 
 # Explicit
 landholder_neighbour <-read.csv(args[1])
@@ -23,18 +23,20 @@ plot_level1          <-read.csv(args[5])
 plot_level2          <-read.csv(args[6])
 plot_administrative  <-read.csv(args[7])
 plot_anthropic       <-read.csv(args[8])
-plot_mountains         <-read.csv(args[9])
-plot_rivers         <-read.csv(args[10])
+plot_mountains       <-read.csv(args[9])
+plot_rivers          <-read.csv(args[10])
 
 level1_administrative  <-read.csv(args[11])
 level1_anthropic       <-read.csv(args[12])
-level1_mountains         <-read.csv(args[13])
-level1_rivers         <-read.csv(args[14])
+level1_mountains       <-read.csv(args[13])
+level1_rivers          <-read.csv(args[14])
 
 # Implicit
-l1_l1                <-read.csv(args[15])
-l2_l2                <-read.csv(args[16])
-plot_plot            <-read.csv(args[17])
+l1_l1         <-read.csv(args[15])
+l2_l2         <-read.csv(args[16])
+plot_plot_l1  <-read.csv(args[17])
+plot_plot_l2  <-read.csv(args[18])
+plot_plot_l3  <-read.csv(args[19])
 
 
 edges<-
@@ -54,7 +56,9 @@ edges<-
   bind_rows(level1_rivers) %>% 
   bind_rows(l1_l1) %>% 
   bind_rows(l2_l2) %>% 
-  bind_rows(plot_plot) %>%
+  bind_rows(plot_plot_l1) %>%
+  bind_rows(plot_plot_l2) %>%
+  bind_rows(plot_plot_l3) %>%
   arrange(from)
 
-write.csv(edges, file = args[18], row.names = FALSE)
+write.csv(edges, file = args[20], row.names = FALSE)
