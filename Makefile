@@ -1,12 +1,7 @@
-include mk/1-*.mk
-include mk/2-*.mk
-include mk/3-*.mk
-include mk/4-*.mk
-include mk/5-*.mk
-include mk/6-*base.mk
-include mk/6-*explicit.mk
-include mk/6-*flipped.mk
-include mk/6-*implicit.mk
+
+# Include ordered mks
+mks := $(sort $(wildcard mk/*.mk))
+include $(mks)
 
 
 ## Create all files and outputs from the begining
