@@ -7,32 +7,11 @@ include $(mks)
 ## Create all files and outputs from the begining
 all: nodes edges
 
-## Build all nodes
-nodes: $(nodes_explicit_targets) $(nodes_summarized_targets) $(nodes_implicit_targets)
+## Build all nodes (explicit, summarized and implicit)
+nodes: $(csv_nodes)
 
-
-graphs: $(gv_graph_full)
-
-$(gv_graph_full): $(rs_graph_full) $(csv_nodes) $(csv_edges)
-
-#---------------
-# PATTERN RULES
-#---------------
-# Patern rule for Rscripts--arguments->html (visNetwork interactive)
-$(builds_dir)/%.html: $(rscripts_dir)/%.R | checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(filter-out $<, $^) $(@F)
-	@mv $(@F) $@
-	@echo ''
-
-# Patern rule for Rscripts--arguments->gv (Graphviz DOT)
-$(builds_dir)/%.gv: $(rscripts_graphs_dir)/%.R | checkdirs
-	@echo ''
-	@echo 'Runing Rscript $(<F)...'
-	@$(RUN_RSCRIPT) $< $(filter-out $<, $^) $@
-	@echo ''
-
+## Builds all edges (explicit and implitcit)
+edges: $(csv_edges)
 
 
 .PHONY: clean
