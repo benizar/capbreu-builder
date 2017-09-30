@@ -9,18 +9,25 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+level2 <- function(base_node_list.csv, level2.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  
+  base_node_list<-read.csv(base_node_list.csv)
+  
+  level2<-
+    base_node_list %>% 
+    rename(id="level2.id",label="level2.label") %>% 
+    group_by(id,label) %>%
+    summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
+    mutate(type="level2")
+  
+  write.csv(level2, file = level2.csv, row.names = FALSE)
+  
+}
 
-
-base_node_list<-read.csv(args[1])
-
-level2<-
-  base_node_list %>% 
-  rename(id="level2.id",label="level2.label") %>% 
-  group_by(id,label) %>%
-  summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="level2")
-
-write.csv(level2, file = args[2], row.names = FALSE)
+suppressMessages(
+  level2(args[1],args[2])
+)

@@ -20,7 +20,7 @@ schema <- function(input.yaml, output.csv){
   yaml <- yaml.load_file(input.yaml)
   
   # Base DataFrame for nodes and edges
-  base_df <-
+  schema <-
     yaml %$% 
     Landholders %>%
     melt() %>%
@@ -41,19 +41,19 @@ schema <- function(input.yaml, output.csv){
            landholder.id=paste("LH",landholder.id,sep="-"))
   
   # Add ids
-  base_df$level1.id <- 
-    base_df %>% 
+  schema$level1.id <- 
+    schema %>% 
     group_indices(level1.label) %>% 
     paste("LEVA",.,sep="-")
   
-  base_df$level2.id <- 
-    base_df %>% 
+  schema$level2.id <- 
+    schema %>% 
     group_indices(level2.label) %>% 
     paste("LEVB",.,sep="-")
   
   # Order columns
-  base_df<-
-    base_df %>% 
+  schema<-
+    schema %>% 
     select(value, var, var_category,
            landholder.id, landholder.label,
            plot.id, plot.label,
@@ -61,13 +61,10 @@ schema <- function(input.yaml, output.csv){
            level2.id, level2.label)
   
   
-  write.csv(base_df, file = output.csv, row.names = FALSE)
+  write.csv(schema, file = output.csv, row.names = FALSE)
   
 }
 
-# At debugging time turn these on again
-options(warn=-1)
-#options(warn=0)
 
 suppressMessages(
   schema(args[1],args[2])

@@ -9,25 +9,32 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+administrative <- function(schema.csv, administrative.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  
+  schema<-read.csv(schema.csv)
+  
+  administrative<-
+    schema %>%
+    filter(var_category!="Landmetrics") %>% 
+    select(-var_category) %>% 
+    filter(var=="Administrative") %>% 
+    select(value) %>% 
+    unique() %>% 
+    rename(label="value") %>% 
+    mutate(type="administrative")
+  administrative$id <- 
+    administrative %>% 
+    group_indices(label) %>% 
+    paste("ADM",.,sep="-")
+  
+  write.csv(administrative, file = administrative.csv, row.names = FALSE)
+  
+}
 
-
-schema_df<-read.csv(args[1])
-
-administrative<-
-  schema_df %>%
-  filter(var_category!="Landmetrics") %>% 
-  select(-var_category) %>% 
-  filter(var=="Administrative") %>% 
-  select(value) %>% 
-  unique() %>% 
-  rename(label="value") %>% 
-  mutate(type="administrative")
-administrative$id <- 
-  administrative %>% 
-  group_indices(label) %>% 
-  paste("ADM",.,sep="-")
-
-write.csv(administrative, file = args[2], row.names = FALSE)
+suppressMessages(
+  administrative(args[1],args[2])
+)

@@ -9,21 +9,29 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+base_edge_list <- function(schema.csv, nodes.csv, output.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  
+  schema <-read.csv(schema.csv)
+  nodes  <-read.csv(nodes.csv)
+  
+  # Base DataFrame for building different edge lists
+  base_edge_list<-
+    schema %>%
+    filter(var_category!="Landmetrics") %>% 
+    select(-var_category) %>% 
+    rename(label="value") %>% 
+    left_join(nodes,by="label") %>% 
+    select(-starts_with("area"),-type) %>% 
+    rename(value.id="id",value.label="label",value.type="var")
+  
+  write.csv(base_edge_list, file = output.csv, row.names = FALSE)
+  
+}
 
-schema <-read.csv(args[1])
-nodes  <-read.csv(args[2])
-
-# Base DataFrame for building different edge lists
-base_edge_list<-
-  schema %>%
-  filter(var_category!="Landmetrics") %>% 
-  select(-var_category) %>% 
-  rename(label="value") %>% 
-  left_join(nodes,by="label") %>% 
-  select(-starts_with("area"),-type) %>% 
-  rename(value.id="id",value.label="label",value.type="var")
-
-write.csv(base_edge_list, file = args[3], row.names = FALSE)
+suppressMessages(
+  base_edge_list(args[1],args[2],args[3])
+)

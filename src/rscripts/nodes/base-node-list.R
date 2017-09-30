@@ -9,27 +9,35 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
-library(reshape2) # Reshape lists is not implemented in tidyr
+base_node_list <- function(schema.csv, context.csv, base_node_list.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  library(reshape2) # Reshape lists is not implemented in tidyr
+  
+  
+  schema<-read.csv(schema.csv)
+  context<-read.csv(context.csv)
+  
+  # Base DataFrame for building different node lists
+  base_node_list <- 
+    schema %>% 
+    filter(var_category != 'Limits') %>% 
+    dcast(landholder.id+landholder.label+
+            level1.id+level1.label+
+            level2.id+level2.label+
+            plot.id+plot.label~
+            var,value.var = "value") %>% 
+    rename(area="Area") %>% 
+    mutate(area=as.numeric(area)) %>% 
+    mutate(area_m2=area * as.numeric(select(filter(context,key=="Area_Conv"),value)))
+  
+  
+  write.csv(base_node_list, file = base_node_list.csv, row.names = FALSE)
+  
+}
 
-
-schema_df<-read.csv(args[1])
-context_df<-read.csv(args[2])
-
-# Base DataFrame for building different node lists
-base_node_list <- 
-  schema_df %>% 
-  filter(var_category != 'Limits') %>% 
-  dcast(landholder.id+landholder.label+
-          level1.id+level1.label+
-          level2.id+level2.label+
-          plot.id+plot.label~
-          var,value.var = "value") %>% 
-  rename(area="Area") %>% 
-  mutate(area=as.numeric(area)) %>% 
-  mutate(area_m2=area * as.numeric(select(filter(context_df,key=="Area_Conv"),value)))
-
-
-write.csv(base_node_list, file = args[3], row.names = FALSE)
+suppressMessages(
+  base_node_list(args[1],args[2],args[3])
+)

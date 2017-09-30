@@ -9,11 +9,13 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+landholder_level1 <- function(input.csv, output.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
 
-base_edge_list<-read.csv(args[1])
+base_edge_list<-read.csv(input.csv)
 
 landholder_level2<-
   base_edge_list %>% 
@@ -23,4 +25,11 @@ landholder_level2<-
   select(from,to,label,type) %>% 
   arrange(from)
 
-write.csv(landholder_level2, file = args[2], row.names = FALSE)
+write.csv(landholder_level2, file = output.csv, row.names = FALSE)
+
+}
+
+
+suppressMessages(
+  landholder_level1(args[1],args[2])
+)

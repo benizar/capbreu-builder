@@ -9,29 +9,37 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+plot_plot_l1 <- function(base_edge_list.csv, flipped_edge_list.csv, plot_plot_l1.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  
+  base_edge_list<-read.csv(base_edge_list.csv)
+  flipped_edge_list<-read.csv(flipped_edge_list.csv)
+  
+  plot_plot_l1.temp<-
+    flipped_edge_list %>% 
+    filter(value.type=="Neighbours") %>% 
+    select(-value.type) %>% 
+    inner_join(.,base_edge_list,by=c("value.id","landholder.id","level1.id","level2.id")) %>%
+    filter(plot.id.x != plot.id.y) %>% 
+    select(starts_with("plot.id"))
+  
+  plot_plot_l1.temp<- 
+    unique(data.frame(t(apply(plot_plot_l1.temp,1,sort))))
+  
+  plot_plot_l1<-
+    plot_plot_l1.temp %>% 
+    mutate(label="touches",type="plot-border") %>% 
+    rename(from="X1",to="X2") %>% 
+    select(from,to,label,type) %>% 
+    arrange(from)
+  
+  write.csv(plot_plot_l1, file = plot_plot_l1.csv, row.names = FALSE)
+  
+}
 
-base_edge_list<-read.csv(args[1])
-flipped_edge_list<-read.csv(args[2])
-
-plot_plot_l1.temp<-
-  flipped_edge_list %>% 
-  filter(value.type=="Neighbours") %>% 
-  select(-value.type) %>% 
-  inner_join(.,base_edge_list,by=c("value.id","landholder.id","level1.id","level2.id")) %>%
-  filter(plot.id.x != plot.id.y) %>% 
-  select(starts_with("plot.id"))
-
-plot_plot_l1.temp<- 
-  unique(data.frame(t(apply(plot_plot_l1.temp,1,sort))))
-
-plot_plot_l1<-
-  plot_plot_l1.temp %>% 
-  mutate(label="touches",type="plot-border") %>% 
-  rename(from="X1",to="X2") %>% 
-  select(from,to,label,type) %>% 
-  arrange(from)
-
-write.csv(plot_plot_l1, file = args[3], row.names = FALSE)
+suppressMessages(
+  plot_plot_l1(args[1],args[2],args[3])
+)

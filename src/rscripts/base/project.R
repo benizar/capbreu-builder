@@ -9,7 +9,7 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-proj <- function(input.yaml, output.csv){
+project <- function(input.yaml, output.csv){
   
   library(magrittr)
   library(yaml)
@@ -18,18 +18,19 @@ proj <- function(input.yaml, output.csv){
   
   yaml <- yaml.load_file(input.yaml)
   
-  proj <-
+  project <-
     yaml %$%
     data.frame(Structure,Title,Description) %>% 
     gather()
   
-  write.csv(proj, file = output.csv, row.names = FALSE)
+  write.csv(project, file = output.csv, row.names = FALSE)
+  
 }
 
-# At debugging time turn these on again
+# At debugging time turn these on
 options(warn=-1)
 #options(warn=0)
 
 suppressMessages(
-  proj(args[1],args[2])
+  project(args[1],args[2])
 )

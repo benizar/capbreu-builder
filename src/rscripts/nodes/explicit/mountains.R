@@ -9,25 +9,32 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+mountains <- function(schema.csv, mountains.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  
+  schema<-read.csv(schema.csv)
+  
+  mountains<-
+    schema %>%
+    filter(var_category!="Landmetrics") %>% 
+    select(-var_category) %>% 
+    filter(var=="Mountains") %>% 
+    select(value) %>% 
+    unique() %>% 
+    rename(label="value") %>% 
+    mutate(type="mountains")
+  mountains$id <- 
+    mountains %>% 
+    group_indices(label) %>% 
+    paste("MNT",.,sep="-")
+  
+  write.csv(mountains, file = mountains.csv, row.names = FALSE)
+  
+}
 
-
-schema_df<-read.csv(args[1])
-
-mountains<-
-  schema_df %>%
-  filter(var_category!="Landmetrics") %>% 
-  select(-var_category) %>% 
-  filter(var=="Mountains") %>% 
-  select(value) %>% 
-  unique() %>% 
-  rename(label="value") %>% 
-  mutate(type="mountains")
-mountains$id <- 
-  mountains %>% 
-  group_indices(label) %>% 
-  paste("MNT",.,sep="-")
-
-write.csv(mountains, file = args[2], row.names = FALSE)
+suppressMessages(
+  mountains(args[1],args[2])
+)

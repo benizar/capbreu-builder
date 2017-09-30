@@ -9,14 +9,22 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+flipped_edges <- function(base_edge_list.csv, flipped_edge_list.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  
+  base_edge_list<-read.csv(base_edge_list.csv)
+  
+  flipped_edges<-
+    base_edge_list %>% 
+    rename(value.id="landholder.id",value.label="landholder.label",landholder.id="value.id",landholder.label="value.label")
+  
+  write.csv(flipped_edges, file = flipped_edge_list.csv, row.names = FALSE)
+  
+}
 
-base_edge_list<-read.csv(args[1])
-
-flipped_edges<-
-  base_edge_list %>% 
-  rename(value.id="landholder.id",value.label="landholder.label",landholder.id="value.id",landholder.label="value.label")
-
-write.csv(flipped_edges, file = args[2], row.names = FALSE)
+suppressMessages(
+  flipped_edges(args[1],args[2])
+)

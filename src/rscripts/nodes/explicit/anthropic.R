@@ -9,25 +9,32 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-suppressPackageStartupMessages(library(magrittr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+anthropic <- function(schema.csv, administrative.csv){
+  
+  library(magrittr)
+  library(dplyr)
+  library(tidyr)
+  
+  schema<-read.csv(schema.csv)
+  
+  anthropic<-
+    schema %>%
+    filter(var_category!="Landmetrics") %>% 
+    select(-var_category) %>% 
+    filter(var=="Anthropic") %>% 
+    select(value) %>% 
+    unique() %>% 
+    rename(label="value") %>% 
+    mutate(type="anthropic")
+  anthropic$id <- 
+    anthropic %>% 
+    group_indices(label) %>% 
+    paste("ANT",.,sep="-")
+  
+  write.csv(anthropic, file = args[2], row.names = FALSE)
+  
+}
 
-
-schema_df<-read.csv(args[1])
-
-anthropic<-
-  schema_df %>%
-  filter(var_category!="Landmetrics") %>% 
-  select(-var_category) %>% 
-  filter(var=="Anthropic") %>% 
-  select(value) %>% 
-  unique() %>% 
-  rename(label="value") %>% 
-  mutate(type="anthropic")
-anthropic$id <- 
-  anthropic %>% 
-  group_indices(label) %>% 
-  paste("ANT",.,sep="-")
-
-write.csv(anthropic, file = args[2], row.names = FALSE)
+suppressMessages(
+  anthropic(args[1],args[2])
+)
