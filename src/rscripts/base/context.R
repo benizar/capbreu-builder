@@ -9,30 +9,28 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-
-
 context <- function(input.yaml, output.csv){
-
-library(magrittr)
-library(yaml)
-library(dplyr)
-library(tidyr)
-
-yaml <- yaml.load_file(input.yaml)
-
-# Context data
-context_df <-
-  yaml %$%
-  data.frame(Landmetrics,Aggregations) %>% 
-  gather()
-
-write.csv(context_df, file = output.csv, row.names = FALSE)
-
-#return(object)
-
+  
+  library(magrittr)
+  library(yaml)
+  library(dplyr)
+  library(tidyr)
+  
+  yaml <- yaml.load_file(input.yaml)
+  
+  # Context data
+  context_df <-
+    yaml %$%
+    data.frame(Landmetrics,Aggregations) %>% 
+    gather()
+  
+  write.csv(context_df, file = output.csv, row.names = FALSE)
+  
+  #return(object)
+  
 }
 
-
+# At debugging time turn these on again
 options(warn=-1)
 #options(warn=0)
 

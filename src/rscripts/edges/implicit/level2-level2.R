@@ -9,10 +9,9 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-library(magrittr)
-library(yaml)
-library(dplyr)
-library(tidyr)
+suppressPackageStartupMessages(library(magrittr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
 
 base_edge_list <-read.csv(args[1])
 flipped_edge_list  <-read.csv(args[2])

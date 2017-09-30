@@ -9,9 +9,9 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-library(magrittr)
-library(dplyr)
-library(tidyr)
+suppressPackageStartupMessages(library(magrittr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
 
 
 base_node_list<-read.csv(args[1])

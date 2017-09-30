@@ -9,10 +9,9 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-library(magrittr)
-library(yaml)
-library(dplyr)
-library(tidyr)
+suppressPackageStartupMessages(library(magrittr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
 library(reshape2) # Reshape lists is not implemented in tidyr
 
 
