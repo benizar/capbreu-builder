@@ -16,7 +16,7 @@ edges: $(csv_edges)
 
 .PHONY: clean
 ## Clean project
-clean: | checkdirs
+clean:
 	@echo ''
 	@echo 'Cleaning project ...'
 	@$(RM) -rf $(builds_dir)

@@ -13,7 +13,7 @@ if (length(args)==0) {
 library(dplyr)
 library(readr)
 df <- 
-  list.files(full.names = TRUE, path = args[1], pattern = "*.csv",recursive = TRUE) %>% 
-  lapply(read_csv) %>% 
-  bind_rows %>% 
-  write.csv(file = args[2], row.names = FALSE)
+  args[-length(args)] %>% 
+  lapply(read_csv) %>%
+  bind_rows %>%
+  write.csv(file = args[length(args)], row.names = FALSE)
