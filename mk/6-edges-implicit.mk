@@ -1,6 +1,6 @@
 
 # RSCRIPTS (-rs_flipped)
-rs_edges_implicit := $(filter-out $(rs_flipped),$(wildcard $(rs_edges_implicit_dir)/*.R))
+rs_edges_implicit := $(wildcard $(rs_edges_implicit_dir)/*.R)
 
 
 # BUILD RULES

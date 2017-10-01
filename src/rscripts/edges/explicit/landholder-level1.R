@@ -9,13 +9,13 @@ if (length(args)==0) {
   args[2] = "out.txt"
 }
 
-landholder_level1 <- function(input.csv, output.csv){
+landholder_level1 <- function(base_edge_list.csv, landholder_level1.csv){
   
   library(magrittr)
   library(dplyr)
   library(tidyr)
   
-  base_edge_list<-read.csv(input.csv)
+  base_edge_list<-read.csv(base_edge_list.csv)
   
   landholder_level1<-
     base_edge_list %>% 
@@ -25,7 +25,7 @@ landholder_level1 <- function(input.csv, output.csv){
     select(from,to,label,type) %>% 
     arrange(from)
   
-  write.csv(landholder_level1, file = output.csv, row.names = FALSE)
+  write.csv(landholder_level1, file = landholder_level1.csv, row.names = FALSE)
   
 }
 
