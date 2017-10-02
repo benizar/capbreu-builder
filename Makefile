@@ -4,18 +4,12 @@ mks := $(sort $(wildcard mk/*.mk))
 include $(mks)
 
 
-## Create all files and outputs from the begining
-all: nodes edges
-
-## Build all nodes (explicit, summarized and implicit)
-nodes: $(csv_nodes)
-
-## Builds all edges (explicit and implitcit)
-edges: $(csv_edges)
+## Build all files and outputs from the begining
+all: conjeture nodes.csv edges.csv
 
 
 .PHONY: clean
-## Clean project
+## Clean conjeture stored at builds dir
 clean:
 	@echo ''
 	@echo 'Cleaning project ...'

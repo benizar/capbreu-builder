@@ -6,7 +6,7 @@ rs_base := $(wildcard $(rs_base_dir)/*.R)
 # BUILD RULES
 #-------------
 define build-base-rule
-$(base_dir)/$(basename $(notdir $1)).csv: $1 $(project_data) | checkdirs
+$(base_dir)/$(basename $(notdir $1)).csv: $1 $(project_data) | conjeture
 	@echo ''
 	@echo 'Runing Rscript $$(<F)...'
 	@$(RUN_RSCRIPT) $$< $$(filter-out $$<, $$^) $$@
@@ -46,6 +46,4 @@ $(foreach x,$(rs_base), \
 	$(eval $(call build-base-rule,$(x))) \
 )
 
-## Builds base tables from source yaml
-build-base: $(base_targets)
 

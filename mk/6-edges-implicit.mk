@@ -5,7 +5,7 @@ rs_edges_implicit := $(wildcard $(rs_edges_implicit_dir)/*.R)
 
 # BUILD RULES
 define build-edges-implicit-rule
-$(edges_implicit_dir)/$(basename $(notdir $1)).csv: $1 $(csv_base_edge_list) $(csv_flipped) | checkdirs
+$(edges_implicit_dir)/$(basename $(notdir $1)).csv: $1 $(csv_base_edge_list) $(csv_flipped) | conjeture
 	@echo ''
 	@echo 'Runing Rscript $$(<F)...'
 	@$(RUN_RSCRIPT) $$< $$(filter-out $$<, $$^) $$@
@@ -23,5 +23,4 @@ $(foreach x,$(rs_edges_implicit), \
 	$(eval $(call build-edges-implicit-rule,$(x))) \
 )
 
-# Builds implicit edges from base-edge-list
-implicit-edges: $(edges_implicit_targets)
+

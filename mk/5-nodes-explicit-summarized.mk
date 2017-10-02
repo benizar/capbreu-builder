@@ -4,7 +4,7 @@ rs_nodes_summarized := $(wildcard $(rs_nodes_summarized_dir)/*.R)
 
 # BUILD RULES
 define build-nodes-summarized-rule
-$(nodes_summarized_dir)/$(basename $(notdir $1)).csv: $1 $(csv_base_node_list) | checkdirs
+$(nodes_summarized_dir)/$(basename $(notdir $1)).csv: $1 $(csv_base_node_list) | conjeture
 	@echo ''
 	@echo 'Runing Rscript $$(<F)...'
 	@$(RUN_RSCRIPT) $$< $$(filter-out $$<, $$^) $$@
@@ -31,6 +31,5 @@ $(foreach x,$(rs_nodes_summarized), \
 	$(eval $(call build-nodes-summarized-rule,$(x))) \
 )
 
-## Builds summarized nodes from csv_base_node_list
-nodes-summarized: $(nodes_summarized_targets)
+
 
