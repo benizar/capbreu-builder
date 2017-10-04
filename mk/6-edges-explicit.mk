@@ -12,10 +12,10 @@ rs_edges_explicit := $(wildcard $(rs_edges_explicit_dir)/*.R)
 # BUILD RULES
 define build-edges-explicit-rule
 $(edges_explicit_dir)/$(basename $(notdir $1)).csv: $1 $(csv_base_edge_list) | conjeture
-	@echo ''
 	@echo 'Runing Rscript $$(<F)...'
 	@$(RUN_RSCRIPT) $$< $$(filter-out $$<, $$^) $$@
 	@echo 'Created $$@ --> OK.'
+	@echo ''
 
 # All base targets
 edges_explicit_targets+= $(edges_explicit_dir)/$(basename $(notdir $1)).csv

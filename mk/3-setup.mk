@@ -1,4 +1,11 @@
 
+# Formatting
+
+program := 'CABREVE CONJETURES BUILDER'
+version := 0.0.1
+
+sep:=-----------------------------------------------------
+
 # RSCRIPT PATHS
 rs_dir                  := rscripts
 
@@ -44,20 +51,27 @@ $(dirs):
 data_dir         := data
 spatial_data_dir := $(data_dir)/spatial
 spatial_data     := $(wildcard $(spatial_data_dir)/*.gml)
-input_data       := data/capbreu_full.yml
+input_data       := $(wildcard data/capbreu_full.yml)
 
 # WORKING DATA. Create hypothesis editing this file...
 project_data := $(patsubst $(data_dir)/%.yml,$(builds_dir)/%.yml,$(input_data))
 
-
 ## Clean and create a new project structure
-conjeture: $(clean) $(dirs)
+conjeture: clean $(dirs)
+	@echo ''
+	@echo $(sep)
+	@echo $(program) '(v. '$(version)')'
+	@echo $(sep)
 	@echo 'Creating a new project...'
-	@echo 'Copying your yaml schema to $(builds_dir)...'
-	@cp $(input_data) $(project_data)
-	@echo 'CREATE YOUR HYPOTHESIS BY EDITING THIS FILE: $(project_data)'
-	@echo 'Your original schema will be preserved.'
+	@echo 'Created a new folder structure --> OK.'
+	@echo ''
+	@echo $(sep)
 
-
+$(project_data): $(input_data) | conjeture
+	@echo 'Creating a working copy or $<...'
+	@cp $< $@
+	@echo 'Created $@ --> OK.'
+	@echo ''
+	@echo $(sep)
 
 

@@ -5,10 +5,10 @@ rs_nodes_implicit   := $(wildcard $(rs_nodes_implicit_dir)/*.R)
 # BUILD RULES
 define build-nodes-implicit-rule
 $(nodes_implicit_dir)/$(basename $(notdir $1)).csv: $1 $(csv_schema) $(csv_landholders) | conjeture
-	@echo ''
 	@echo 'Runing Rscript $$(<F)...'
 	@$(RUN_RSCRIPT) $$< $$(filter-out $$<, $$^) $$@
 	@echo 'Created $$@ --> OK.'
+	@echo ''
 
 # All base targets
 nodes_implicit_targets+= $(nodes_implicit_dir)/$(basename $(notdir $1)).csv

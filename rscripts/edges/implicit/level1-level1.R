@@ -42,7 +42,10 @@ level1_level1 <- function(base_edge_list.csv, flipped_edge_list.csv, level1_leve
   
 }
 
-suppressMessages(
-  level1_level1(args[1],args[2],args[3])
+suppressWarnings(
+  suppressMessages(
+    level1_level1(args[1],args[2],args[3])
+  )
 )
+
 

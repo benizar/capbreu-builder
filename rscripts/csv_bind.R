@@ -10,10 +10,18 @@ if (length(args)==0) {
 }
 
 
-library(dplyr)
-library(readr)
-df <- 
-  args[-length(args)] %>% 
-  lapply(read_csv) %>%
-  bind_rows %>%
-  write.csv(file = args[length(args)], row.names = FALSE)
+bind.csvs <- function(input.csvs){
+  
+  library(dplyr)
+  library(readr)
+  df <- 
+    input.csvs[-length(input.csvs)] %>% 
+    lapply(read_csv) %>%
+    bind_rows %>%
+    write.csv(file = input.csvs[length(input.csvs)], row.names = FALSE)
+  
+}
+
+suppressMessages(
+  bind.csvs(args)
+)

@@ -57,6 +57,8 @@ plot_plot_l2 <- function(base_edge_list.csv, flipped_edge_list.csv, plot_plot_l2
   
 }
 
-suppressMessages(
-  plot_plot_l2(args[1],args[2],args[3])
+suppressWarnings(
+  suppressMessages(
+    plot_plot_l2(args[1],args[2],args[3])
+  )
 )

@@ -32,6 +32,9 @@ base_edge_list <- function(schema.csv, nodes.csv, output.csv){
   
 }
 
-suppressMessages(
-  base_edge_list(args[1],args[2],args[3])
+suppressWarnings(
+  suppressMessages(
+    base_edge_list(args[1],args[2],args[3])
+  )
 )
+

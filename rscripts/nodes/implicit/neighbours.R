@@ -37,6 +37,9 @@ neighbours <- function(schema.csv, landholders.csv, neighbours.csv){
   
 }
 
-suppressMessages(
-  neighbours(args[1],args[2],args[3])
+suppressWarnings(
+  suppressMessages(
+    neighbours(args[1],args[2],args[3])
+  )
 )
+
