@@ -425,17 +425,18 @@ nrow(edges); nrow(unique(edges[,c("from", "to")]))
 
 
 # GRAPHS
+library(dplyr)
 library(igraph)
 library(visNetwork)
 library(DiagrammeR)
 
-nodes<-read.csv("builds/nodes/nodes.csv")
+nodes<-read.csv("git/capbreu-builder/builds/nodes/nodes.csv")
 nodes<-
   nodes %>% 
   filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
   rename(group="type",size="area")
 
-edges<-read.csv("builds/edges/edges.csv")
+edges<-read.csv("git/capbreu-builder/builds/edges/edges.csv")
 edges<-
   edges %>% 
   filter(type=='level1-border'|type=='level1-admin-border'|type=='level1-anthropic-border'|type=='level1-rivers-border'|type=='level1-mountains-border') %>% 
@@ -458,6 +459,6 @@ visNetwork(nodes, edges, height = "800px", width = "100%") %>%
   visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
   visEdges(shadow = TRUE,
            color = list(color = "grey", highlight = "darkgrey")) %>%
-  visPhysics(solver = "forceAtlas2Based",stabilization = TRUE,)
+  visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
 
 
