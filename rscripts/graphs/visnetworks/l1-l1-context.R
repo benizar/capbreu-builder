@@ -50,6 +50,7 @@ network <-
            color = list(color = "lightgrey", highlight = "white")) %>%
   visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
 
+
 htmlwidgets::saveWidget(network, basename(args[3]))
 
 file.rename(basename(args[3]), args[3])

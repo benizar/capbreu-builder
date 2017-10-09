@@ -47,8 +47,7 @@ edges_explicit_dir      := $(edges_dir)/explicit
 
 graphs_dir              := $(builds_dir)/graphs
 igraphs_dir             := $(graphs_dir)/igraphs
-visnetworks_dir          := $(graphs_dir)/visnetworks
-
+visnetworks_dir         := $(graphs_dir)/visnetworks
 
 dirs := $(base_dir) \
 	$(nodes_dir) $(nodes_explicit_dir) $(nodes_summarized_dir) $(nodes_implicit_dir) $(nodes_all_dir) \
@@ -58,25 +57,47 @@ dirs := $(base_dir) \
 $(dirs):
 	mkdir -p $@
 
-
 # SOURCE DATA
 data_dir         := data
 spatial_data_dir := $(data_dir)/spatial
 spatial_data     := $(wildcard $(spatial_data_dir)/*.gml)
+background_image := $(wildcard data/background.png)
 input_data       := $(wildcard data/capbreu_full.yml)
 
-# WORKING DATA. Create hypothesis editing this file...
+# WORKING DATA. Create new conjetures by editing this file...
 project_data := $(patsubst $(data_dir)/%.yml,$(builds_dir)/%.yml,$(input_data))
 
-## Create a new project structure
-conjeture: $(dirs)
-
-
-$(project_data): $(input_data) | conjeture
+$(project_data): $(input_data)
 	@echo 'Creating a working copy or $<...'
 	@cp $< $@
 	@echo 'Created $@ --> OK.'
 	@echo ''
 	@echo $(sep)
+
+
+# INSTALL like dirs. Only need to create these if the user wants to.
+outputs_dir             := outputs
+disproofs_dir           := $(outputs_dir)/disproofs
+undecidables_dir        := $(outputs_dir)/undecidables
+hypotheses_dir          := $(outputs_dir)/hypotheses
+proofs_dir              := $(outputs_dir)/proofs
+
+
+$(disproofs_dir): $(builds_dir)
+	mkdir -p $@
+	@mv $< $@/conjeture-$(shell date +%Y%m%d_%H%M%S)
+
+$(undecidables_dir): $(builds_dir)
+	mkdir -p $@
+	@mv $< $@/conjeture-$(shell date +%Y%m%d_%H%M%S)
+
+$(hypotheses_dir): $(builds_dir)
+	mkdir -p $@
+	@mv $< $@/conjeture-$(shell date +%Y%m%d_%H%M%S)
+
+$(proofs_dir): $(builds_dir)
+	mkdir -p $@
+	@mv $< $@/conjeture-$(shell date +%Y%m%d_%H%M%S)
+
 
 
