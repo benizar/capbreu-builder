@@ -17,7 +17,8 @@ nodes<-read.csv(args[1])
 nodes<-
   nodes %>% 
   filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
-  rename(group="type",size="area")
+  rename(group="type") %>% 
+  mutate(size=sqrt(area)*3)
 
 edges<-read.csv(args[2])
 edges<-
@@ -26,7 +27,11 @@ edges<-
   select(from,to,type)
 
 
-visNetwork(nodes, edges, height = "800px", width = "100%") %>%
+network <-
+  visNetwork(nodes, edges, main = "Level1 graph with context", height = "700px", width = "100%") %>%
+  visIgraphLayout() %>%
+  visInteraction(navigationButtons = TRUE) %>% 
+  visOptions(manipulation = TRUE) %>%
   visGroups(groupname = "level1", 
             color = "orange", 
             shape = "dot") %>% 
@@ -40,6 +45,11 @@ visNetwork(nodes, edges, height = "800px", width = "100%") %>%
             color = "green",   
             shape = "triangle") %>%
   visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
+  visLegend(width = 0.1, position = "right", main = "Legend") %>% 
   visEdges(shadow = TRUE,
-           color = list(color = "grey", highlight = "darkgrey")) %>%
+           color = list(color = "lightgrey", highlight = "white")) %>%
   visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
+
+htmlwidgets::saveWidget(network, basename(args[3]))
+
+file.rename(basename(args[3]), args[3])

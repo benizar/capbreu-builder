@@ -26,6 +26,12 @@ rs_edges_dir            := $(rs_dir)/edges
 rs_edges_explicit_dir   := $(rs_edges_dir)/explicit
 rs_edges_implicit_dir   := $(rs_edges_dir)/implicit
 
+# Graphs
+rs_graphs_dir           := $(rs_dir)/graphs
+rs_igraphs_dir          := $(rs_graphs_dir)/igraphs
+rs_visnetworks_dir      := $(rs_graphs_dir)/visnetworks
+
+
 # BUILD PATHS
 builds_dir              := builds
 base_dir                := $(builds_dir)/base
@@ -39,9 +45,15 @@ edges_dir               := $(builds_dir)/edges
 edges_implicit_dir      := $(edges_dir)/implicit
 edges_explicit_dir      := $(edges_dir)/explicit
 
+graphs_dir              := $(builds_dir)/graphs
+igraphs_dir             := $(graphs_dir)/igraphs
+visnetworks_dir          := $(graphs_dir)/visnetworks
+
+
 dirs := $(base_dir) \
 	$(nodes_dir) $(nodes_explicit_dir) $(nodes_summarized_dir) $(nodes_implicit_dir) $(nodes_all_dir) \
-	$(edges_dir) $(edges_explicit_dir) $(edges_implicit_dir) $(edges_all_dir)
+	$(edges_dir) $(edges_explicit_dir) $(edges_implicit_dir) $(edges_all_dir) \
+	$(graphs_dir) $(igraphs_dir) $(visnetworks_dir)
 
 $(dirs):
 	mkdir -p $@
@@ -56,16 +68,9 @@ input_data       := $(wildcard data/capbreu_full.yml)
 # WORKING DATA. Create hypothesis editing this file...
 project_data := $(patsubst $(data_dir)/%.yml,$(builds_dir)/%.yml,$(input_data))
 
-## Clean and create a new project structure
-conjeture: clean $(dirs)
-	@echo ''
-	@echo $(sep)
-	@echo $(program) '(v. '$(version)')'
-	@echo $(sep)
-	@echo 'Creating a new project...'
-	@echo 'Created a new folder structure --> OK.'
-	@echo ''
-	@echo $(sep)
+## Create a new project structure
+conjeture: $(dirs)
+
 
 $(project_data): $(input_data) | conjeture
 	@echo 'Creating a working copy or $<...'

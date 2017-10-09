@@ -12,15 +12,15 @@ if (length(args)==0) {
 # GRAPHS
 library(dplyr)
 library(igraph)
+library(Cairo)
 
-
-# TODO: it is importante the order in node attributes
 
 nodes<-read.csv(args[1])
 nodes<-
   nodes %>% 
   filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
-  rename(group="type",size="area")
+  rename(name="id",size="area") %>% 
+  select(name,lat,lon,size)
 
 edges<-read.csv(args[2])
 edges<-
@@ -31,3 +31,10 @@ edges<-
 
 g <- graph_from_data_frame(edges, directed=TRUE, vertices=nodes)
 
+#lo <- layout.norm(as.matrix(nodes[,2:3]))
+
+png(args[3], 600, 400)
+
+plot.igraph(g)
+
+dev.off()
