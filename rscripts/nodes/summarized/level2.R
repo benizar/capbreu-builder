@@ -11,9 +11,7 @@ if (length(args)==0) {
 
 level2 <- function(base_node_list.csv, level2.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
   
   base_node_list<-read.csv(base_node_list.csv)
   
@@ -28,6 +26,8 @@ level2 <- function(base_node_list.csv, level2.csv){
   
 }
 
-suppressMessages(
-  level2(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    level2(args[1],args[2])
+  )
 )

@@ -11,9 +11,7 @@ if (length(args)==0) {
 
 neighbours <- function(schema.csv, landholders.csv, neighbours.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
   
   schema<-read.csv(schema.csv)
   landholders <-read.csv(args[2])

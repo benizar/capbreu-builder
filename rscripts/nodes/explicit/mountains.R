@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 mountains <- function(schema.csv, mountains.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   schema<-read.csv(schema.csv)
   
   mountains<-
@@ -35,6 +33,8 @@ mountains <- function(schema.csv, mountains.csv){
   
 }
 
-suppressMessages(
-  mountains(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    mountains(args[1],args[2])
+  )
 )

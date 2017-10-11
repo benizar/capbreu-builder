@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 plot_plot_l1 <- function(base_edge_list.csv, flipped_edge_list.csv, plot_plot_l1.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(base_edge_list.csv)
   flipped_edge_list<-read.csv(flipped_edge_list.csv)
   

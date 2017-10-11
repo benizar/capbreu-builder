@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 landholders <- function(base_node_list.csv, landholders.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_node_list<-read.csv(base_node_list.csv)
   
   landholders<-
@@ -28,6 +26,8 @@ landholders <- function(base_node_list.csv, landholders.csv){
   
 }
 
-suppressMessages(
-  landholders(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    landholders(args[1],args[2])
+  )
 )

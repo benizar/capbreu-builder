@@ -11,14 +11,12 @@ if (length(args)==0) {
 
 context <- function(input.yaml, output.csv){
   
-  library(magrittr)
   library(yaml)
   library(dplyr)
   library(tidyr)
   
   yaml <- yaml.load_file(input.yaml)
   
-  # Context data
   context_df <-
     yaml %$%
     data.frame(Landmetrics,Aggregations) %>% 
@@ -28,13 +26,10 @@ context <- function(input.yaml, output.csv){
   
 }
 
-# At debugging time turn these on
-options(warn=-1)
-#options(warn=0)
-
-# Function call
-suppressMessages(
-  context(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    context(args[1],args[2])
+  )
 )
 
 

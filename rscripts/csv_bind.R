@@ -14,6 +14,7 @@ bind.csvs <- function(input.csvs){
   
   library(dplyr)
   library(readr)
+  
   df <- 
     input.csvs[-length(input.csvs)] %>% 
     lapply(read_csv) %>%
@@ -22,6 +23,8 @@ bind.csvs <- function(input.csvs){
   
 }
 
-suppressMessages(
-  bind.csvs(args)
+suppressWarnings(
+  suppressMessages(
+    bind.csvs(args)
+  )
 )

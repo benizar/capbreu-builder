@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 flipped_edges <- function(base_edge_list.csv, flipped_edge_list.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(base_edge_list.csv)
   
   flipped_edges<-
@@ -25,6 +23,8 @@ flipped_edges <- function(base_edge_list.csv, flipped_edge_list.csv){
   
 }
 
-suppressMessages(
-  flipped_edges(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    flipped_edges(args[1],args[2])
+  )
 )

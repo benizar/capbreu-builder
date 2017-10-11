@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 landholder_neighbour <- function(input.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(input.csv)
   
   landholder_neighbour<-
@@ -30,7 +28,8 @@ landholder_neighbour <- function(input.csv, output.csv){
   
 }
 
-
-suppressMessages(
-  landholder_neighbour(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    landholder_neighbour(args[1],args[2])
+  )
 )

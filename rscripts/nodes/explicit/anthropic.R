@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 anthropic <- function(schema.csv, administrative.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   schema<-read.csv(schema.csv)
   
   anthropic<-
@@ -35,6 +33,8 @@ anthropic <- function(schema.csv, administrative.csv){
   
 }
 
-suppressMessages(
-  anthropic(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    anthropic(args[1],args[2])
+  )
 )

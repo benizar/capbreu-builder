@@ -11,11 +11,10 @@ if (length(args)==0) {
 
 schema <- function(input.yaml, output.csv){
   
-  library(magrittr)
   library(yaml)
   library(dplyr)
   library(tidyr)
-  library(reshape2) # Reshape lists is not implemented in tidyr
+  library(reshape2) # Reshape lists is not implemented in rstudio's tidyr
   
   yaml <- yaml.load_file(input.yaml)
   
@@ -65,7 +64,8 @@ schema <- function(input.yaml, output.csv){
   
 }
 
-
-suppressMessages(
-  schema(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    schema(args[1],args[2])
+  )
 )

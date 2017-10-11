@@ -11,7 +11,6 @@ if (length(args)==0) {
 
 rivers <- function(schema.csv, rivers.csv){
   
-  library(magrittr)
   library(dplyr)
 
   schema<-read.csv(schema.csv)
@@ -34,6 +33,8 @@ rivers <- function(schema.csv, rivers.csv){
   
 }
 
-suppressMessages(
-  rivers(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    rivers(args[1],args[2])
+  )
 )

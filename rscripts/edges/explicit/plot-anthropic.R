@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 plot_anthropic <- function(input.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(input.csv)
   
   plot_anthropic<-
@@ -31,6 +29,8 @@ plot_anthropic <- function(input.csv, output.csv){
   
 }
 
-suppressMessages(
-  plot_anthropic(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    plot_anthropic(args[1],args[2])
+  )
 )

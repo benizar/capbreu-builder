@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 plot_mountains <- function(input.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(input.csv)
   
   plot_mountains<-
@@ -31,6 +29,8 @@ plot_mountains <- function(input.csv, output.csv){
   
 }
 
-suppressMessages(
-  plot_mountains(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    plot_mountains(args[1],args[2])
+  )
 )

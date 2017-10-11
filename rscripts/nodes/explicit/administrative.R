@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 administrative <- function(schema.csv, administrative.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   schema<-read.csv(schema.csv)
   
   administrative<-
@@ -35,6 +33,9 @@ administrative <- function(schema.csv, administrative.csv){
   
 }
 
-suppressMessages(
-  administrative(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    administrative(args[1],args[2])
+  )
 )
+

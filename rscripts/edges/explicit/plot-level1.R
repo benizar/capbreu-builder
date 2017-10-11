@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 plot_level1 <- function(input.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(input.csv)
   
   plot_level1<-
@@ -30,6 +28,8 @@ plot_level1 <- function(input.csv, output.csv){
   
 }
 
-suppressMessages(
-  plot_level1(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    plot_level1(args[1],args[2])
+  )
 )

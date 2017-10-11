@@ -11,7 +11,6 @@ if (length(args)==0) {
 
 base_edge_list <- function(schema.csv, nodes.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
   library(tidyr)
   

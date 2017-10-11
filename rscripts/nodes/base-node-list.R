@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 base_node_list <- function(schema.csv, context.csv, base_node_list.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  library(reshape2) # Reshape lists is not implemented in tidyr
+  library(reshape2) # Reshape lists is not implemented in rstudio's tidyr
   
   
   schema<-read.csv(schema.csv)
@@ -38,6 +36,8 @@ base_node_list <- function(schema.csv, context.csv, base_node_list.csv){
   
 }
 
-suppressMessages(
-  base_node_list(args[1],args[2],args[3])
+suppressWarnings(
+  suppressMessages(
+    base_node_list(args[1],args[2],args[3])
+  )
 )

@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 landholder_level1 <- function(base_edge_list.csv, landholder_level1.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(base_edge_list.csv)
   
   landholder_level1<-
@@ -29,6 +27,8 @@ landholder_level1 <- function(base_edge_list.csv, landholder_level1.csv){
   
 }
 
-suppressMessages(
-  landholder_level1(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    landholder_level1(args[1],args[2])
+  )
 )

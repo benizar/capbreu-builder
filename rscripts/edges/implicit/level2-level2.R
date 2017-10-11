@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 level2_level2 <- function(base_edge_list.csv, flipped_edge_list.csv, level2_level2.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list <-read.csv(base_edge_list.csv)
   flipped_edge_list  <-read.csv(flipped_edge_list.csv)
   

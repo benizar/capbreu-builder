@@ -11,7 +11,6 @@ if (length(args)==0) {
 
 project <- function(input.yaml, output.csv){
   
-  library(magrittr)
   library(yaml)
   library(dplyr)
   library(tidyr)
@@ -27,10 +26,8 @@ project <- function(input.yaml, output.csv){
   
 }
 
-# At debugging time turn these on
-options(warn=-1)
-#options(warn=0)
-
-suppressMessages(
-  project(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    project(args[1],args[2])
+  )
 )

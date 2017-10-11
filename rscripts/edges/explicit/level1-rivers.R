@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 level1_rivers <- function(input.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(input.csv)
   
   level1_rivers<-
@@ -31,6 +29,8 @@ level1_rivers <- function(input.csv, output.csv){
   
 }
 
-suppressMessages(
-  level1_rivers(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    level1_rivers(args[1],args[2])
+  )
 )

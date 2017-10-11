@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 plot_rivers <- function(input.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(input.csv)
   
   plot_rivers<-
@@ -31,6 +29,8 @@ plot_rivers <- function(input.csv, output.csv){
   
 }
 
-suppressMessages(
-  plot_rivers(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    plot_rivers(args[1],args[2])
+  )
 )

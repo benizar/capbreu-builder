@@ -11,10 +11,8 @@ if (length(args)==0) {
 
 plot_landholder <- function(input.csv, output.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
-  
+
   base_edge_list<-read.csv(input.csv)
   
   plot_landholder<-
@@ -30,6 +28,8 @@ plot_landholder <- function(input.csv, output.csv){
   
 }
 
-suppressMessages(
-  plot_landholder(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    plot_landholder(args[1],args[2])
+  )
 )

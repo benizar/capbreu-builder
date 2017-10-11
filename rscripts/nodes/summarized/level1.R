@@ -11,23 +11,23 @@ if (length(args)==0) {
 
 level1 <- function(base_node_list.csv, level1.csv){
   
-  library(magrittr)
   library(dplyr)
-  library(tidyr)
   
   base_node_list<-read.csv(base_node_list.csv)
-
-level1<-
-  base_node_list %>% 
-  rename(id="level1.id",label="level1.label") %>% 
-  group_by(id,label) %>%
-  summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
-  mutate(type="level1")
-
-write.csv(level1, file = level1.csv, row.names = FALSE)
-
+  
+  level1<-
+    base_node_list %>% 
+    rename(id="level1.id",label="level1.label") %>% 
+    group_by(id,label) %>%
+    summarise(area=sum(area), area_m2=sum(area_m2)) %>% 
+    mutate(type="level1")
+  
+  write.csv(level1, file = level1.csv, row.names = FALSE)
+  
 }
 
-suppressMessages(
-  level1(args[1],args[2])
+suppressWarnings(
+  suppressMessages(
+    level1(args[1],args[2])
+  )
 )
