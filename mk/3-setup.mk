@@ -65,10 +65,20 @@ background_image := $(wildcard data/background.png)
 input_data       := $(wildcard data/capbreu_full.yml)
 
 # WORKING DATA. Create new conjetures by editing this file...
-project_data := $(patsubst $(data_dir)/%.yml,$(builds_dir)/%.yml,$(input_data))
+project_data       := $(patsubst $(data_dir)/%.yml,$(builds_dir)/%.yml,$(input_data))
+project_background := $(patsubst $(data_dir)/%.png,$(builds_dir)/%.png,$(background_image))
 
 $(project_data): $(input_data)
-	@echo 'Creating a working copy or $<...'
+	@echo ''
+	@echo 'Creating a working copy of $<...'
+	@cp $< $@
+	@echo 'Created $@ --> OK.'
+	@echo ''
+	@echo $(sep)
+
+$(project_background): $(background_image)
+	@echo ''
+	@echo 'Creating a working copy of $<...'
 	@cp $< $@
 	@echo 'Created $@ --> OK.'
 	@echo ''

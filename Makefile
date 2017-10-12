@@ -10,7 +10,7 @@ include $(mks)
 all: conjeture nodes edges visnetworks
 
 ## Create a new project structure, namely conjeture.
-conjeture: $(dirs) $(project_data)
+conjeture: $(dirs) $(project_data) $(project_background)
 
 ## Recreate HTML visNetworks (with varying node positions each iteration).
 visnetworks: clean-visnetworks $(visnetwork_targets)

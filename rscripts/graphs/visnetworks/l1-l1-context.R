@@ -14,7 +14,7 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
   
   library(dplyr)
   library(visNetwork)
-  
+
   nodes<-read.csv(nodes.csv)
   nodes<-
     nodes %>% 
