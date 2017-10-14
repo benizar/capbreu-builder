@@ -16,11 +16,13 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
   library(visNetwork)
 
   nodes<-read.csv(nodes.csv)
+
   nodes<-
     nodes %>% 
     filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
     rename(group="type") %>% 
-    mutate(size=sqrt(area)*3)
+#    mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>% 
+    mutate(size=area)
   
   edges<-read.csv(edges.csv)
   edges<-
@@ -30,9 +32,11 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
   
   
   network <-
-    visNetwork(nodes, edges, main = "Level1 graph with context", height = "700px", width = "100%") %>%
+    visNetwork(nodes, edges, main = "Level1 graph with context", submain = "Subtitle", footer = "Footer for this graph", height = "700px", width = "100%") %>%
     visIgraphLayout() %>%
-    visInteraction(navigationButtons = TRUE) %>% 
+    visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
+    # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
+    # visEvents(dragEnd = "function(item) {var positions = this.getPositions(item.nodes); alert('x: ' +  positions[item.nodes].x + ' y: ' +  positions[item.nodes].y);}") %>% 
     visOptions(manipulation = TRUE) %>%
     visGroups(groupname = "level1", 
               color = "orange", 
@@ -52,6 +56,7 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
              color = list(color = "lightgrey", highlight = "white")) %>%
     visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
   
+  network
   
   htmlwidgets::saveWidget(network, basename(output.html))
   
