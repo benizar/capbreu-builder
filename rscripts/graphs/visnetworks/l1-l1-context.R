@@ -15,8 +15,11 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
   library(dplyr)
   library(visNetwork)
 
+  # nodes<-read.csv("git/capbreu-builder/builds/nodes/nodes.csv")
+  # edges<-read.csv("git/capbreu-builder/builds/edges/edges.csv")
+  
+  
   nodes<-read.csv(nodes.csv)
-
   nodes<-
     nodes %>% 
     filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
@@ -37,6 +40,7 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
     # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
     # visEvents(dragEnd = "function(item) {var positions = this.getPositions(item.nodes); alert('x: ' +  positions[item.nodes].x + ' y: ' +  positions[item.nodes].y);}") %>% 
+    # visEvents(beforeDrawing = "")
     visOptions(manipulation = TRUE) %>%
     visGroups(groupname = "level1", 
               color = "orange", 
@@ -51,7 +55,7 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
               color = "green",   
               shape = "triangle") %>%
     visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
-    visLegend(width = 0.1, position = "right", main = "Legend") %>% 
+    visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
              color = list(color = "lightgrey", highlight = "white")) %>%
     visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
