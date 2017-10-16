@@ -18,6 +18,13 @@ base_node_list <- function(schema.csv, context.csv, base_node_list.csv){
   schema<-read.csv(schema.csv)
   context<-read.csv(context.csv)
   
+  area_conv<-
+    (context %>% 
+    filter(key=="Area_Conv") %>% 
+    select(value))[[1]] %>% 
+    as.character() %>% 
+    as.numeric()
+    
   # Base DataFrame for building different node lists
   base_node_list <- 
     schema %>% 
@@ -29,8 +36,7 @@ base_node_list <- function(schema.csv, context.csv, base_node_list.csv){
             var,value.var = "value") %>% 
     rename(area="Area") %>% 
     mutate(area=as.numeric(area)) %>% 
-    mutate(area_m2=area * as.numeric(select(filter(context,key=="Area_Conv"),value)))
-  
+    mutate(area_m2=area * area_conv)
   
   write.csv(base_node_list, file = base_node_list.csv, row.names = FALSE)
   
