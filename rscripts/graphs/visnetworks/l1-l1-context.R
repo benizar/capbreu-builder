@@ -24,7 +24,7 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
     nodes %>% 
     filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
     rename(group="type") %>% 
-#    mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>% 
+    # mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
     mutate(size=area)
   
   edges<-read.csv(edges.csv)
@@ -40,7 +40,7 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
     # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
     # visEvents(dragEnd = "function(item) {var positions = this.getPositions(item.nodes); alert('x: ' +  positions[item.nodes].x + ' y: ' +  positions[item.nodes].y);}") %>% 
-    # visEvents(beforeDrawing = "")
+    #visEvents(hold = "function exportNetwork() {var nodes = Object.values(this.getPositions());var exportValue = JSON.stringify(nodes, undefined, 2);localStorage.setItem('test.json', JSON.stringify(exportValue));}") %>% 
     visOptions(manipulation = TRUE) %>%
     visGroups(groupname = "level1", 
               color = "orange", 
