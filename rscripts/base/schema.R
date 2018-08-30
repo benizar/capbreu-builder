@@ -35,7 +35,7 @@ schema <- function(input.yaml, output.csv){
     filter(L4!="Aggregations") %>% 
     rename(value="value.x.x.x",var="L5.x.x",var_category="L4",landholder.id="L1", 
            landholder.label="value.y", level1.label="value.x.y", level2.label="value.x.x.y") %>% 
-    mutate(plot.label=paste("Plot",plot.id,sep="-"),
+    mutate(plot.label=paste(landholder.label,plot.id,sep="-"),
            plot.id=paste("P",plot.id,sep="-"),
            landholder.id=paste("LH",landholder.id,sep="-"))
   
