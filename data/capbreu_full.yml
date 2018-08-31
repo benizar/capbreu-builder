@@ -140,7 +140,7 @@ Landholders:
             - Francisco Gomis Mayor
             - Andres Ortiz de Francisco o 34
           Rivers:
-            - Barranco
+            - Barranco (1)
         Landmetrics:
           Area: 5
         
@@ -230,11 +230,11 @@ Landholders:
         Limits:
           Neighbours:
             - Francisco Giner
-            - "63"
+            - Lorenzo Giner
             - Juan Reig
             - Jaime Berenguer
           Rivers:
-            - Rio
+            - Rio (1)
         Landmetrics:
           Area: 9
       - Aggregations:
@@ -261,7 +261,7 @@ Landholders:
           Mountains:
             - Montes señoria (2)
           Administrative:
-            - M Guadalest
+            - M Guadalest (1)
         Landmetrics:
           Area: 15
       - Aggregations:
@@ -290,7 +290,7 @@ Landholders:
             - Salvador Cerda
             - Gregorio y Francisco Ortiz
           Administrative:
-            - M Guadalest
+            - M Guadalest (6)
         Landmetrics:
           Area: 9
         
@@ -374,7 +374,7 @@ Landholders:
             - Josep Alberola
             - Viuda de Garcia
           Rivers:
-            - Rio
+            - Rio (2)
         Landmetrics:
           Area: 3
         
@@ -390,7 +390,7 @@ Landholders:
             - Josep Olcina Mayor
             - Josep Alberola
           Rivers:
-            - Barranco
+            - Barranco (2)
         Landmetrics:
           Area: 10
         
@@ -481,7 +481,7 @@ Landholders:
             - Josep Olcina Mayor
             - Miguel Buades
           Rivers:
-            - Barranco
+            - Barranco (3)
         Landmetrics:
           Area: 10
         
@@ -494,7 +494,7 @@ Landholders:
           Neighbours:
             - Amaro Seva
             - Josep Climent de Jaime
-            - "63"
+            - Lorenzo Giner
             - Jaime Linares
             - Francisco Berenguer y otros
         Landmetrics:
@@ -521,7 +521,7 @@ Landholders:
             - Diego Cerda
             - Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista
           Rivers:
-            - Rio
+            - Rio (3)
         Landmetrics:
           Area: 4
         
@@ -590,7 +590,7 @@ Landholders:
             - Miguel Buades
             - Josep Alberola
           Administrative:
-            - M Guadalest
+            - M Guadalest (2)
         Landmetrics:
           Area: 11
       - Aggregations:
@@ -602,7 +602,7 @@ Landholders:
             - Andres Giner
             - Lorenzo Perez Mayor
           Administrative:
-            - M Guadalest
+            - M Guadalest (3)
         Landmetrics:
           Area: 8
             
@@ -614,7 +614,7 @@ Landholders:
         Limits:
           Neighbours:
             - Pedro Juan Cerda
-            - "63"
+            - Lorenzo Giner
             - Josep Alberola
         Landmetrics:
           Area: 8
@@ -659,7 +659,7 @@ Landholders:
             - Diego Cerda
             - Dorotea Soler
           Rivers:
-            - Barranco en medio
+            - Barranco en medio (1)
         Landmetrics:
           Area: 10
         
@@ -674,7 +674,7 @@ Landholders:
             - Felipe Soler
             - Gregorio y Francisco Ortiz
           Rivers:
-            - Barranco
+            - Barranco (4)
         Landmetrics:
           Area: 5
         
@@ -690,7 +690,7 @@ Landholders:
           Mountains:
             - Montaña de la señoria (8)
           Administrative:
-            - M Guadalest
+            - M Guadalest (4)
         Landmetrics:
           Area: 6
         
@@ -737,7 +737,7 @@ Landholders:
             - Josep Climent de Jaime
             - Francisco Giner
           Rivers:
-            - Rio
+            - Rio (4)
         Landmetrics:
           Area: 5
         
@@ -790,7 +790,7 @@ Landholders:
             - Jaime Linares
             - Jaime Soler
           Rivers:
-            - Rio
+            - Rio (5)
         Landmetrics:
           Area: 30
       - Aggregations:
@@ -802,7 +802,7 @@ Landholders:
             - Juan Seva
             - Salvador Cerda
           Rivers:
-            - Rio
+            - Rio (6)
         Landmetrics:
           Area: 6
       - Aggregations:
@@ -814,7 +814,7 @@ Landholders:
             - Amaro Seva
             - Gregorio Ortiz Mayor
           Rivers:
-            - Rio
+            - Rio (7)
         Landmetrics:
           Area: 3
       - Aggregations:
@@ -831,7 +831,7 @@ Landholders:
             - Andres Giner
             - Salvador Cerda
           Rivers:
-            - Barranco en medio
+            - Barranco en medio (2)
         Landmetrics:
           Area: 15
         
@@ -845,7 +845,7 @@ Landholders:
             - Gregorio Ortiz Mayor
             - Josep Olcina Mayor
           Administrative:
-            - M Guadalest
+            - M Guadalest (5)
         Landmetrics:
           Area: 3
 
@@ -895,7 +895,7 @@ Landholders:
             - Josep Climent de Jaime
             - Francisco Giner
           Rivers:
-            - Barranco en medio
+            - Barranco en medio (3)
         Landmetrics:
           Area: 13
 
