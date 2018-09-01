@@ -10,21 +10,17 @@ if (length(args)==0) {
 }
 
 
-l1_l1 <- function(nodes.csv, edges.csv, output.html){
+l1 <- function(nodes.csv, edges.csv, output.html){
   
   library(dplyr)
   library(visNetwork)
-
-  # nodes<-read.csv("git/capbreu-builder/builds/nodes/nodes.csv")
-  # edges<-read.csv("git/capbreu-builder/builds/edges/edges.csv")
-  
   
   nodes<-read.csv(nodes.csv)
   nodes<-
     nodes %>% 
     filter(type=='level1') %>%
     rename(group="type") %>% 
-    # mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
+    mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
     mutate(size=area)
   
   edges<-read.csv(edges.csv)
@@ -36,17 +32,15 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
   network <-
     visNetwork(nodes, edges, main = "Heredades", submain = "Level1 graph", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
     visIgraphLayout() %>%
-    visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
-    # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
-    # visEvents(dragEnd = "function(item) {var positions = this.getPositions(item.nodes); alert('x: ' +  positions[item.nodes].x + ' y: ' +  positions[item.nodes].y);}") %>% 
-    #visEvents(hold = "function exportNetwork() {var nodes = Object.values(this.getPositions());var exportValue = JSON.stringify(nodes, undefined, 2);localStorage.setItem('test.json', JSON.stringify(exportValue));}") %>% 
+    visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>%
     visOptions(manipulation = TRUE) %>%
     visGroups(groupname = "level1", 
               color = "springgreen", 
               shape = "dot") %>% 
     visEdges(shadow = TRUE,
-             color = list(color = "lightgrey", highlight = "white")) %>%
-    visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
+             color = list(color = "lightgrey", highlight = "white")) #%>%
+    #visNodes(physics=TRUE)%>%
+    #visPhysics(solver = "forceAtlas2Based", forceAtlas2Based = list(gravitationalConstant = -250), stabilization=TRUE)
   
   network
   
@@ -58,6 +52,6 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
 
 suppressWarnings(
   suppressMessages(
-    l1_l1(args[1],args[2],args[3])
+    l1(args[1],args[2],args[3])
   )
 )

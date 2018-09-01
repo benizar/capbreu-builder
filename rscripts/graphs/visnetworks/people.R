@@ -14,9 +14,6 @@ l1_plot_context <- function(nodes.csv, edges.csv, output.html){
   
   library(dplyr)
   library(visNetwork)
-
-  # nodes<-read.csv("git/capbreu-builder/builds/nodes/nodes.csv")
-  # edges<-read.csv("git/capbreu-builder/builds/edges/edges.csv")
   
   
   nodes<-read.csv(nodes.csv)
@@ -24,7 +21,7 @@ l1_plot_context <- function(nodes.csv, edges.csv, output.html){
     nodes %>% 
     filter(type=='landholder'|type=='just_neighbour') %>%
     rename(group="type") %>% 
-    # mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
+    mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
     mutate(size=area)
   
   edges<-read.csv(edges.csv)
@@ -38,9 +35,6 @@ l1_plot_context <- function(nodes.csv, edges.csv, output.html){
     visNetwork(nodes, edges, main = "Emphyteutas", submain = "(and other people)", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
     visIgraphLayout() %>%
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
-    # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
-    # visEvents(dragEnd = "function(item) {var positions = this.getPositions(item.nodes); alert('x: ' +  positions[item.nodes].x + ' y: ' +  positions[item.nodes].y);}") %>% 
-    #visEvents(hold = "function exportNetwork() {var nodes = Object.values(this.getPositions());var exportValue = JSON.stringify(nodes, undefined, 2);localStorage.setItem('test.json', JSON.stringify(exportValue));}") %>% 
     visOptions(manipulation = TRUE) %>%
     visGroups(groupname = "landholder", 
               shape = "icon", 
@@ -51,7 +45,6 @@ l1_plot_context <- function(nodes.csv, edges.csv, output.html){
     visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
              color = list(color = "lightgrey", highlight = "white")) %>%
-    visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)%>%
     addFontAwesome()
   
   network
