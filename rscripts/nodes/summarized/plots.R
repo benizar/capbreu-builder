@@ -17,9 +17,9 @@ plots <- function(base_node_list.csv, plots.csv){
   
   plots<-
     base_node_list %>% 
-    select(starts_with("plot"),starts_with("area")) %>% 
+    select(starts_with("plot"),starts_with("area"),starts_with("level1.label")) %>% 
     mutate(type="plot") %>% 
-    rename(id="plot.id",label="plot.label")
+    rename(id="plot.id",label="plot.label",title="level1.label")
   
   write.csv(plots, file = plots.csv, row.names = FALSE)
   
