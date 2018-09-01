@@ -10,7 +10,7 @@ if (length(args)==0) {
 }
 
 
-l1_l1 <- function(nodes.csv, edges.csv, output.html){
+l1_plots_context <- function(nodes.csv, edges.csv, output.html){
   
   library(dplyr)
   library(visNetwork)
@@ -22,7 +22,7 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
   nodes<-read.csv(nodes.csv)
   nodes<-
     nodes %>% 
-    filter(type=='level1') %>%
+    filter(type=='level1'|type=='plot'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
     rename(group="type") %>% 
     # mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
     mutate(size=area)
@@ -30,12 +30,14 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
   edges<-read.csv(edges.csv)
   edges<-
     edges %>% 
-    filter(type=='level1-border') %>% 
+    filter(type=='level1-border'|type=='plot-border-l2'|type=='plot-border-l1'|type=='plot-border'|type=='plot-admin-border'|type=='plot-anthropic-border'|type=='plot-rivers-border'|type=='plot-mountains-border') %>% 
     select(from,to,type)
   
+
+
   network <-
-    visNetwork(nodes, edges, main = "Heredades", submain = "Level1 graph", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
-    visIgraphLayout() %>%
+    visNetwork(nodes, edges, main = "Heredades and Agricultural plots, with context", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
+    visIgraphLayout(layout = "layout_with_fr") %>%
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
     # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
     # visEvents(dragEnd = "function(item) {var positions = this.getPositions(item.nodes); alert('x: ' +  positions[item.nodes].x + ' y: ' +  positions[item.nodes].y);}") %>% 
@@ -44,9 +46,27 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
     visGroups(groupname = "level1", 
               color = "springgreen", 
               shape = "dot") %>% 
+    visGroups(groupname = "plot", 
+              color = "sienna", 
+              shape = "dot") %>% 
+    visGroups(groupname = "administrative", 
+              color = "tomato", 
+              shape = "diamond") %>%
+    visGroups(groupname = "anthropic", 
+              color = "gold", 
+              shape = "square") %>%
+    visGroups(groupname = "mountains", 
+              color = "green",   
+              shape = "triangle") %>%
+    visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
+    visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
              color = list(color = "lightgrey", highlight = "white")) %>%
-    visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
+    #visPhysics(enabled = TRUE, solver = "forceAtlas2Based",stabilization = TRUE)%>%
+    #visNodes(physics = TRUE)%>%
+    #visOptions(collapse = TRUE)%>%
+    #visPhysics(stabilization= TRUE)%>%
+    addFontAwesome()
   
   network
   
@@ -58,6 +78,6 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
 
 suppressWarnings(
   suppressMessages(
-    l1_l1(args[1],args[2],args[3])
+    l1_plots_context(args[1],args[2],args[3])
   )
 )

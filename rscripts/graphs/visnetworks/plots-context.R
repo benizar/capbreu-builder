@@ -10,7 +10,7 @@ if (length(args)==0) {
 }
 
 
-l1_l1_context <- function(nodes.csv, edges.csv, output.html){
+plots_context <- function(nodes.csv, edges.csv, output.html){
   
   library(dplyr)
   library(visNetwork)
@@ -22,7 +22,7 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
   nodes<-read.csv(nodes.csv)
   nodes<-
     nodes %>% 
-    filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
+    filter(type=='plot'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
     rename(group="type") %>% 
     # mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
     mutate(size=area)
@@ -30,20 +30,21 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
   edges<-read.csv(edges.csv)
   edges<-
     edges %>% 
-    filter(type=='level1-border'|type=='level1-admin-border'|type=='level1-anthropic-border'|type=='level1-rivers-border'|type=='level1-mountains-border') %>% 
+    filter(type=='plot-border-l2'|type=='plot-border-l1'|type=='plot-border'|type=='plot-admin-border'|type=='plot-anthropic-border'|type=='plot-rivers-border'|type=='plot-mountains-border') %>% 
     select(from,to,type)
   
-  
+
+
   network <-
-    visNetwork(nodes, edges, main = "Level1 graph with context", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
-    visIgraphLayout() %>%
+    visNetwork(nodes, edges, main = "Agricultural plots with context", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
+    visIgraphLayout(layout = "layout_with_fr") %>%
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
     # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
     # visEvents(dragEnd = "function(item) {var positions = this.getPositions(item.nodes); alert('x: ' +  positions[item.nodes].x + ' y: ' +  positions[item.nodes].y);}") %>% 
     #visEvents(hold = "function exportNetwork() {var nodes = Object.values(this.getPositions());var exportValue = JSON.stringify(nodes, undefined, 2);localStorage.setItem('test.json', JSON.stringify(exportValue));}") %>% 
     visOptions(manipulation = TRUE) %>%
-    visGroups(groupname = "level1", 
-              color = "orange", 
+    visGroups(groupname = "plot", 
+              color = "sienna", 
               shape = "dot") %>% 
     visGroups(groupname = "administrative", 
               color = "tomato", 
@@ -58,7 +59,11 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
     visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
              color = list(color = "lightgrey", highlight = "white")) %>%
-    visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
+    #visPhysics(enabled = TRUE, solver = "forceAtlas2Based",stabilization = TRUE)%>%
+    #visNodes(physics = TRUE)%>%
+    #visOptions(collapse = TRUE)%>%
+    #visPhysics(stabilization= TRUE)%>%
+    addFontAwesome()
   
   network
   
@@ -70,6 +75,6 @@ l1_l1_context <- function(nodes.csv, edges.csv, output.html){
 
 suppressWarnings(
   suppressMessages(
-    l1_l1_context(args[1],args[2],args[3])
+    plots_context(args[1],args[2],args[3])
   )
 )

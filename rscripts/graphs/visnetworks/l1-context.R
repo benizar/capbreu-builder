@@ -10,7 +10,7 @@ if (length(args)==0) {
 }
 
 
-l1_l1 <- function(nodes.csv, edges.csv, output.html){
+l1_context <- function(nodes.csv, edges.csv, output.html){
   
   library(dplyr)
   library(visNetwork)
@@ -22,7 +22,7 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
   nodes<-read.csv(nodes.csv)
   nodes<-
     nodes %>% 
-    filter(type=='level1') %>%
+    filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
     rename(group="type") %>% 
     # mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
     mutate(size=area)
@@ -30,11 +30,12 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
   edges<-read.csv(edges.csv)
   edges<-
     edges %>% 
-    filter(type=='level1-border') %>% 
+    filter(type=='level1-border'|type=='level1-admin-border'|type=='level1-anthropic-border'|type=='level1-rivers-border'|type=='level1-mountains-border') %>% 
     select(from,to,type)
   
+  
   network <-
-    visNetwork(nodes, edges, main = "Heredades", submain = "Level1 graph", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
+    visNetwork(nodes, edges, main = "Level1 graph with context", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
     visIgraphLayout() %>%
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
     # visEvents(dragEnd = "function (params) {for (var i = 0; i < params.nodes.length; i++) {var nodeId = params.nodes[i];var positions = this.getPositions(nodeId);var x=positions[nodeId].x;var y=positions[nodeId].y; alert('x: ' +  x + ' y: ' +  y);  nodes.update({id: nodeId, x:x, y:y});}}") %>% 
@@ -42,8 +43,19 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
     #visEvents(hold = "function exportNetwork() {var nodes = Object.values(this.getPositions());var exportValue = JSON.stringify(nodes, undefined, 2);localStorage.setItem('test.json', JSON.stringify(exportValue));}") %>% 
     visOptions(manipulation = TRUE) %>%
     visGroups(groupname = "level1", 
-              color = "springgreen", 
+              color = "orange", 
               shape = "dot") %>% 
+    visGroups(groupname = "administrative", 
+              color = "tomato", 
+              shape = "diamond") %>%
+    visGroups(groupname = "anthropic", 
+              color = "gold", 
+              shape = "square") %>%
+    visGroups(groupname = "mountains", 
+              color = "green",   
+              shape = "triangle") %>%
+    visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
+    visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
              color = list(color = "lightgrey", highlight = "white")) %>%
     visPhysics(solver = "forceAtlas2Based",stabilization = TRUE)
@@ -58,6 +70,6 @@ l1_l1 <- function(nodes.csv, edges.csv, output.html){
 
 suppressWarnings(
   suppressMessages(
-    l1_l1(args[1],args[2],args[3])
+    l1_context(args[1],args[2],args[3])
   )
 )
