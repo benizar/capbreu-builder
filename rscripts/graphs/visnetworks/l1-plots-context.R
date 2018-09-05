@@ -22,7 +22,7 @@ l1_plots_context <- function(nodes.csv, edges.csv, output.html){
     filter(type=='level1'|type=='plot'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
     rename(group="type") %>% 
     mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
-    mutate(size=area)
+    mutate(size=sqrt(area)*pi)
   
   edges<-read.csv(edges.csv)
   edges<-
@@ -54,7 +54,9 @@ l1_plots_context <- function(nodes.csv, edges.csv, output.html){
     visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
     visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
-             color = list(color = "lightgrey", highlight = "white"))
+             color = list(color = "lightgrey", highlight = "white")) %>%
+    visIgraphLayout(layout = "layout_with_kk") #%>%
+    #visNodes(physics=TRUE)
   
   network
   

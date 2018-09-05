@@ -21,7 +21,7 @@ l1 <- function(nodes.csv, edges.csv, output.html){
     filter(type=='level1') %>%
     rename(group="type") %>% 
     mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
-    mutate(size=area)
+    mutate(size=sqrt(area)*pi)
   
   edges<-read.csv(edges.csv)
   edges<-
@@ -30,7 +30,7 @@ l1 <- function(nodes.csv, edges.csv, output.html){
     select(from,to,type)
   
   network <-
-    visNetwork(nodes, edges, main = "Heredades", submain = "Level1 graph", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
+    visNetwork(nodes, edges, main = "Heredades", submain = "Level1 graph", footer = "Source: Cabreve de Sella (1726)", height = "550px", width = "100%") %>%
     visIgraphLayout() %>%
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>%
     visOptions(manipulation = TRUE) %>%
@@ -38,9 +38,9 @@ l1 <- function(nodes.csv, edges.csv, output.html){
               color = "springgreen", 
               shape = "dot") %>% 
     visEdges(shadow = TRUE,
-             color = list(color = "lightgrey", highlight = "white")) #%>%
-    #visNodes(physics=TRUE)%>%
-    #visPhysics(solver = "forceAtlas2Based", forceAtlas2Based = list(gravitationalConstant = -250), stabilization=TRUE)
+             color = list(color = "lightgrey", highlight = "white")) %>%
+    visIgraphLayout(layout = "layout_with_kk") #%>%
+    #visNodes(physics=TRUE)
   
   network
   

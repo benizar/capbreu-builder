@@ -22,7 +22,7 @@ l1_context <- function(nodes.csv, edges.csv, output.html){
     filter(type=='level1'|type=='administrative'|type=='anthropic'|type=='rivers'|type=='mountains') %>%
     rename(group="type") %>% 
     mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
-    mutate(size=area)
+    mutate(size=sqrt(area)*pi)
   
   edges<-read.csv(edges.csv)
   edges<-
@@ -32,12 +32,12 @@ l1_context <- function(nodes.csv, edges.csv, output.html){
   
   
   network <-
-    visNetwork(nodes, edges, main = "Level1 graph with context", footer = "Source: Cabreve de Sella (1726)", height = "700px", width = "100%") %>%
+    visNetwork(nodes, edges, main = "Level1 graph with context", footer = "Source: Cabreve de Sella (1726)", height = "550px", width = "100%") %>%
     visIgraphLayout() %>%
     visInteraction(multiselect = TRUE,navigationButtons = TRUE) %>% 
     visOptions(manipulation = TRUE) %>%
     visGroups(groupname = "level1", 
-              color = "orange", 
+              color = "springgreen", 
               shape = "dot") %>% 
     visGroups(groupname = "administrative", 
               color = "tomato", 
@@ -51,7 +51,9 @@ l1_context <- function(nodes.csv, edges.csv, output.html){
     visGroups(groupname = "rivers",    color = "lightblue",    shape = "ellipse") %>%
     visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
-             color = list(color = "lightgrey", highlight = "white"))
+             color = list(color = "lightgrey", highlight = "white")) %>%
+    visIgraphLayout(layout = "layout_with_kk") #%>%
+    #visNodes(physics=TRUE)
   
   network
   

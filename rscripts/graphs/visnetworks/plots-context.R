@@ -52,7 +52,9 @@ plots_context <- function(nodes.csv, edges.csv, output.html){
               shape = "ellipse") %>%
     visLegend(width = 0.2, position = "right") %>% 
     visEdges(shadow = TRUE,
-             color = list(color = "lightgrey", highlight = "white"))
+             color = list(color = "lightgrey", highlight = "white")) %>%
+    visIgraphLayout(layout = "layout_with_kk") #%>%
+    #visNodes(physics=TRUE)
   
   network
   

@@ -22,7 +22,7 @@ l2 <- function(nodes.csv, edges.csv, output.html){
     filter(type=='level2') %>%
     rename(group="type") %>% 
     mutate(title=paste(area,' Jornales', '(',area_m2,'m2 aprox.)')) %>%
-    mutate(size=area)
+    mutate(size=sqrt(area)*pi)
   
   edges<-read.csv(edges.csv)
   edges<-
@@ -40,7 +40,9 @@ l2 <- function(nodes.csv, edges.csv, output.html){
               color = "pink", 
               shape = "dot") %>% 
     visEdges(shadow = TRUE,
-             color = list(color = "lightgrey", highlight = "white"))
+             color = list(color = "lightgrey", highlight = "white")) %>%
+    visIgraphLayout(layout = "layout_with_kk") #%>%
+    #visNodes(physics=TRUE)
   
   network
   
