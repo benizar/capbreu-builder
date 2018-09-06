@@ -61,8 +61,8 @@ $(dirs):
 data_dir         := data
 spatial_data_dir := $(data_dir)/spatial
 spatial_data     := $(wildcard $(spatial_data_dir)/*.gml)
-background_image := $(wildcard data/background.png)
-input_data       := $(wildcard data/capbreu_full.yml)
+background_image := $(wildcard data/poblet-relleu.png)
+input_data       := $(wildcard data/tagarina.yml)
 
 # WORKING DATA. Create new conjetures by editing this file...
 project_data       := $(patsubst $(data_dir)/%.yml,$(builds_dir)/%.yml,$(input_data))

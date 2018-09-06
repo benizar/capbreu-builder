@@ -23,7 +23,8 @@ rivers <- function(schema.csv, rivers.csv){
     select(value) %>% 
     unique() %>% 
     rename(label="value") %>% 
-    mutate(type="rivers")
+    mutate(type="rivers") %>%
+    mutate(area=10)
   rivers$id <- 
     rivers %>% 
     group_indices(label) %>% 

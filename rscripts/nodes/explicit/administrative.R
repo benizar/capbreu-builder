@@ -23,7 +23,8 @@ administrative <- function(schema.csv, administrative.csv){
     select(value) %>% 
     unique() %>% 
     rename(label="value") %>% 
-    mutate(type="administrative")
+    mutate(type="administrative") %>%
+    mutate(area=10)
   administrative$id <- 
     administrative %>% 
     group_indices(label) %>% 

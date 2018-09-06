@@ -23,7 +23,8 @@ anthropic <- function(schema.csv, administrative.csv){
     select(value) %>% 
     unique() %>% 
     rename(label="value") %>% 
-    mutate(type="anthropic")
+    mutate(type="anthropic") %>%
+    mutate(area=10)
   anthropic$id <- 
     anthropic %>% 
     group_indices(label) %>% 

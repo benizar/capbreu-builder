@@ -23,7 +23,8 @@ mountains <- function(schema.csv, mountains.csv){
     select(value) %>% 
     unique() %>% 
     rename(label="value") %>% 
-    mutate(type="mountains")
+    mutate(type="mountains") %>%
+    mutate(area=10)
   mountains$id <- 
     mountains %>% 
     group_indices(label) %>% 
