@@ -1,0 +1,183 @@
+label,type,area,id,area_m2,title,lat,lon
+M Guadalest (1),administrative,10,ADM-1,NA,NA,4278313,740951
+M Guadalest (6),administrative,10,ADM-6,NA,NA,4279505,736053
+M Guadalest (2),administrative,10,ADM-2,NA,NA,4279586,736652
+M Guadalest (3),administrative,10,ADM-3,NA,NA,4278324,738271
+M Guadalest (4),administrative,10,ADM-4,NA,NA,4279332,737987
+M Guadalest (5),administrative,10,ADM-5,NA,NA,4279479,738251
+Azagador,anthropic,10,ANT-1,NA,NA,4279072,739436
+El Poblet,anthropic,10,ANT-2,NA,NA,4278060,738956
+Montaña de la señoria (1),mountains,10,MNT-1,NA,NA,4279390,737216
+Montaña de la señoria (2),mountains,10,MNT-2,NA,NA,4279832,736854
+Montaña de la señoria (3),mountains,10,MNT-3,NA,NA,4279602,740204
+Montes señoria (1),mountains,10,MNT-9,NA,NA,4279155,737114
+Montes señoria (2),mountains,10,MNT-10,NA,NA,4278910,738878
+Montes señoria (3),mountains,10,MNT-11,NA,NA,4278653,738493
+Montaña de la señoria (4),mountains,10,MNT-4,NA,NA,4278900,738514
+Montaña de la señoria (5),mountains,10,MNT-5,NA,NA,4279579,735756
+Montaña de la señoria (6),mountains,10,MNT-6,NA,NA,4279879,737325
+Montaña de la señoria (7),mountains,10,MNT-7,NA,NA,4279079,736373
+Montaña de la señoria (8),mountains,10,MNT-8,NA,NA,4278916,739757
+Rio de Tagarina,rivers,10,RIV-18,NA,NA,4278379,740721
+Barranco (1),rivers,10,RIV-3,NA,NA,4278191,737127
+Rio (1),rivers,10,RIV-11,NA,NA,4279484,737622
+Rio (2),rivers,10,RIV-12,NA,NA,4279388,739277
+Barranco (2),rivers,10,RIV-4,NA,NA,4279781,739808
+Aguavesante,rivers,10,RIV-2,NA,NA,4278530,736270
+agua dicha el badall en medio,rivers,10,RIV-1,NA,NA,4279034,735246
+Barranco (3),rivers,10,RIV-5,NA,NA,4278894,740404
+Rio (3),rivers,10,RIV-13,NA,NA,4278315,740575
+Barranquito del Morral,rivers,10,RIV-10,NA,NA,4279919,740679
+Barranco en medio (1),rivers,10,RIV-7,NA,NA,4279261,736977
+Barranco (4),rivers,10,RIV-6,NA,NA,4278412,740822
+Rio (4),rivers,10,RIV-14,NA,NA,4279798,738246
+Rio (5),rivers,10,RIV-15,NA,NA,4279913,736538
+Rio (6),rivers,10,RIV-16,NA,NA,4279384,739978
+Rio (7),rivers,10,RIV-17,NA,NA,4278054,739080
+Barranco en medio (2),rivers,10,RIV-8,NA,NA,4278422,739662
+Barranco en medio (3),rivers,10,RIV-9,NA,NA,4278505,735767
+Lorenzo Perez Mayor,landholder,40,LH-1,192160,NA,4279712,737622
+Nadal Soler,landholder,6,LH-10,28824,NA,4279767,738824
+Josep Alberola,landholder,40,LH-11,192160,NA,4279027,737734
+Juan Seva,landholder,9,LH-12,43236,NA,4279111,740063
+Gregorio Alberola,landholder,3,LH-13,14412,NA,4279078,736245
+Francisco Gomis Mayor,landholder,15,LH-14,72060,NA,4278491,735067
+Josep Gomis,landholder,10,LH-15,48040,NA,4278221,739357
+Josep Pisqueta,landholder,3,LH-16,14412,NA,4278269,735485
+Tomas Molla,landholder,10,LH-17,48040,NA,4279683,738680
+Jaime Berenguer,landholder,8,LH-18,38432,NA,4278789,740745
+Andres Giner,landholder,16,LH-19,76864,NA,4278285,739642
+Jaime Linares,landholder,15,LH-2,72060,NA,4278501,740247
+Pedro Juan Cerda,landholder,14,LH-20,67256,NA,4278981,736830
+Gregorio Ortiz Mayor,landholder,20,LH-21,96080,NA,4279900,737270
+Bautista Berenguer,landholder,8,LH-22,38432,NA,4278478,739694
+Francisco Cerda de Juan,landholder,6,LH-23,28824,NA,4279828,735115
+Estacio Garcia,landholder,11,LH-24,52844,NA,4278373,739074
+Dorotea Soler,landholder,6,LH-25,28824,NA,4279678,738346
+Josep Cerda de Juan,landholder,5,LH-26,24020,NA,4279607,739662
+Francisco Seva de Juan,landholder,19,LH-27,91276,NA,4278873,735070
+Modesto Sarrio Mayor,landholder,8,LH-28,38432,NA,4278884,740043
+Amaro Seva,landholder,16,LH-29,76864,NA,4278360,738280
+Josep Olcina Mayor,landholder,6,LH-3,28824,NA,4279996,740724
+Salvador Seva,landholder,10,LH-30,48040,NA,4278515,735263
+Andres Ortiz de Francisco,landholder,5,LH-31,24020,NA,4279674,736717
+Jaime Soler,landholder,6,LH-32,28824,NA,4278261,735551
+Gregorio Garcia,landholder,3,LH-33,14412,NA,4278762,738800
+Josep Berenguer,landholder,8,LH-34,38432,NA,4279651,740583
+Andres Molla,landholder,5,LH-35,24020,NA,4279566,737871
+Francisco Giner,landholder,6,LH-36,28824,NA,4278942,738540
+Salvador Cerda,landholder,61.5,LH-37,295446,NA,4279577,736063
+Miguel Buades,landholder,3,LH-38,14412,NA,4278931,740663
+Gregorio y Francisco Ortiz,landholder,7,LH-39,33628,NA,4279590,740789
+Josep Climent de Jaime,landholder,14,LH-4,67256,NA,4278669,735682
+Josep y Vicente Canto,landholder,9,LH-40,43236,NA,4278630,738259
+Francisco Berenguer y otros,landholder,13,LH-41,62452,NA,4279829,736676
+"Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista",landholder,6,LH-42,28824,NA,4278246,735992
+Felipe Soler,landholder,5,LH-5,24020,NA,4278477,736248
+Salvador Llinares,landholder,5,LH-6,24020,NA,4279055,735006
+Diego Cerda,landholder,8.5,LH-7,40834,NA,4279144,735140
+Vicente Soler Mayor,landholder,12,LH-8,57648,NA,4278189,735961
+Juan Reig,landholder,6,LH-9,28824,NA,4279457,737283
+Alemany,level1,18,LEVA-1,86472,NA,4278751,738385
+Llinares,level1,3.5,LEVA-10,16814,NA,4278711,737367
+Luis Climent,level1,3,LEVA-11,14412,NA,4278175,736620
+Luis Juan Garcia,level1,30,LEVA-12,144120,NA,4279027,735033
+Mariano Seva,level1,31,LEVA-13,148924,NA,4279578,736515
+Morales,level1,22,LEVA-14,105688,NA,4278364,736652
+Pedro Perez,level1,18,LEVA-15,86472,NA,4278886,736164
+Reig,level1,15,LEVA-16,72060,NA,4278216,736163
+Retor de la Alcantera,level1,17,LEVA-17,81668,NA,4279955,739633
+Soler,level1,14,LEVA-18,67256,NA,4278649,740371
+Tagarina,level1,135,LEVA-19,648540,NA,4279697,738098
+Baseta de Perez,level1,20,LEVA-2,96080,NA,4279580,736556
+Tagarina - Ombria,level1,10,LEVA-20,48040,NA,4279928,736261
+Ters-Ombria,level1,15,LEVA-21,72060,NA,4279722,735765
+Vicente Climent,level1,6,LEVA-22,28824,NA,4279696,740986
+Vicente Perez,level1,9,LEVA-23,43236,NA,4278651,735813
+Bautista Soler,level1,13,LEVA-3,62452,NA,4278477,736897
+Berenguer,level1,61.5,LEVA-4,295446,NA,4279840,736315
+Cerda,level1,4,LEVA-5,19216,NA,4278271,737655
+El Alt,level1,10,LEVA-6,48040,NA,4278844,737365
+El Morral,level1,14,LEVA-7,67256,NA,4279617,737802
+Giner,level1,12,LEVA-8,57648,NA,4278656,740675
+Linares,level1,6,LEVA-9,28824,NA,4279876,735255
+El Morral,level2,14,LEVB-1,67256,NA,4279850,740719
+Pas de Tagarina,level2,17,LEVB-2,81668,NA,4279010,735277
+Tagarina,level2,456,LEVB-3,2190624,NA,4279796,737518
+Lorenzo Perez Mayor-1-1,plot,8,P-1-1,38432,Baseta de Perez,4278714,739974
+Lorenzo Perez Mayor-1-2,plot,6,P-1-2,28824,Vicente Perez,4279093,740013
+Lorenzo Perez Mayor-1-3,plot,5,P-1-3,24020,Bautista Soler,4279179,737596
+Lorenzo Perez Mayor-1-4,plot,15,P-1-4,72060,Ters-Ombria,4279191,735039
+Lorenzo Perez Mayor-1-5,plot,6,P-1-5,28824,Reig,4279527,736347
+Jaime Linares-2-1,plot,3,P-2-1,14412,Tagarina,4278915,740945
+Jaime Linares-2-2,plot,12,P-2-2,57648,Giner,4279648,737964
+Josep Olcina Mayor-3-1,plot,6,P-3-1,28824,Morales,4278597,735845
+Josep Climent de Jaime-4-1,plot,14,P-4-1,67256,El Morral,4279601,739771
+Felipe Soler-5-1,plot,5,P-5-1,24020,Soler,4279673,737892
+Salvador Llinares-6-1,plot,5,P-6-1,24020,Tagarina,4278295,735736
+Diego Cerda-7-1,plot,8,P-7-1,38432,Tagarina,4279989,739729
+Diego Cerda-7-2,plot,0.5,P-7-2,2402,Berenguer,4278805,740339
+Vicente Soler Mayor-8-1,plot,12,P-8-1,57648,Tagarina,4278089,739100
+Juan Reig-9-1,plot,6,P-9-1,28824,Berenguer,4278836,737300
+Nadal Soler-10-1,plot,6,P-10-1,28824,Tagarina,4278036,738828
+Josep Alberola-11-1,plot,9,P-11-1,43236,Berenguer,4278255,738169
+Josep Alberola-11-2,plot,9,P-11-2,43236,Reig,4278367,735522
+Josep Alberola-11-3,plot,15,P-11-3,72060,Alemany,4279266,739684
+Josep Alberola-11-4,plot,7,P-11-4,33628,Pedro Perez,4279930,736360
+Juan Seva-12-1,plot,9,P-12-1,43236,Tagarina,4278331,740409
+Gregorio Alberola-13-1,plot,3,P-13-1,14412,Tagarina,4279718,735981
+Francisco Gomis Mayor-14-1,plot,10,P-14-1,48040,El Alt,4278544,739393
+Francisco Gomis Mayor-14-2,plot,5,P-14-2,24020,Soler,4278413,737377
+Josep Gomis-15-1,plot,6,P-15-1,28824,Morales,4279704,738077
+Josep Gomis-15-2,plot,4,P-15-2,19216,Soler,4278407,737841
+Josep Pisqueta-16-1,plot,3,P-16-1,14412,Luis Climent,4278375,736732
+Tomas Molla-17-1,plot,10,P-17-1,48040,Morales,4278453,736052
+Jaime Berenguer-18-1,plot,8,P-18-1,38432,Tagarina,4278690,735485
+Andres Giner-19-1,plot,16,P-19-1,76864,Mariano Seva,4279750,735991
+Pedro Juan Cerda-20-1,plot,9,P-20-1,43236,Tagarina,4278119,739547
+Pedro Juan Cerda-20-2,plot,5,P-20-2,24020,Tagarina,4279914,737763
+Gregorio Ortiz Mayor-21-1,plot,10,P-21-1,48040,Tagarina,4279738,735518
+Gregorio Ortiz Mayor-21-2,plot,10,P-21-2,48040,Tagarina,4278385,737344
+Bautista Berenguer-22-1,plot,8,P-22-1,38432,Tagarina,4278539,735268
+Francisco Cerda de Juan-23-1,plot,2,P-23-1,9608,Tagarina,4279707,737388
+Francisco Cerda de Juan-23-2,plot,4,P-23-2,19216,Berenguer,4279175,739593
+Estacio Garcia-24-1,plot,11,P-24-1,52844,Retor de la Alcantera,4279196,740729
+Dorotea Soler-25-1,plot,6,P-25-1,28824,Retor de la Alcantera,4278061,736682
+Josep Cerda de Juan-26-1,plot,2,P-26-1,9608,Tagarina,4279959,735507
+Josep Cerda de Juan-26-2,plot,3,P-26-2,14412,Berenguer,4279174,739327
+Francisco Seva de Juan-27-1,plot,11,P-27-1,52844,Tagarina,4279450,736320
+Francisco Seva de Juan-27-2,plot,8,P-27-2,38432,Bautista Soler,4279681,736165
+Modesto Sarrio Mayor-28-1,plot,8,P-28-1,38432,Berenguer,4279467,739110
+Amaro Seva-29-1,plot,12,P-29-1,57648,Baseta de Perez,4279720,736781
+Amaro Seva-29-2,plot,4,P-29-2,19216,Berenguer,4279138,736590
+Salvador Seva-30-1,plot,10,P-30-1,48040,Tagarina - Ombria,4279506,739367
+Andres Ortiz de Francisco-31-1,plot,5,P-31-1,24020,Pedro Perez,4278981,739116
+Jaime Soler-32-1,plot,6,P-32-1,28824,Linares,4279870,740241
+Gregorio Garcia-33-1,plot,3,P-33-1,14412,Berenguer,4278937,736685
+Josep Berenguer-34-1,plot,8,P-34-1,38432,Tagarina,4278053,735683
+Andres Molla-35-1,plot,5,P-35-1,24020,Berenguer,4279379,738585
+Francisco Giner-36-1,plot,6,P-36-1,28824,Berenguer,4278490,735976
+Salvador Cerda-37-1,plot,4,P-37-1,19216,Cerda,4279481,738060
+Salvador Cerda-37-2,plot,3.5,P-37-2,16814,Llinares,4278574,737803
+Salvador Cerda-37-3,plot,30,P-37-3,144120,Luis Juan Garcia,4279352,739333
+Salvador Cerda-37-4,plot,6,P-37-4,28824,Vicente Climent,4278766,738699
+Salvador Cerda-37-5,plot,3,P-37-5,14412,Vicente Perez,4278449,737222
+Salvador Cerda-37-6,plot,15,P-37-6,72060,Mariano Seva,4279777,738574
+Miguel Buades-38-1,plot,3,P-38-1,14412,Alemany,4278698,737400
+Gregorio y Francisco Ortiz-39-1,plot,7,P-39-1,33628,Tagarina,4278487,735585
+Josep y Vicente Canto-40-1,plot,9,P-40-1,43236,Tagarina,4279322,737284
+Francisco Berenguer y otros-41-1,plot,13,P-41-1,62452,Berenguer,4279123,738705
+"Francisco Gomis Menor y Juan Reig, en nombre de Herederos de Francisco Soler Bautista-42-1",plot,6,P-42-1,28824,Pedro Perez,4278589,735082
+101,just_neighbour,NA,NEI-1,NA,NA,4279634,736610
+Viuda Soler Francisco,just_neighbour,NA,NEI-13,NA,NA,4279014,737359
+Viuda Canto,just_neighbour,NA,NEI-10,NA,NA,4278077,737860
+120,just_neighbour,NA,NEI-2,NA,NA,4279137,736099
+Francisco Senda,just_neighbour,NA,NEI-6,NA,NA,4279982,737108
+43,just_neighbour,NA,NEI-3,NA,NA,4279406,737779
+Bartolome Alberola,just_neighbour,NA,NEI-5,NA,NA,4279196,736166
+Viuda de Garcia,just_neighbour,NA,NEI-11,NA,NA,4278040,737818
+que linda con la Torreta 23,just_neighbour,NA,NEI-9,NA,NA,4279936,735355
+Lorenzo Giner,just_neighbour,NA,NEI-8,NA,NA,4278845,740049
+Andres Ortiz de Francisco o 34,just_neighbour,NA,NEI-4,NA,NA,4279211,736197
+Viuda de Luis Climent,just_neighbour,NA,NEI-12,NA,NA,4279330,738111
+Juan Soler,just_neighbour,NA,NEI-7,NA,NA,4278482,740168
